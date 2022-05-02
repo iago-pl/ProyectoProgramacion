@@ -16,7 +16,7 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("JAJA si hay que cambiar esto");
 
-        window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/player/player_0.png")));
+        window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
         GameFrame gameFrame = new GameFrame();
         window.add(gameFrame);
