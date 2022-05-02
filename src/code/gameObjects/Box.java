@@ -34,13 +34,6 @@ public class Box extends Entity{
         }
         
     }
-    
-    @Override
-    public boolean move(Vector2 pos) {
-
-        return false;
-
-    }
 
     public Box(Vector2 position) {
         super(position);

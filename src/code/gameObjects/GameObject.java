@@ -17,18 +17,17 @@ public class GameObject {
 
     public Vector2 position;
     public BufferedImage[] sprites;
-    public static int frame;
-    public static final int MAX_FRAME=3;
+    public static int frame = 0;
+    public static final int MAX_FRAME = 3;
 
     public GameObject(Vector2 position) {
         this.position = position;
     }
 
     public void draw(Graphics2D g2) {
-
     }
 
-    public void changeFrame() {
+    public static void changeFrame() {
 
         frame++;
 
@@ -37,11 +36,9 @@ public class GameObject {
         }
 
     }
-    
-    protected void getSprites(){
-    
-    
-    
+
+    protected void getSprites() {
+
     }
 
 }

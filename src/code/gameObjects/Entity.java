@@ -13,7 +13,8 @@ public class Entity extends GameObject {
     public ArrayList<Vector2> lastPositionList;
 
     public boolean move(Vector2 pos) {
-
+        System.out.println("para todos el mismo move");
+        //terminar esto
         return false;
 
     }

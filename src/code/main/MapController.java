@@ -2,6 +2,8 @@
 package code.main;
 
 import code.gameObjects.GameObject;
+import code.gameObjects.Player;
+import code.transform.Vector2;
 
 /**
  *a
@@ -19,5 +21,8 @@ public class MapController {
     
     public void loadMap(){
         //cargar mapa
+        gameObjets[0][0] = new Player(new Vector2(0, 0));
+        
+        System.out.println(gameObjets[0][0]);
     }
 }

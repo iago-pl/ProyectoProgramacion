@@ -34,13 +34,6 @@ public class Key extends Entity{
         }
         
     }
-    
-    @Override
-    public boolean move(Vector2 pos) {
-
-        return false;
-
-    }
 
     public Key(Vector2 position) {
         super(position);
