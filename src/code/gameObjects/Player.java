@@ -12,6 +12,7 @@ public class Player extends Entity {
     
     public Player(Vector2 position) {
         super(position);
+        getSprites();
         
     }
     
@@ -21,13 +22,24 @@ public class Player extends Entity {
         BufferedImage[] tempSprites = new BufferedImage[MAX_FRAME];
         try {
             
-            tempSprites[0] = ImageIO.read(getClass().getResourceAsStream("/player/Player_0.png"));
-            tempSprites[1] = ImageIO.read(getClass().getResourceAsStream("/player/Player_1.png"));
-            tempSprites[2] = ImageIO.read(getClass().getResourceAsStream("/player/Player_2.png"));
+            tempSprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/Player_0.png"));
+            tempSprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/Player_1.png"));
+            tempSprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/Player_2.png"));
+            System.out.println("Holi");
             
         } catch (Exception e) {
+            
+            System.out.println("adiosi");
+            e.printStackTrace();
         }
         
+    }
+    
+    @Override
+    public boolean move(Vector2 pos) {
+
+        return false;
+
     }
     
 }
