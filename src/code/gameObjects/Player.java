@@ -22,9 +22,9 @@ public class Player extends Entity {
         BufferedImage[] tempSprites = new BufferedImage[MAX_FRAME];
         try {
             
-            tempSprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/Player_0.png"));
-            tempSprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/Player_1.png"));
-            tempSprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/Player_2.png"));
+            tempSprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/player_0.png"));
+            tempSprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/player_1.png"));
+            tempSprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/player_2.png"));
             System.out.println("Holi");
             
         } catch (Exception e) {
