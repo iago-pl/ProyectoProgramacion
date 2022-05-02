@@ -21,9 +21,9 @@ public class MapController {
 
     public void loadMap() {
         //cargar mapa
-        
+
         int temp = 5;
-        
+
         gameObjets[temp][temp] = new Player(new Vector2(temp, temp));
 
         System.out.println(gameObjets[0][0]);

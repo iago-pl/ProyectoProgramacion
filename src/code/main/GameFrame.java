@@ -1,7 +1,6 @@
 package code.main;
 
 import code.gameObjects.GameObject;
-import code.gameObjects.Player;
 import code.transform.Vector2;
 import java.awt.Color;
 import java.awt.Dimension;

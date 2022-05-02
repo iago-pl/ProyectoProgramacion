@@ -2,7 +2,6 @@ package code.gameObjects;
 
 import code.main.GameFrame;
 import code.transform.Vector2;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -23,7 +22,7 @@ public class Player extends Entity {
     public void getSprites() {
 
         sprites = new BufferedImage[MAX_FRAME];
-        
+
         try {
 
             sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/player/player_0.png"));
