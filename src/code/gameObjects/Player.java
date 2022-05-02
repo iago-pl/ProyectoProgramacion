@@ -39,7 +39,6 @@ public class Player extends Entity {
 
     @Override
     public void draw(Graphics2D g2) {
-        //g2.fillRect(position.x * GameFrame.BASE_TILE_SIZE, position.y * GameFrame.BASE_TILE_SIZE, GameFrame.TILE_SIZE, GameFrame.TILE_SIZE);
         g2.drawImage(sprites[frame], position.x * GameFrame.TILE_SIZE, position.y * GameFrame.TILE_SIZE, GameFrame.TILE_SIZE, GameFrame.TILE_SIZE, null);
     }
 

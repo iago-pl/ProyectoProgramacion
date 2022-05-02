@@ -55,23 +55,28 @@ public class GameFrame extends JPanel implements Runnable {
         while (gameThread != null) {
 
             currentTime = System.nanoTime();
+
             deltaTime += (currentTime - lastTime) / drawInteval;
-            timer = (currentTime - lastTime);
+            timer += (currentTime - lastTime);
 
             lastTime = currentTime;
 
             if (deltaTime >= 1) {
                 repaint();
-                System.out.println(drawCount);
+
+                if (drawCount % (FPS / GameObject.MAX_FRAME) == 0) {
+
+                    GameObject.changeFrame();
+
+                }
 
                 deltaTime--;
                 drawCount++;
             }
-            
 
             if (timer >= 1000000000) {
                 System.out.println("FPS: " + drawCount);
-                //timer = 0;
+                timer = 0;
                 drawCount = 0;
             }
         }
@@ -98,6 +103,11 @@ public class GameFrame extends JPanel implements Runnable {
                 }
             }
         }
+
+        if (true) {
+
+        }
+
         g2.dispose();
     }
 
