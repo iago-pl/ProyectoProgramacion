@@ -53,7 +53,8 @@ public class GameFrame extends JPanel implements Runnable {
         
         for (int i = 0; i < TILE_SCREEN_SIZE.y; i++) {
             for (int j = 0; j < TILE_SCREEN_SIZE.x; j++) {
-                
+                MapController.background[i][j].draw(g2);
+                MapController.gameObjets[i][j].draw(g2);
             }
         }
     }

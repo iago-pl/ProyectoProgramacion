@@ -9,9 +9,15 @@ import code.gameObjects.GameObject;
  */
 public class MapController {
     
-    public GameObject[][] background = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
+    public static GameObject[][] background = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
     
-    public GameObject[][] gameObjets = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
+    public static GameObject[][] gameObjets = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
     
+    public MapController(){
+        loadMap();
+    }
     
+    public void loadMap(){
+        //cargar mapa
+    }
 }
