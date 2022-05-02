@@ -11,8 +11,15 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("JAJA si");
         
+        GameFrame gameFrame= new GameFrame();
+        window.add(gameFrame);
+        
+        window.pack();
+        
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+        
+        gameFrame.startGameThread();
 
     }
 }
