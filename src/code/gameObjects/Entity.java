@@ -1,7 +1,6 @@
 package code.gameObjects;
 
 import code.transform.Vector2;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
