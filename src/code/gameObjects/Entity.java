@@ -1,14 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package code.gameObjects;
+
+import code.transform.Vector2;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  *
  * @author a21rebecanf
  */
-public class Entity {
-    
+public class Entity extends GameObject {
+
+    public ArrayList<Vector2> lastPositionList;
+
+    public boolean move(Vector2 pos) {
+
+        return false;
+
+    }
+
+    public Entity(Vector2 position) {
+        super(position);
+    }
+
 }
