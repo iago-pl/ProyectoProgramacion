@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package code.main;
+
+import code.gameObjects.GameObject;
 
 /**
  *
  * @author a21rebecanf
  */
 public class MapController {
+    
+    public GameObject[][] background = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
+    
+    public GameObject[][] gameObjets = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
+    
     
 }
