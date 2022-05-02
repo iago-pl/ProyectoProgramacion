@@ -1,9 +1,5 @@
-package main;
-
-import code.gameObjects.Player;
-import code.transform.Vector2;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
+package code.main;
+import javax.swing.JFrame;
 
 /**
  *
@@ -11,7 +7,12 @@ import javax.imageio.ImageIO;
  */
 public class Main {
     public static void main(String[] args) {
-        Player jugador1 = new Player(new Vector2(0, 0));
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setTitle("JAJA si");
+        
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
 
     }
 }
