@@ -3,6 +3,8 @@ package code.main;
 import code.transform.Vector2;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 /**
@@ -30,22 +32,30 @@ public class GameFrame extends JPanel implements Runnable {
 
     @Override
     public void run() {
-        while (gameThread != null) {            
-            
+        while (gameThread != null) {
+
         }
     }
-    
-    public void startGameThread(){
+
+    public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
-    
-    public void update(){
-        
+
+    public void update() {
+
     }
-    
-    public void paintComponent(){
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D) g;
         
+        for (int i = 0; i < TILE_SCREEN_SIZE.y; i++) {
+            for (int j = 0; j < TILE_SCREEN_SIZE.x; j++) {
+                
+            }
+        }
     }
 
 }
