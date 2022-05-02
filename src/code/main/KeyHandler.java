@@ -19,8 +19,7 @@ public class KeyHandler implements KeyListener {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_R) {
-            GameObject.changeFrame();
-            System.out.println(GameObject.frame);
+            
         } else if (key == KeyEvent.VK_W) {
 
         } else if (key == KeyEvent.VK_S) {
