@@ -11,18 +11,18 @@ import javax.swing.JPanel;
  */
 public class GameFrame extends JPanel implements Runnable {
 
-    public final int BASE_TILE_SIZE = 24;
-    public final int SCALE = 4;
+    public static final int BASE_TILE_SIZE = 24;
+    public static final int SCALE = 4;
 
-    public final int TILE_SIZE = (BASE_TILE_SIZE * SCALE);
-    public final Vector2 TILE_SCREEN_SIZE = new Vector2(10, 7);
+    public static final int TILE_SIZE = (BASE_TILE_SIZE * SCALE);
+    public static final Vector2 TILE_SCREEN_SIZE = new Vector2(10, 7);
 
-    public final Vector2 SCREEN_SIZE = new Vector2(TILE_SCREEN_SIZE.x * TILE_SIZE, TILE_SCREEN_SIZE.y * TILE_SIZE);
+    public static final Vector2 SCREEN_SIZE = new Vector2(TILE_SCREEN_SIZE.x * TILE_SIZE, TILE_SCREEN_SIZE.y * TILE_SIZE);
 
     Thread gameThread;
 
     public GameFrame() {
-        setPreferredSize(new Dimension(screenSize.x, screenSize.y));
+        setPreferredSize(new Dimension(SCREEN_SIZE.x, SCREEN_SIZE.y));
         setBackground(Color.red);
         setDoubleBuffered(true);
 
