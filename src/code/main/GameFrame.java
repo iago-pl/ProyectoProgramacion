@@ -23,6 +23,7 @@ public class GameFrame extends JPanel implements Runnable {
     public static final Vector2 SCREEN_SIZE = new Vector2(TILE_SCREEN_SIZE.x * TILE_SIZE, TILE_SCREEN_SIZE.y * TILE_SIZE);
 
     public static final int FPS = 60;
+    private static final int NANO_TIME = 1000000000;
 
     Thread gameThread;
 
@@ -42,7 +43,7 @@ public class GameFrame extends JPanel implements Runnable {
     @Override
     public void run() {
 
-        double drawInteval = 1000000000 / FPS;
+        double drawInteval = NANO_TIME / FPS;
         double deltaTime = 0;
 
         long lastTime = System.nanoTime();
@@ -73,7 +74,7 @@ public class GameFrame extends JPanel implements Runnable {
                 drawCount++;
             }
 
-            if (timer >= 1000000000) {
+            if (timer >= NANO_TIME) {
                 System.out.println("FPS: " + drawCount);
                 timer = 0;
                 drawCount = 0;
@@ -97,8 +98,9 @@ public class GameFrame extends JPanel implements Runnable {
                 if (MapController.background[i][j] != null) {
                     MapController.background[i][j].draw(g2);
                 }
-                if (MapController.gameObjets[i][j] != null) {
-                    MapController.gameObjets[i][j].draw(g2);
+                
+                if (MapController.gameObjects[i][j] != null) {
+                    MapController.gameObjects[i][j].draw(g2);
                 }
             }
         }

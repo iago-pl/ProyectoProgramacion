@@ -1,7 +1,10 @@
 package code.main;
 
 import code.gameObjects.Box;
+import code.gameObjects.Lock;
+import code.gameObjects.Flag;
 import code.gameObjects.GameObject;
+import code.gameObjects.Key;
 import code.gameObjects.Player;
 import code.transform.Vector2;
 
@@ -14,7 +17,7 @@ public class MapController {
 
     public static GameObject[][] background = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
 
-    public static GameObject[][] gameObjets = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
+    public static GameObject[][] gameObjects = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y];
 
     public MapController() {
         loadMap();
@@ -25,10 +28,13 @@ public class MapController {
 
         int temp = 5;
 
-        gameObjets[temp][temp] = new Player(new Vector2(temp, temp));
+        gameObjects[temp][temp] = new Player(new Vector2(temp, temp));
 
-        gameObjets[temp + 1][temp + 1] = new Box(new Vector2(temp + 1, temp + 1));
+        gameObjects[temp + 1][temp - 1] = new Box(new Vector2(temp + 1, temp - 1));
+        gameObjects[temp + 1][temp] = new Flag(new Vector2(temp + 1, temp));
+        gameObjects[temp + 1][temp + 1] = new Key(new Vector2(temp + 1, temp + 1));
+        gameObjects[temp][temp + 1] = new Lock(new Vector2(temp, temp + 1));
 
-        System.out.println(gameObjets[0][0]);
+        System.out.println(gameObjects[0][0]);
     }
 }

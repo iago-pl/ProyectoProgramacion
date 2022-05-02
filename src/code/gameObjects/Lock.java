@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
  *
  * @author a21rebecanf
  */
-public class Door extends GameObject {
+public class Lock extends GameObject {
 
     @Override
     public void getSprites() {
@@ -17,9 +17,9 @@ public class Door extends GameObject {
         sprites = new BufferedImage[MAX_FRAME];
         try {
 
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/door/door_0.png"));
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/door/door_1.png"));
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/door/door_2.png"));
+            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/lock/lock_0.png"));
+            sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/lock/lock_1.png"));
+            sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/lock/lock_2.png"));
 
         } catch (Exception e) {
 
@@ -28,7 +28,7 @@ public class Door extends GameObject {
 
     }
 
-    public Door(Vector2 position) {
+    public Lock(Vector2 position) {
         super(position);
         getSprites();
     }

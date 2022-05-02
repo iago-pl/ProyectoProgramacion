@@ -18,8 +18,8 @@ public class Box extends Entity {
         try {
 
             sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/box/box_0.png"));
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/box/box_1.png"));
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/box/box_2.png"));
+            sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/box/box_1.png"));
+            sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/box/box_2.png"));
 
         } catch (Exception e) {
 
@@ -32,6 +32,5 @@ public class Box extends Entity {
         super(position);
         getSprites();
     }
-
 
 }

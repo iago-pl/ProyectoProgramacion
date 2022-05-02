@@ -18,8 +18,8 @@ public class Key extends Entity {
         try {
 
             sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/key/key_0.png"));
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/key/key_1.png"));
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/key/key_2.png"));
+            sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/key/key_1.png"));
+            sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/key/key_2.png"));
 
         } catch (Exception e) {
 
