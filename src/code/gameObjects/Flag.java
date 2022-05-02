@@ -14,17 +14,15 @@ public class Flag extends GameObject {
     @Override
     public void getSprites() {
 
-        BufferedImage[] tempSprites = new BufferedImage[MAX_FRAME];
+        sprites = new BufferedImage[MAX_FRAME];
         try {
 
-            tempSprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/flag/flag_0.png"));
-            tempSprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/flag/flag_1.png"));
-            tempSprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/flag/flag_2.png"));
-            System.out.println("Holi");
+            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/flag/flag_0.png"));
+            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/flag/flag_1.png"));
+            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/flag/flag_2.png"));
 
         } catch (Exception e) {
 
-            System.out.println("adiosi");
             e.printStackTrace();
         }
 

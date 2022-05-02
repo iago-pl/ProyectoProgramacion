@@ -1,5 +1,6 @@
 package code.main;
 
+import code.gameObjects.Box;
 import code.gameObjects.GameObject;
 import code.gameObjects.Player;
 import code.transform.Vector2;
@@ -25,6 +26,8 @@ public class MapController {
         int temp = 5;
 
         gameObjets[temp][temp] = new Player(new Vector2(temp, temp));
+
+        gameObjets[temp + 1][temp + 1] = new Box(new Vector2(temp + 1, temp + 1));
 
         System.out.println(gameObjets[0][0]);
     }
