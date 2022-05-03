@@ -32,6 +32,6 @@ public class MapController {
         gameObjects[temp + 1][temp + 1] = new Key(new Vector2(temp + 1, temp + 1));
         gameObjects[temp][temp + 1] = new Lock(new Vector2(temp, temp + 1));
 
-        gameObjects[temp][temp + 1] = new Lock(new Vector2(temp, temp + 1));
+        gameObjects[temp][temp - 1] = new testLetter(new Vector2(temp, temp - 1));
     }
 }
