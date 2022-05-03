@@ -14,8 +14,8 @@ import javax.swing.JPanel;
  */
 public class GameFrame extends JPanel implements Runnable {
 
-    public static final int BASE_TILE_SIZE = 24;
-    public static final int SCALE = 2;
+    static final int BASE_TILE_SIZE = 24;
+    static final int SCALE = 2;
 
     public static final int TILE_SIZE = (BASE_TILE_SIZE * SCALE);
     public static final Vector2 TILE_SCREEN_SIZE = new Vector2(15, 10);
@@ -92,8 +92,8 @@ public class GameFrame extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        for (int i = 0; i < TILE_SCREEN_SIZE.x; i++) {
-            for (int j = 0; j < TILE_SCREEN_SIZE.y; j++) {
+        for (int i = 0; i < MapController.gameObjects.length; i++) {
+            for (int j = 0; j < MapController.gameObjects[0].length; j++) {
 
                 if (MapController.background[i][j] != null) {
                     MapController.background[i][j].draw(g2);

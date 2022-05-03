@@ -1,6 +1,5 @@
 package code.main;
 
-import code.gameObjects.GameObject;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
