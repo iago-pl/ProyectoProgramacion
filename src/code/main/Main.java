@@ -13,6 +13,7 @@ public class Main {
 
         System.out.println("SI LEES ESTO RECUERDAME DARLE UN PUÑETAZO A REBECA");
         JFrame window = new JFrame();
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("JAJA si hay que cambiar esto");
 
