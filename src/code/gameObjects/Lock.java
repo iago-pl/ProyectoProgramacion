@@ -1,6 +1,5 @@
 package code.gameObjects;
 
-import static code.gameObjects.GameObject.MAX_FRAME;
 import code.transform.Vector2;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;

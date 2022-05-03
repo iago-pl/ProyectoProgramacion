@@ -1,11 +1,6 @@
 package code.main;
 
-import code.gameObjects.Box;
-import code.gameObjects.Lock;
-import code.gameObjects.Flag;
-import code.gameObjects.GameObject;
-import code.gameObjects.Key;
-import code.gameObjects.Player;
+import code.gameObjects.*;
 import code.transform.Vector2;
 
 /**
@@ -26,6 +21,8 @@ public class MapController {
     public void loadMap() {
         //cargar mapa
 
+        
+        //borrar esto
         int temp = 5;
 
         gameObjects[temp][temp] = new Player(new Vector2(temp, temp));
@@ -34,7 +31,5 @@ public class MapController {
         gameObjects[temp + 1][temp] = new Flag(new Vector2(temp + 1, temp));
         gameObjects[temp + 1][temp + 1] = new Key(new Vector2(temp + 1, temp + 1));
         gameObjects[temp][temp + 1] = new Lock(new Vector2(temp, temp + 1));
-
-        System.out.println(gameObjects[0][0]);
     }
 }
