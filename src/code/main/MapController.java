@@ -21,7 +21,7 @@ public class MapController {
 
     public void loadMap() {
         //cargar mapa
-
+        
         //borrar esto
         int temp = 5;
 

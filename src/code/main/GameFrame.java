@@ -105,10 +105,6 @@ public class GameFrame extends JPanel implements Runnable {
             }
         }
 
-        if (true) {
-
-        }
-
         g2.dispose();
     }
 
