@@ -17,21 +17,19 @@ public class Entity extends GameObject {
 
         Vector2 newPosition = new Vector2(pos.x + position.x, pos.y + position.y);
 
-        if (newPosition.x < 0 || newPosition.x >= MapController.gameObjects[0].length || newPosition.y < 0 || newPosition.y >= MapController.gameObjects.length) {
-            System.out.println("fuera limites");
+        if (newPosition.x < 0 || newPosition.x >= MapController.gameObjects.length || newPosition.y < 0 || newPosition.y >= MapController.gameObjects[0].length) {
             return false;
         }
-        //System.out.println(newPosition.x + " " + newPosition.y);
 
-        if (MapController.gameObjects[newPosition.y][newPosition.x] == null) {
+        if (MapController.gameObjects[newPosition.x][newPosition.y] == null) {
             Vector2 lastPosition = new Vector2(position.x, position.y);
             position = newPosition;
-            MapController.gameObjects[position.y][position.x] = this;
-            MapController.gameObjects[lastPosition.y][lastPosition.x] = null;
+            MapController.gameObjects[position.x][position.y] = this;
+            MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
             return true;
         } else {
 
-            GameObject temp = MapController.gameObjects[newPosition.y][newPosition.x];
+            GameObject temp = MapController.gameObjects[newPosition.x][newPosition.y];
 
             if (temp.objectType == GameObjectType.LOCK) {
                 return false;
@@ -41,8 +39,8 @@ public class Entity extends GameObject {
                 if (tempEntity.move(pos)) {
                     Vector2 lastPosition = new Vector2(position.x, position.y);
                     position = newPosition;
-                    MapController.gameObjects[position.y][position.x] = this;
-                    MapController.gameObjects[lastPosition.y][lastPosition.x] = null;
+                    MapController.gameObjects[position.x][position.y] = this;
+                    MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
                     return true;
 
                 } else {
