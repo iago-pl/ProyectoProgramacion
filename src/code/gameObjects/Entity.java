@@ -17,40 +17,35 @@ public class Entity extends GameObject {
 
         Vector2 newPosition = new Vector2(pos.x + position.x, pos.y + position.y);
 
-        System.out.println(newPosition.x + " " + newPosition.y);
-
-        if (newPosition.x < 0 || newPosition.x > GameFrame.TILE_SCREEN_SIZE.x || newPosition.y < 0 || newPosition.y > GameFrame.TILE_SCREEN_SIZE.y) {
+        if (newPosition.x < 0 || newPosition.x >= MapController.gameObjects[0].length || newPosition.y < 0 || newPosition.y >= MapController.gameObjects.length) {
             System.out.println("fuera limites");
             return false;
         }
+        //System.out.println(newPosition.x + " " + newPosition.y);
 
-        if (MapController.gameObjects[newPosition.x][newPosition.y] == null) {
-            System.out.println("mover");
+        if (MapController.gameObjects[newPosition.y][newPosition.x] == null) {
             Vector2 lastPosition = new Vector2(position.x, position.y);
             position = newPosition;
-            MapController.gameObjects[pos.x][pos.y] = this;
-            MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
+            MapController.gameObjects[position.y][position.x] = this;
+            MapController.gameObjects[lastPosition.y][lastPosition.x] = null;
             return true;
         } else {
 
-            GameObject temp = MapController.gameObjects[newPosition.x][newPosition.y];
+            GameObject temp = MapController.gameObjects[newPosition.y][newPosition.x];
 
             if (temp.objectType == GameObjectType.LOCK) {
                 return false;
 
             } else if (temp.objectType == GameObjectType.BOX || temp.objectType == GameObjectType.KEY) {
-                System.out.println("entidad");
                 Entity tempEntity = (Entity) temp;
                 if (tempEntity.move(pos)) {
-                    System.out.println("puede moverse");
                     Vector2 lastPosition = new Vector2(position.x, position.y);
                     position = newPosition;
-                    MapController.gameObjects[pos.x][pos.y] = this;
-                    MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
+                    MapController.gameObjects[position.y][position.x] = this;
+                    MapController.gameObjects[lastPosition.y][lastPosition.x] = null;
                     return true;
 
                 } else {
-                     System.out.println("no puede moverse");
                     return false;
 
                 }
@@ -59,7 +54,6 @@ public class Entity extends GameObject {
         }
 
         return false;
-
     }
 
     public Entity(Vector2 position, GameObjectType objectType, int sep) {
