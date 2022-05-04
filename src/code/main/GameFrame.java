@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -27,9 +29,10 @@ public class GameFrame extends JPanel implements Runnable {
 
     Thread gameThread;
 
-    KeyHandler keyHand = new KeyHandler();
 
-    MapController mapController = new MapController();
+    MapController mapController = new MapController(this);
+    
+    KeyHandler keyHand = new KeyHandler(mapController);
 
     public GameFrame() {
         setPreferredSize(new Dimension(SCREEN_SIZE.x, SCREEN_SIZE.y));
@@ -38,6 +41,16 @@ public class GameFrame extends JPanel implements Runnable {
         addKeyListener(keyHand);
         setFocusable(true);
 
+    }
+    
+    public void sleepThread(int milis){
+        
+        System.out.println("in");
+        try {
+            Thread.sleep(milis);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(GameFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -75,7 +88,7 @@ public class GameFrame extends JPanel implements Runnable {
             }
 
             if (timer >= NANO_TIME) {
-                System.out.println("FPS: " + drawCount);
+                //System.out.println("FPS: " + drawCount);
                 timer = 0;
                 drawCount = 0;
             }

@@ -9,42 +9,51 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener {
 
+    MapController mp;
+
     @Override
     public void keyTyped(KeyEvent e) {
     }
 
-    private boolean rPress, wPress, sPress, aPress, dPress;
+    private boolean canPressR, canPressW, canPressS, canPressA, canPressD;
 
-    public KeyHandler() {
-        rPress = true;
-        wPress = true;
-        sPress = true;
-        aPress = true;
-        dPress = true;
+    public KeyHandler(MapController mp) {
+        this.mp = mp;
+        canPressR = true;
+        canPressW = true;
+        canPressS = true;
+        canPressA = true;
+        canPressD = true;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        
+        if (mp.isLoading()) {
+            return;
+        }
+        
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_R && rPress) {
+        if (key == KeyEvent.VK_R && canPressR) {
             System.out.println("xd");
-            rPress = false;
-        } else if (key == KeyEvent.VK_W && wPress) {
+            mp.changeMap();
+            canPressR = false;
+        } else if (key == KeyEvent.VK_W && canPressW) {
 
-            wPress = false;
+            canPressW = false;
 
-        } else if (key == KeyEvent.VK_S && sPress) {
+        } else if (key == KeyEvent.VK_S && canPressS) {
 
-            sPress = false;
+            canPressS = false;
 
-        } else if (key == KeyEvent.VK_A && aPress) {
+        } else if (key == KeyEvent.VK_A && canPressA) {
 
-            aPress = false;
+            canPressA = false;
 
-        } else if (key == KeyEvent.VK_D && dPress) {
+        } else if (key == KeyEvent.VK_D && canPressD) {
 
-            dPress = false;
+            canPressD = false;
         }
     }
 
@@ -54,19 +63,19 @@ public class KeyHandler implements KeyListener {
 
         switch (key) {
             case KeyEvent.VK_R:
-                rPress = true;
+                canPressR = true;
                 break;
             case KeyEvent.VK_W:
-                wPress = true;
+                canPressW = true;
                 break;
             case KeyEvent.VK_S:
-                sPress = true;
+                canPressS = true;
                 break;
             case KeyEvent.VK_A:
-                aPress = true;
+                canPressA = true;
                 break;
             case KeyEvent.VK_D:
-                dPress = true;
+                canPressD = true;
                 break;
             default:
                 break;
