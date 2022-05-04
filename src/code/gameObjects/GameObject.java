@@ -10,13 +10,16 @@ import java.awt.image.BufferedImage;
  * @author a21rebecanf
  */
 public class GameObject {
+    
 
     public Vector2 position;
     public BufferedImage[] sprites;
     public static int frame = 0;
     public static final int MAX_FRAME = 3;
+    public GameObjectType objectType;
 
-    public GameObject(Vector2 position) {
+    public GameObject(Vector2 position, GameObjectType objectType) {
+        this.objectType=objectType;
         this.position = position;
     }
 
@@ -37,5 +40,6 @@ public class GameObject {
     protected void getSprites() {
 
     }
+    
 
 }

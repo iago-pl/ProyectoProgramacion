@@ -18,8 +18,9 @@ public class Entity extends GameObject {
 
     }
 
-    public Entity(Vector2 position) {
-        super(position);
+    public Entity(Vector2 position, GameObjectType objectType) {
+        super(position, objectType);
+        
     }
 
 }
