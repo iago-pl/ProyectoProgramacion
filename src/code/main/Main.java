@@ -11,7 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("SI LEES ESTO RECUERDAME DARLE UN PUÑETAZO A REBECA");
         JFrame window = new JFrame();
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
