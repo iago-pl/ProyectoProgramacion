@@ -49,12 +49,13 @@ public class MapController {
         for (int i = 0; i < MapController.gameObjects.length; i++) {
             for (int j = 0; j < MapController.gameObjects[0].length; j++) {
 
-                background[i][j] = new Entity(new Vector2(i, j), GameObjectType.BOX, 1);
-                gameObjects[i][j] = new Entity(new Vector2(i, j), GameObjectType.BOX, 1);
+               // background[i][j] = new Entity(new Vector2(i, j), GameObjectType.BOX, 1);
             }
         }
         //borrar esto
+        Entity player= new Entity(new Vector2(0, 0), GameObjectType.PLAYER, 1);
+        gameObjects[0][0] = player;
+        KeyHandler.player=player;
         loading = false;
-        gameObjects[0][0] = new Entity(new Vector2(0, 0),GameObjectType.PLAYER, 1);
     }
 }

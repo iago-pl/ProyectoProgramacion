@@ -1,5 +1,7 @@
 package code.main;
 
+import code.gameObjects.Entity;
+import code.transform.Vector2;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -10,6 +12,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     MapController mp;
+    public static Entity player;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -40,19 +43,21 @@ public class KeyHandler implements KeyListener {
             mp.changeMap();
             canPressR = false;
         } else if (key == KeyEvent.VK_W && canPressW) {
-
+            player.move(new Vector2(0, -1));
             canPressW = false;
 
         } else if (key == KeyEvent.VK_S && canPressS) {
-
+            player.move(new Vector2(0, 1));
             canPressS = false;
 
         } else if (key == KeyEvent.VK_A && canPressA) {
 
+            player.move(new Vector2(-1, 0));
             canPressA = false;
 
         } else if (key == KeyEvent.VK_D && canPressD) {
 
+            player.move(new Vector2(1, 0));
             canPressD = false;
         }
     }
