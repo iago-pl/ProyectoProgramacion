@@ -21,6 +21,8 @@ public class GameObject {
     public GameObject(Vector2 position, GameObjectType objectType) {
         this.objectType=objectType;
         this.position = position;
+        this.sprites = objectType.sprites;
+        
     }
 
     public void draw(Graphics2D g2) {

@@ -40,16 +40,7 @@ public class MapController {
         //cargar mapa
 
         //borrar esto
-        int temp = 5;
-
-        gameObjects[temp][temp] = new Player(new Vector2(temp, temp));
-
-        gameObjects[temp + 1][temp - 1] = new Box(new Vector2(temp + 1, temp - 1));
-        gameObjects[temp + 1][temp] = new Flag(new Vector2(temp + 1, temp));
-        gameObjects[temp + 1][temp + 1] = new Key(new Vector2(temp + 1, temp + 1));
-        gameObjects[temp][temp + 1] = new Lock(new Vector2(temp, temp + 1));
-
-        gameObjects[0][0] = new testLetter(new Vector2(0, 0));
         loading = false;
+        gameObjects[0][0] = new Entity(new Vector2(0, 0),GameObjectType.FLAG);
     }
 }

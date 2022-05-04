@@ -1,4 +1,3 @@
-
 package code.gameObjects;
 
 import static code.gameObjects.GameObject.MAX_FRAME;
@@ -10,9 +9,8 @@ import javax.imageio.ImageIO;
  * @author a21rebecanf
  */
 public enum GameObjectType {
-    
-    //holi
 
+    //holi
     PLAYER("player/player"),
     BOX("box/box"),
     FLAG("flag/flag"),
@@ -36,25 +34,25 @@ public enum GameObjectType {
     NUM7("/characters/numbers/7/7"),
     NUM8("/characters/numbers/8/8"),
     NUM9("/characters/numbers/9/9");
-    
-    GameObjectType(String path){
-    
-    
+
+    GameObjectType(String path) {
+
         getSprites(path);
-        
-    }; 
+
+    }
+    ; 
     
-    public BufferedImage[] sprites= new BufferedImage[GameObject.MAX_FRAME];
-    
-     public void getSprites(String path) {
+    public BufferedImage[] sprites = new BufferedImage[GameObject.MAX_FRAME];
+
+    public void getSprites(String path) {
 
         sprites = new BufferedImage[MAX_FRAME];
 
         try {
 
-            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/"+path+"_0.png"));
-            sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/"+path+"_1.png"));
-            sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/"+path+"_2.png"));
+            sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_0.png"));
+            sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_1.png"));
+            sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_2.png"));
 
         } catch (Exception e) {
 
@@ -62,8 +60,5 @@ public enum GameObjectType {
         }
 
     }
-    
-    
-    
-    
+
 }
