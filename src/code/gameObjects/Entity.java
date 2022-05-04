@@ -1,5 +1,6 @@
 package code.gameObjects;
 
+import code.main.GameFrame;
 import code.main.MapController;
 import code.transform.Vector2;
 import java.util.ArrayList;
@@ -15,15 +16,42 @@ public class Entity extends GameObject {
     public boolean move(Vector2 pos) {
 
         Vector2 newPosition = new Vector2(pos.x + position.x, pos.y + position.y);
-        
-        
-        
+
+        if (newPosition.x < 0 || newPosition.x > GameFrame.TILE_SCREEN_SIZE.x || newPosition.y < 0 || newPosition.y > GameFrame.TILE_SCREEN_SIZE.y) {
+            return false;
+
+        }
+
         if (MapController.gameObjects[newPosition.x][newPosition.y] == null) {
             Vector2 lastPosition = new Vector2(position.x, position.y);
             position = newPosition;
             MapController.gameObjects[pos.x][pos.y] = this;
             MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
             return true;
+        } else {
+
+            GameObject temp = MapController.gameObjects[newPosition.x][newPosition.y];
+
+            if (temp.objectType == GameObjectType.LOCK) {
+                return false;
+
+            } else if (temp.objectType == GameObjectType.BOX || temp.objectType == GameObjectType.KEY) {
+                Entity tempEntity = (Entity) temp;
+                if (tempEntity.move(pos)) {
+
+                    Vector2 lastPosition = new Vector2(position.x, position.y);
+                    position = newPosition;
+                    MapController.gameObjects[pos.x][pos.y] = this;
+                    MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
+                    return true;
+
+                } else {
+
+                    return false;
+
+                }
+            }
+
         }
 
         return false;
