@@ -16,16 +16,18 @@ public class GameObject {
     public static int frame = 0;
     public static final int MAX_FRAME = 3;
     public GameObjectType objectType;
+    public int sep;
 
-    public GameObject(Vector2 position, GameObjectType objectType) {
+    public GameObject(Vector2 position, GameObjectType objectType, int sep) {
         this.objectType = objectType;
         this.position = position;
         this.sprites = objectType.sprites;
+        this.sep = sep;
 
     }
 
     public void draw(Graphics2D g2) {
-        g2.drawImage(sprites[frame], position.x * GameFrame.TILE_SIZE, position.y * GameFrame.TILE_SIZE, GameFrame.TILE_SIZE, GameFrame.TILE_SIZE, null);
+        g2.drawImage(sprites[frame], position.x * GameFrame.TILE_SIZE, position.y * GameFrame.TILE_SIZE + (GameFrame.TILE_SIZE * sep), GameFrame.TILE_SIZE, GameFrame.TILE_SIZE, null);
     }
 
     public static void changeFrame() {
