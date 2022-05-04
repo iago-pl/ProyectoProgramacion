@@ -14,7 +14,7 @@ public class Main {
         JFrame window = new JFrame();
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setTitle("SI LEES ESTO RECUERDAME DARLE UN PUÑETAZO A REBECA");
+        window.setTitle("Match It");
 
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 

@@ -45,7 +45,6 @@ public class GameFrame extends JPanel implements Runnable {
     
     public void sleepThread(int milis){
         
-        System.out.println("in");
         try {
             Thread.sleep(milis);
         } catch (InterruptedException ex) {

@@ -30,7 +30,15 @@ public class MapController {
 
     public void changeMap() {
         loading = true;
-        gf.sleepThread(1000);
+        //gf.sleepThread(1000);
+        for (int i = 0; i < MapController.gameObjects.length; i++) {
+            for (int j = 0; j < MapController.gameObjects[0].length; j++) {
+
+                background[i][j] = null;
+                gameObjects[i][j] = null;
+                //gf.sleepThread(10);
+            }
+        }
 
         //loadMap();
         loading = false;
@@ -38,9 +46,14 @@ public class MapController {
 
     private void loadMap() {
         //cargar mapa
+        for (int i = 0; i < MapController.gameObjects.length; i++) {
+            for (int j = 0; j < MapController.gameObjects[0].length; j++) {
 
+                background[i][j] = new Entity(new Vector2(i, j + 1), GameObjectType.BOX);
+                gameObjects[i][j] = new Entity(new Vector2(i, j + 1), GameObjectType.BOX);
+            }
+        }
         //borrar esto
         loading = false;
-        gameObjects[0][0] = new Entity(new Vector2(0, 0),GameObjectType.FLAG);
     }
 }
