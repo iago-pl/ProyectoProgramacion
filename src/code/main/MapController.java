@@ -55,5 +55,6 @@ public class MapController {
         }
         //borrar esto
         loading = false;
+        gameObjects[0][0] = new Entity(new Vector2(0, 0),GameObjectType.PLAYER);
     }
 }
