@@ -10,6 +10,8 @@ import javax.imageio.ImageIO;
  * @author a21rebecanf
  */
 public enum GameObjectType {
+    
+    //holi
 
     PLAYER("player/player"),
     BOX("box/box"),
