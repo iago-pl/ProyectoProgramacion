@@ -29,9 +29,8 @@ public class GameFrame extends JPanel implements Runnable {
 
     Thread gameThread;
 
-
     MapController mapController = new MapController(this);
-    
+
     KeyHandler keyHand = new KeyHandler(mapController);
 
     public GameFrame() {
@@ -42,9 +41,9 @@ public class GameFrame extends JPanel implements Runnable {
         setFocusable(true);
 
     }
-    
-    public void sleepThread(int milis){
-        
+
+    public void sleepThread(int milis) {
+
         try {
             Thread.sleep(milis);
         } catch (InterruptedException ex) {
@@ -110,7 +109,7 @@ public class GameFrame extends JPanel implements Runnable {
                 if (MapController.background[i][j] != null) {
                     MapController.background[i][j].draw(g2);
                 }
-                
+
                 if (MapController.gameObjects[i][j] != null) {
                     MapController.gameObjects[i][j].draw(g2);
                 }

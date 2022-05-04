@@ -10,7 +10,6 @@ import java.awt.image.BufferedImage;
  * @author a21rebecanf
  */
 public class GameObject {
-    
 
     public Vector2 position;
     public BufferedImage[] sprites;
@@ -19,10 +18,10 @@ public class GameObject {
     public GameObjectType objectType;
 
     public GameObject(Vector2 position, GameObjectType objectType) {
-        this.objectType=objectType;
+        this.objectType = objectType;
         this.position = position;
         this.sprites = objectType.sprites;
-        
+
     }
 
     public void draw(Graphics2D g2) {
@@ -30,7 +29,6 @@ public class GameObject {
     }
 
     public static void changeFrame() {
-
         frame++;
 
         if (frame >= MAX_FRAME) {
@@ -38,10 +36,5 @@ public class GameObject {
         }
 
     }
-
-    protected void getSprites() {
-
-    }
-    
 
 }

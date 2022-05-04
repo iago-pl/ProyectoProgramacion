@@ -15,12 +15,6 @@ public class Vector2 {
 
     }
 
-    public static Vector2 sub(Vector2 a, Vector2 b) {
-
-        return new Vector2(a.x - b.x, a.y - b.y);
-
-    }
-
     public Vector2(int x, int y) {
         this.x = x;
         this.y = y;

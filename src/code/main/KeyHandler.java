@@ -28,11 +28,11 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        
+
         if (mp.isLoading()) {
             return;
         }
-        
+
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_R && canPressR) {
