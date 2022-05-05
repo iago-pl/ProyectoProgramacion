@@ -18,47 +18,43 @@ public class KeyHandler implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    private boolean canPressR, canPressW, canPressS, canPressA, canPressD;
+    private boolean canPress;
 
     public KeyHandler(MapController mp) {
         this.mp = mp;
-        canPressR = true;
-        canPressW = true;
-        canPressS = true;
-        canPressA = true;
-        canPressD = true;
+        canPress = true;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
 
-        if (mp.isLoading()) {
+        if (mp.isLoading() || !canPress) {
             return;
         }
 
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_R && canPressR) {
-            System.out.println("xd");
-            mp.changeMap();
-            canPressR = false;
-        } else if (key == KeyEvent.VK_W && canPressW) {
-            player.move(new Vector2(0, -1));
-            canPressW = false;
-
-        } else if (key == KeyEvent.VK_S && canPressS) {
-            player.move(new Vector2(0, 1));
-            canPressS = false;
-
-        } else if (key == KeyEvent.VK_A && canPressA) {
-
-            player.move(new Vector2(-1, 0));
-            canPressA = false;
-
-        } else if (key == KeyEvent.VK_D && canPressD) {
-
-            player.move(new Vector2(1, 0));
-            canPressD = false;
+        switch (key) {
+            case KeyEvent.VK_R:
+                //mp.changeMap();
+                canPress = false;
+                break;
+            case KeyEvent.VK_W:
+                player.move(new Vector2(0, -1));
+                canPress = false;
+                break;
+            case KeyEvent.VK_S:
+                player.move(new Vector2(0, 1));
+                canPress = false;
+                break;
+            case KeyEvent.VK_A:
+                player.move(new Vector2(-1, 0));
+                canPress = false;
+                break;
+            case KeyEvent.VK_D:
+                player.move(new Vector2(1, 0));
+                canPress = false;
+                break;
         }
     }
 
@@ -68,20 +64,11 @@ public class KeyHandler implements KeyListener {
 
         switch (key) {
             case KeyEvent.VK_R:
-                canPressR = true;
-                break;
             case KeyEvent.VK_W:
-                canPressW = true;
-                break;
             case KeyEvent.VK_S:
-                canPressS = true;
-                break;
             case KeyEvent.VK_A:
-                canPressA = true;
-                break;
             case KeyEvent.VK_D:
-                canPressD = true;
-                break;
+                canPress = true;
             default:
                 break;
         }
