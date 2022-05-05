@@ -19,7 +19,7 @@ public enum GameObjectType {
     LETTA("characters/letters/a/a"),
     LETTD("characters/letters/d/d"),
     LETTE("characters/letters/e/e"),
-    LETTSEP("characters/letters/-/-"),
+    LETTSEP("characters/letters/sep/sep"),
     LETTL("characters/letters/l/l"),
     LETTS("characters/letters/s/s"),
     LETTV("characters/letters/v/v"),

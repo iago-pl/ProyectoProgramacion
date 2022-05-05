@@ -13,6 +13,10 @@ public class Entity extends GameObject {
 
     public ArrayList<Vector2> lastPositionList;
 
+    public Entity(Vector2 position, GameObjectType objectType, int sep) {
+        super(position, objectType, sep);
+    }
+
     public boolean move(Vector2 pos) {
 
         Vector2 newPosition = new Vector2(pos.x + position.x, pos.y + position.y);
@@ -22,10 +26,7 @@ public class Entity extends GameObject {
         }
 
         if (MapController.gameObjects[newPosition.x][newPosition.y] == null) {
-            Vector2 lastPosition = new Vector2(position.x, position.y);
-            position = newPosition;
-            MapController.gameObjects[position.x][position.y] = this;
-            MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
+            changePosition(newPosition);
             return true;
         } else {
 
@@ -37,15 +38,11 @@ public class Entity extends GameObject {
             } else if (temp.objectType == GameObjectType.BOX || temp.objectType == GameObjectType.KEY) {
                 Entity tempEntity = (Entity) temp;
                 if (tempEntity.move(pos)) {
-                    Vector2 lastPosition = new Vector2(position.x, position.y);
-                    position = newPosition;
-                    MapController.gameObjects[position.x][position.y] = this;
-                    MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
+                    changePosition(newPosition);
                     return true;
 
                 } else {
                     return false;
-
                 }
             }
 
@@ -54,9 +51,11 @@ public class Entity extends GameObject {
         return false;
     }
 
-    public Entity(Vector2 position, GameObjectType objectType, int sep) {
-        super(position, objectType, sep);
-
+    private void changePosition(Vector2 newPosition) {
+        Vector2 lastPosition = new Vector2(position.x, position.y);
+        position = newPosition;
+        MapController.gameObjects[position.x][position.y] = this;
+        MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
     }
 
 }
