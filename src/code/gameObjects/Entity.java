@@ -32,23 +32,21 @@ public class Entity extends GameObject {
 
             GameObject temp = MapController.gameObjects[newPosition.x][newPosition.y];
 
-            if (temp.objectType == GameObjectType.LOCK) {
-                return false;
+            switch (temp.objectType) {
+                case BOX:
+                case KEY:
+                    Entity tempEntity = (Entity) temp;
+                    if (tempEntity.move(pos)) {
+                        changePosition(newPosition);
+                        return true;
 
-            } else if (temp.objectType == GameObjectType.BOX || temp.objectType == GameObjectType.KEY) {
-                Entity tempEntity = (Entity) temp;
-                if (tempEntity.move(pos)) {
-                    changePosition(newPosition);
-                    return true;
-
-                } else {
+                    } else {
+                        return false;
+                    }
+                default:
                     return false;
-                }
             }
-
         }
-
-        return false;
     }
 
     private void changePosition(Vector2 newPosition) {

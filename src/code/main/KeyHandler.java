@@ -18,17 +18,21 @@ public class KeyHandler implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    private boolean canPress;
+    private boolean canPressR, canPressW, canPressS, canPressA, canPressD;
 
     public KeyHandler(MapController mp) {
         this.mp = mp;
-        canPress = true;
+        canPressR = true;
+        canPressW = true;
+        canPressS = true;
+        canPressA = true;
+        canPressD = true;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
 
-        if (mp.isLoading() || !canPress) {
+        if (mp.isLoading() || !canPressR || !canPressW || !canPressS || !canPressA || !canPressD) {
             return;
         }
 
@@ -37,23 +41,23 @@ public class KeyHandler implements KeyListener {
         switch (key) {
             case KeyEvent.VK_R:
                 //mp.changeMap();
-                canPress = false;
+                canPressR = false;
                 break;
             case KeyEvent.VK_W:
                 player.move(new Vector2(0, -1));
-                canPress = false;
+                canPressW = false;
                 break;
             case KeyEvent.VK_S:
                 player.move(new Vector2(0, 1));
-                canPress = false;
+                canPressS = false;
                 break;
             case KeyEvent.VK_A:
                 player.move(new Vector2(-1, 0));
-                canPress = false;
+                canPressA = false;
                 break;
             case KeyEvent.VK_D:
                 player.move(new Vector2(1, 0));
-                canPress = false;
+                canPressD = false;
                 break;
         }
     }
@@ -64,11 +68,20 @@ public class KeyHandler implements KeyListener {
 
         switch (key) {
             case KeyEvent.VK_R:
+                canPressR = true;
+                break;
             case KeyEvent.VK_W:
+                canPressW = true;
+                break;
             case KeyEvent.VK_S:
+                canPressS = true;
+                break;
             case KeyEvent.VK_A:
+                canPressA = true;
+                break;
             case KeyEvent.VK_D:
-                canPress = true;
+                canPressD = true;
+                break;
             default:
                 break;
         }
