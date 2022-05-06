@@ -23,13 +23,15 @@ public class InfoController {
 
     private void loadInfo() {
 
-        level = 15;
-
         infoBar[0] = new GameObject(new Vector2(0, yPos), GameObjectType.LETTL, 0);
         infoBar[1] = new GameObject(new Vector2(1, yPos), GameObjectType.LETTV, 0);
         infoBar[2] = new GameObject(new Vector2(2, yPos), GameObjectType.LETTL, 0);
         infoBar[3] = new GameObject(new Vector2(3, yPos), GameObjectType.LETTSEP, 0);
+        
+        updateInfo();
+    }
 
+    public void updateInfo() {
         if (level > 99) {
             level = 99;
         } else if (level < 0) {
