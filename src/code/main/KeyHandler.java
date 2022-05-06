@@ -38,6 +38,7 @@ public class KeyHandler implements KeyListener {
                 //mp.changeMap();
                 canPressR = false;
                 break;
+            case KeyEvent.VK_UP:
             case KeyEvent.VK_W:
                 if (ReferenceController.player.move(new Vector2(0, -1))) {
                     ReferenceController.infoController.increaseSteps();
@@ -47,6 +48,8 @@ public class KeyHandler implements KeyListener {
                 canPressW = false;
                 break;
             case KeyEvent.VK_S:
+
+            case KeyEvent.VK_DOWN:
                 if (ReferenceController.player.move(new Vector2(0, 1))) {
                     ReferenceController.infoController.increaseSteps();
                     ReferenceController.infoController.updateInfo();
@@ -55,6 +58,7 @@ public class KeyHandler implements KeyListener {
                 canPressS = false;
                 break;
             case KeyEvent.VK_A:
+            case KeyEvent.VK_LEFT:
                 if (ReferenceController.player.move(new Vector2(-1, 0))) {
                     ReferenceController.infoController.increaseSteps();
                     ReferenceController.infoController.updateInfo();
@@ -63,6 +67,7 @@ public class KeyHandler implements KeyListener {
                 canPressA = false;
                 break;
             case KeyEvent.VK_D:
+            case KeyEvent.VK_RIGHT:
                 if (ReferenceController.player.move(new Vector2(1, 0))) {
                     ReferenceController.infoController.increaseSteps();
                     ReferenceController.infoController.updateInfo();
@@ -70,6 +75,7 @@ public class KeyHandler implements KeyListener {
 
                 canPressD = false;
                 break;
+
         }
     }
 
@@ -82,15 +88,19 @@ public class KeyHandler implements KeyListener {
                 canPressR = true;
                 break;
             case KeyEvent.VK_W:
+            case KeyEvent.VK_UP:
                 canPressW = true;
                 break;
             case KeyEvent.VK_S:
+            case KeyEvent.VK_DOWN:
                 canPressS = true;
                 break;
             case KeyEvent.VK_A:
+            case KeyEvent.VK_LEFT:
                 canPressA = true;
                 break;
             case KeyEvent.VK_D:
+            case KeyEvent.VK_RIGHT:
                 canPressD = true;
                 break;
             default:
