@@ -9,28 +9,28 @@ import code.transform.Vector2;
  * @author a21rebecanf
  */
 public class MapController {
-
+    
     public GameObject[][] background = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
-
+    
     public GameObject[][] gameObjects = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
-
+    
     boolean loading;
-
+    
     public MapController() {
         loading = true;
         loadMap();
     }
-
+    
     public boolean isLoading() {
         return loading;
     }
-
+    
     public void changeMap() {
         loading = true;
         //gf.sleepThread(1000);
         for (int i = 0; i < gameObjects.length; i++) {
             for (int j = 0; j < gameObjects[0].length; j++) {
-
+                
                 background[i][j] = null;
                 gameObjects[i][j] = null;
                 //gf.sleepThread(10);
@@ -39,7 +39,7 @@ public class MapController {
 
         //loadMap();
     }
-
+    
     private void loadMap() {
         //cargar mapa
 
@@ -53,8 +53,8 @@ public class MapController {
         Entity player = new PlayerEntity(new Vector2(0, 0));
         gameObjects[0][0] = player;
         ReferenceController.player = player;
-
-        gameObjects[5][5] = new Entity(new Vector2(5, 5), GameObjectType.KEY, 1);
+        
+        gameObjects[5][5] = new KeyEntity(new Vector2(5, 5));
         gameObjects[6][6] = new Entity(new Vector2(6, 6), GameObjectType.BOX, 1);
         gameObjects[7][7] = new Entity(new Vector2(7, 7), GameObjectType.LOCK, 1);
         gameObjects[8][8] = new Entity(new Vector2(8, 8), GameObjectType.FLAG, 1);
