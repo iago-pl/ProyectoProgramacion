@@ -12,7 +12,7 @@ public class PlayerEntity extends Entity {
     public PlayerEntity(Vector2 position) {
         super(position, GameObjectType.PLAYER, 1);
     }
-    
+
     @Override
     protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
         System.out.println("player");
@@ -25,10 +25,13 @@ public class PlayerEntity extends Entity {
                 if (tempEntity.move(pos)) {
                     changePosition(newPosition);
                     return true;
-
                 } else {
                     return false;
                 }
+            case FLAG:
+                changePosition(newPosition);
+                System.out.println("win");
+                return true;
             default:
                 return false;
         }

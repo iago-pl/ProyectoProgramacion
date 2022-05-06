@@ -57,6 +57,7 @@ public class MapController {
         gameObjects[5][5] = new Entity(new Vector2(5, 5), GameObjectType.KEY, 1);
         gameObjects[6][6] = new Entity(new Vector2(6, 6), GameObjectType.BOX, 1);
         gameObjects[7][7] = new Entity(new Vector2(7, 7), GameObjectType.LOCK, 1);
+        gameObjects[8][8] = new Entity(new Vector2(8, 8), GameObjectType.FLAG, 1);
         loading = false;
     }
 }
