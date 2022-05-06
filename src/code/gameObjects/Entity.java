@@ -1,7 +1,5 @@
 package code.gameObjects;
 
-import code.main.GameFrame;
-import code.main.MapController;
 import code.main.ReferenceController;
 import code.transform.Vector2;
 import java.util.ArrayList;

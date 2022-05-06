@@ -9,9 +9,8 @@ import code.gameObjects.GameObject;
 public class InfoController {
 
     GameObject[] infoBar = new GameObject[GameFrame.TILE_SCREEN_SIZE.x];
-    
+
     int level;
     int steps;
-    
-    
+
 }

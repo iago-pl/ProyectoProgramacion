@@ -19,13 +19,12 @@ public class Main {
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
         ReferenceController.gameFrame = new GameFrame();
-        
+
         window.add(ReferenceController.gameFrame);
-
         window.pack();
-
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+
         ReferenceController.gameFrame.startGameThread();
 
     }

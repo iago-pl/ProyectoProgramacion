@@ -1,6 +1,5 @@
 package code.main;
 
-import code.gameObjects.Entity;
 import code.transform.Vector2;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

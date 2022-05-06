@@ -32,7 +32,8 @@ public class GameFrame extends JPanel implements Runnable {
     public GameFrame() {
         ReferenceController.mapController = new MapController();
         ReferenceController.keyHandler = new KeyHandler();
-        
+        ReferenceController.infoController = new InfoController();
+
         setPreferredSize(new Dimension(SCREEN_SIZE.x, SCREEN_SIZE.y));
         setBackground(Color.red);
         setDoubleBuffered(true);
@@ -97,6 +98,7 @@ public class GameFrame extends JPanel implements Runnable {
         gameThread.start();
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
