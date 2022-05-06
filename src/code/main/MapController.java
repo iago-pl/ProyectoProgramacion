@@ -14,12 +14,9 @@ public class MapController {
 
     public static GameObject[][] gameObjects = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
 
-    GameFrame gf;
-
     boolean loading;
 
-    public MapController(GameFrame gf) {
-        this.gf = gf;
+    public MapController() {
         loading = true;
         loadMap();
     }
@@ -31,8 +28,8 @@ public class MapController {
     public void changeMap() {
         loading = true;
         //gf.sleepThread(1000);
-        for (int i = 0; i < MapController.gameObjects.length; i++) {
-            for (int j = 0; j < MapController.gameObjects[0].length; j++) {
+        for (int i = 0; i < ReferenceController.mapController.gameObjects.length; i++) {
+            for (int j = 0; j < ReferenceController.mapController.gameObjects[0].length; j++) {
 
                 background[i][j] = null;
                 gameObjects[i][j] = null;
@@ -47,8 +44,8 @@ public class MapController {
     private void loadMap() {
         //cargar mapa
 
-        for (int i = 0; i < MapController.gameObjects.length; i++) {
-            for (int j = 0; j < MapController.gameObjects[0].length; j++) {
+        for (int i = 0; i < ReferenceController.mapController.gameObjects.length; i++) {
+            for (int j = 0; j < ReferenceController.mapController.gameObjects[0].length; j++) {
 
                 //background[i][j] = new Entity(new Vector2(i, j), GameObjectType.BOX, 1);
             }
@@ -56,7 +53,7 @@ public class MapController {
         //borrar esto
         Entity player = new Entity(new Vector2(0, 0), GameObjectType.PLAYER, 1);
         gameObjects[0][0] = player;
-        KeyHandler.player = player;
+        ReferenceController.player = player;
 
         gameObjects[5][5] = new Entity(new Vector2(5, 5), GameObjectType.KEY, 1);
         gameObjects[6][6] = new Entity(new Vector2(6, 6), GameObjectType.KEY, 1);

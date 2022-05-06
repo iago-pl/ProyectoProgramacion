@@ -11,17 +11,13 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener {
 
-    MapController mp;
-    public static Entity player;
-
     @Override
     public void keyTyped(KeyEvent e) {
     }
 
     private boolean canPressR, canPressW, canPressS, canPressA, canPressD;
 
-    public KeyHandler(MapController mp) {
-        this.mp = mp;
+    public KeyHandler() {
         canPressR = true;
         canPressW = true;
         canPressS = true;
@@ -32,7 +28,7 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
 
-        if (mp.isLoading() || !canPressR || !canPressW || !canPressS || !canPressA || !canPressD) {
+        if (ReferenceController.mapController.isLoading() || !canPressR || !canPressW || !canPressS || !canPressA || !canPressD) {
             return;
         }
 
@@ -44,19 +40,19 @@ public class KeyHandler implements KeyListener {
                 canPressR = false;
                 break;
             case KeyEvent.VK_W:
-                player.move(new Vector2(0, -1));
+                ReferenceController.player.move(new Vector2(0, -1));
                 canPressW = false;
                 break;
             case KeyEvent.VK_S:
-                player.move(new Vector2(0, 1));
+                ReferenceController.player.move(new Vector2(0, 1));
                 canPressS = false;
                 break;
             case KeyEvent.VK_A:
-                player.move(new Vector2(-1, 0));
+                ReferenceController.player.move(new Vector2(-1, 0));
                 canPressA = false;
                 break;
             case KeyEvent.VK_D:
-                player.move(new Vector2(1, 0));
+                ReferenceController.player.move(new Vector2(1, 0));
                 canPressD = false;
                 break;
         }

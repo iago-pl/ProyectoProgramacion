@@ -2,6 +2,7 @@ package code.gameObjects;
 
 import code.main.GameFrame;
 import code.main.MapController;
+import code.main.ReferenceController;
 import code.transform.Vector2;
 import java.util.ArrayList;
 
@@ -21,16 +22,16 @@ public class Entity extends GameObject {
 
         Vector2 newPosition = new Vector2(pos.x + position.x, pos.y + position.y);
 
-        if (newPosition.x < 0 || newPosition.x >= MapController.gameObjects.length || newPosition.y < 0 || newPosition.y >= MapController.gameObjects[0].length) {
+        if (newPosition.x < 0 || newPosition.x >= ReferenceController.mapController.gameObjects.length || newPosition.y < 0 || newPosition.y >= ReferenceController.mapController.gameObjects[0].length) {
             return false;
         }
 
-        if (MapController.gameObjects[newPosition.x][newPosition.y] == null) {
+        if (ReferenceController.mapController.gameObjects[newPosition.x][newPosition.y] == null) {
             changePosition(newPosition);
             return true;
         } else {
 
-            GameObject temp = MapController.gameObjects[newPosition.x][newPosition.y];
+            GameObject temp = ReferenceController.mapController.gameObjects[newPosition.x][newPosition.y];
 
             switch (temp.objectType) {
                 case BOX:
@@ -52,8 +53,8 @@ public class Entity extends GameObject {
     private void changePosition(Vector2 newPosition) {
         Vector2 lastPosition = new Vector2(position.x, position.y);
         position = newPosition;
-        MapController.gameObjects[position.x][position.y] = this;
-        MapController.gameObjects[lastPosition.x][lastPosition.y] = null;
+        ReferenceController.mapController.gameObjects[position.x][position.y] = this;
+        ReferenceController.mapController.gameObjects[lastPosition.x][lastPosition.y] = null;
     }
 
 }

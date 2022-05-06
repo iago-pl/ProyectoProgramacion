@@ -29,15 +29,14 @@ public class GameFrame extends JPanel implements Runnable {
 
     Thread gameThread;
 
-    MapController mapController = new MapController(this);
-
-    KeyHandler keyHand = new KeyHandler(mapController);
-
     public GameFrame() {
+        ReferenceController.mapController = new MapController();
+        ReferenceController.keyHandler = new KeyHandler();
+        
         setPreferredSize(new Dimension(SCREEN_SIZE.x, SCREEN_SIZE.y));
         setBackground(Color.red);
         setDoubleBuffered(true);
-        addKeyListener(keyHand);
+        addKeyListener(ReferenceController.keyHandler);
         setFocusable(true);
 
     }
@@ -103,17 +102,17 @@ public class GameFrame extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        for (int i = 0; i < MapController.gameObjects.length; i++) {
-            for (int j = 0; j < MapController.gameObjects[0].length; j++) {
+        for (int i = 0; i < ReferenceController.mapController.gameObjects.length; i++) {
+            for (int j = 0; j < ReferenceController.mapController.gameObjects[0].length; j++) {
 
-                if (MapController.background[i][j] != null) {
-                    MapController.background[i][j].draw(g2);
+                if (ReferenceController.mapController.background[i][j] != null) {
+                    ReferenceController.mapController.background[i][j].draw(g2);
                 }
 
-                if (MapController.gameObjects[i][j] != null) {
-                    MapController.gameObjects[i][j].draw(g2);
+                if (ReferenceController.mapController.gameObjects[i][j] != null) {
+                    ReferenceController.mapController.gameObjects[i][j].draw(g2);
                 }
-                
+
             }
         }
 
