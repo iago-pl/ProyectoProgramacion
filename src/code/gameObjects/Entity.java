@@ -36,6 +36,15 @@ public class Entity extends GameObject {
     protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
         GameObject temp = ReferenceController.mapController.gameObjects[newPosition.x][newPosition.y];
         switch (temp.objectType) {
+            case BOX:
+            case KEY:
+                Entity tempEntity = (Entity) temp;
+                if (tempEntity.move(pos)) {
+                    changePosition(newPosition);
+                    return true;
+                } else {
+                    return false;
+                }
             default:
                 return false;
         }
