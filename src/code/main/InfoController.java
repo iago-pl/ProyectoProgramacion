@@ -27,7 +27,6 @@ public class InfoController {
         infoBar[1] = new GameObject(new Vector2(1, yPos), GameObjectType.LETTV, 0);
         infoBar[2] = new GameObject(new Vector2(2, yPos), GameObjectType.LETTL, 0);
         infoBar[3] = new GameObject(new Vector2(3, yPos), GameObjectType.LETTSEP, 0);
-        
         updateInfo();
     }
 
@@ -45,16 +44,22 @@ public class InfoController {
             infoBar[5] = new GameObject(new Vector2(5, yPos), getNumObject(level - ((level / 10) * 10)), 0);
         }
 
-        if (steps > 99) {
-            steps = 99;
+        if (steps > 200) {
+            steps = 200;
+
         } else if (steps < 0) {
             steps = 0;
         }
 
         if (steps < 10) {
             infoBar[infoBar.length - 1] = new GameObject(new Vector2(infoBar.length - 1, yPos), getNumObject(steps), 0);
-        } else {
+        } else if (steps < 100) {
             infoBar[infoBar.length - 2] = new GameObject(new Vector2(infoBar.length - 2, yPos), getNumObject(steps / 10), 0);
+            infoBar[infoBar.length - 1] = new GameObject(new Vector2(infoBar.length - 1, yPos), getNumObject(steps - ((steps / 10) * 10)), 0);
+        } else {
+            infoBar[infoBar.length - 3] = new GameObject(new Vector2(infoBar.length - 3, yPos), getNumObject(steps / 100), 0);
+            infoBar[infoBar.length - 2] = new GameObject(new Vector2(infoBar.length - 2, yPos), getNumObject((steps / 10) - ((steps / 100) * 10)), 0);
+
             infoBar[infoBar.length - 1] = new GameObject(new Vector2(infoBar.length - 1, yPos), getNumObject(steps - ((steps / 10) * 10)), 0);
         }
 
