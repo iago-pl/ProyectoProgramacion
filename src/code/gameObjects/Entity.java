@@ -29,26 +29,20 @@ public class Entity extends GameObject {
             return true;
         } else {
 
-            GameObject temp = ReferenceController.mapController.gameObjects[newPosition.x][newPosition.y];
-
-            switch (temp.objectType) {
-                case BOX:
-                case KEY:
-                    Entity tempEntity = (Entity) temp;
-                    if (tempEntity.move(pos)) {
-                        changePosition(newPosition);
-                        return true;
-
-                    } else {
-                        return false;
-                    }
-                default:
-                    return false;
-            }
+            return checkCollision(newPosition, pos);
         }
     }
 
-    private void changePosition(Vector2 newPosition) {
+    protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
+        GameObject temp = ReferenceController.mapController.gameObjects[newPosition.x][newPosition.y];
+        System.out.println("entity");
+        switch (temp.objectType) {
+            default:
+                return false;
+        }
+    }
+
+    protected void changePosition(Vector2 newPosition) {
         Vector2 lastPosition = new Vector2(position.x, position.y);
         position = newPosition;
         ReferenceController.mapController.gameObjects[position.x][position.y] = this;

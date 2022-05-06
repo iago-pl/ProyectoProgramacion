@@ -50,7 +50,7 @@ public class MapController {
             }
         }
         //borrar esto
-        Entity player = new Entity(new Vector2(0, 0), GameObjectType.PLAYER, 1);
+        Entity player = new PlayerEntity(new Vector2(0, 0));
         gameObjects[0][0] = player;
         ReferenceController.player = player;
 
