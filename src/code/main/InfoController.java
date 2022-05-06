@@ -58,6 +58,11 @@ public class InfoController {
 
     }
 
+    public void increaseSteps() {
+        steps++;
+
+    }
+
     private GameObjectType getNumObject(int num) {
         switch (num) {
             case 0:

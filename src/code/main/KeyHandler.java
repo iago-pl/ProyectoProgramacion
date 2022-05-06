@@ -40,18 +40,25 @@ public class KeyHandler implements KeyListener {
                 break;
             case KeyEvent.VK_W:
                 ReferenceController.player.move(new Vector2(0, -1));
+                ReferenceController.infoController.increaseSteps();
                 canPressW = false;
                 break;
             case KeyEvent.VK_S:
                 ReferenceController.player.move(new Vector2(0, 1));
+
+                ReferenceController.infoController.increaseSteps();
                 canPressS = false;
                 break;
             case KeyEvent.VK_A:
                 ReferenceController.player.move(new Vector2(-1, 0));
+
+                ReferenceController.infoController.increaseSteps();
                 canPressA = false;
                 break;
             case KeyEvent.VK_D:
                 ReferenceController.player.move(new Vector2(1, 0));
+
+                ReferenceController.infoController.increaseSteps();
                 canPressD = false;
                 break;
         }
