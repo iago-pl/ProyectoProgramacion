@@ -35,7 +35,6 @@ public class Entity extends GameObject {
 
     protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
         GameObject temp = ReferenceController.mapController.gameObjects[newPosition.x][newPosition.y];
-        System.out.println("entity");
         switch (temp.objectType) {
             default:
                 return false;
