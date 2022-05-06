@@ -30,6 +30,7 @@ public class PlayerEntity extends Entity {
             case FLAG:
                 changePosition(newPosition);
                 System.out.println("win");
+                ReferenceController.mapController.clearSnapshot();
                 return true;
             default:
                 return false;

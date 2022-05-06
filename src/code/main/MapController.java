@@ -24,7 +24,6 @@ public class MapController {
         loading = true;
         loadMap();
 
-        snapShots.add(new Map(gameObjects));
     }
 
     public boolean isLoading() {
@@ -79,13 +78,11 @@ public class MapController {
             snapShots.add(temp);
 
             playerLastPos = ReferenceController.player.position;
-            System.out.println("take");
         }
     }
 
     public void loadSnapshot() {
         if (snapShots.size() > 1) {
-            System.out.println("load " + snapShots.size());
 
             snapShots.remove(snapShots.size() - 1);
             gameObjects = new Map(snapShots.get(snapShots.size() - 1));
