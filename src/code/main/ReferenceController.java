@@ -1,6 +1,7 @@
 package code.main;
 
 import code.gameObjects.Entity;
+import code.gameObjects.PlayerEntity;
 
 /**
  *
@@ -11,6 +12,6 @@ public class ReferenceController {
     public static GameFrame gameFrame;
     public static MapController mapController;
     public static KeyHandler keyHandler;
-    public static Entity player;
+    public static PlayerEntity player;
     public static InfoController infoController;
 }

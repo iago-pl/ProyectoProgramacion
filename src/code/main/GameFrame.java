@@ -6,8 +6,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -40,15 +38,6 @@ public class GameFrame extends JPanel implements Runnable {
         addKeyListener(ReferenceController.keyHandler);
         setFocusable(true);
 
-    }
-
-    public void sleepThread(int milis) {
-
-        try {
-            Thread.sleep(milis);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(GameFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @Override
@@ -104,19 +93,19 @@ public class GameFrame extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        for (int i = 0; i < ReferenceController.mapController.gameObjects.length; i++) {
+        for (int i = 0; i < ReferenceController.mapController.gameObjects.level.length; i++) {
 
             if (ReferenceController.infoController.infoBar[i] != null) {
                 ReferenceController.infoController.infoBar[i].draw(g2);
             }
-            for (int j = 0; j < ReferenceController.mapController.gameObjects[0].length; j++) {
+            for (int j = 0; j < ReferenceController.mapController.gameObjects.level[0].length; j++) {
 
-                if (ReferenceController.mapController.background[i][j] != null) {
-                    ReferenceController.mapController.background[i][j].draw(g2);
+                if (ReferenceController.mapController.background.level[i][j] != null) {
+                    ReferenceController.mapController.background.level[i][j].draw(g2);
                 }
 
-                if (ReferenceController.mapController.gameObjects[i][j] != null) {
-                    ReferenceController.mapController.gameObjects[i][j].draw(g2);
+                if (ReferenceController.mapController.gameObjects.level[i][j] != null) {
+                    ReferenceController.mapController.gameObjects.level[i][j].draw(g2);
                 }
 
             }

@@ -10,10 +10,12 @@
         </group>
         <group name="Ud8 A01">
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/Main.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/Entity.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/ReferenceController.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/PlayerEntity.java</file>
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/MapController.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/KeyHandler.java</file>
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/GameObject.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/KeyHandler.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/Map.java</file>
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/GameFrame.java</file>
         </group>
     </open-files>

@@ -35,7 +35,7 @@ public class KeyHandler implements KeyListener {
 
         switch (key) {
             case KeyEvent.VK_R:
-                //mp.changeMap();
+                ReferenceController.mapController.loadSnapshot();
                 canPressR = false;
                 break;
             case KeyEvent.VK_UP:
@@ -44,6 +44,7 @@ public class KeyHandler implements KeyListener {
                     ReferenceController.infoController.increaseSteps();
                     ReferenceController.infoController.updateInfo();
                 }
+                ReferenceController.mapController.takeSnapshot();
 
                 canPressW = false;
                 break;
@@ -54,7 +55,8 @@ public class KeyHandler implements KeyListener {
                     ReferenceController.infoController.increaseSteps();
                     ReferenceController.infoController.updateInfo();
                 }
-
+                ReferenceController.mapController.takeSnapshot();
+                
                 canPressS = false;
                 break;
             case KeyEvent.VK_A:
@@ -64,6 +66,7 @@ public class KeyHandler implements KeyListener {
                     ReferenceController.infoController.updateInfo();
                 }
 
+                ReferenceController.mapController.takeSnapshot();
                 canPressA = false;
                 break;
             case KeyEvent.VK_D:
@@ -73,6 +76,7 @@ public class KeyHandler implements KeyListener {
                     ReferenceController.infoController.updateInfo();
                 }
 
+                ReferenceController.mapController.takeSnapshot();
                 canPressD = false;
                 break;
 

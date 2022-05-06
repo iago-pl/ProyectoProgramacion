@@ -31,6 +31,7 @@ public class InfoController {
     }
 
     public void updateInfo() {
+
         if (level > 99) {
             level = 99;
         } else if (level < 0) {
