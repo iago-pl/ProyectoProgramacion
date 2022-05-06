@@ -39,27 +39,35 @@ public class KeyHandler implements KeyListener {
                 canPressR = false;
                 break;
             case KeyEvent.VK_W:
-                ReferenceController.player.move(new Vector2(0, -1));
-                ReferenceController.infoController.increaseSteps();
-                ReferenceController.infoController.updateInfo();
+                if (ReferenceController.player.move(new Vector2(0, -1))) {
+                    ReferenceController.infoController.increaseSteps();
+                    ReferenceController.infoController.updateInfo();
+                }
+
                 canPressW = false;
                 break;
             case KeyEvent.VK_S:
-                ReferenceController.player.move(new Vector2(0, 1));
-                ReferenceController.infoController.increaseSteps();
-                ReferenceController.infoController.updateInfo();
+                if (ReferenceController.player.move(new Vector2(0, 1))) {
+                    ReferenceController.infoController.increaseSteps();
+                    ReferenceController.infoController.updateInfo();
+                }
+
                 canPressS = false;
                 break;
             case KeyEvent.VK_A:
-                ReferenceController.player.move(new Vector2(-1, 0));
-                ReferenceController.infoController.increaseSteps();
-                ReferenceController.infoController.updateInfo();
+                if (ReferenceController.player.move(new Vector2(-1, 0))) {
+                    ReferenceController.infoController.increaseSteps();
+                    ReferenceController.infoController.updateInfo();
+                }
+
                 canPressA = false;
                 break;
             case KeyEvent.VK_D:
-                ReferenceController.player.move(new Vector2(1, 0));
-                ReferenceController.infoController.increaseSteps();
-                ReferenceController.infoController.updateInfo();
+                if (ReferenceController.player.move(new Vector2(1, 0))) {
+                    ReferenceController.infoController.increaseSteps();
+                    ReferenceController.infoController.updateInfo();
+                }
+
                 canPressD = false;
                 break;
         }
