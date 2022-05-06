@@ -38,7 +38,6 @@ public class MapController {
         }
 
         //loadMap();
-        loading = false;
     }
 
     private void loadMap() {

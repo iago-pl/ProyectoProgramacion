@@ -35,7 +35,7 @@ public class GameFrame extends JPanel implements Runnable {
         ReferenceController.infoController = new InfoController();
 
         setPreferredSize(new Dimension(SCREEN_SIZE.x, SCREEN_SIZE.y));
-        setBackground(Color.red);
+        setBackground(Color.BLACK);
         setDoubleBuffered(true);
         addKeyListener(ReferenceController.keyHandler);
         setFocusable(true);
@@ -105,6 +105,10 @@ public class GameFrame extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
 
         for (int i = 0; i < ReferenceController.mapController.gameObjects.length; i++) {
+
+            if (ReferenceController.infoController.infoBar[i] != null) {
+                ReferenceController.infoController.infoBar[i].draw(g2);
+            }
             for (int j = 0; j < ReferenceController.mapController.gameObjects[0].length; j++) {
 
                 if (ReferenceController.mapController.background[i][j] != null) {
