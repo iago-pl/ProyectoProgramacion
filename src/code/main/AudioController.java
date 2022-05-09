@@ -18,7 +18,7 @@ public class AudioController {
 
     Clip clip;
     //private final AudioInputStream[] sounds = new AudioInputStream[4];
-    private final URL[] sounds = new URL[4];
+    private final URL[] sounds = new URL[5];
 
     public AudioController() {
         loadAudio();
@@ -30,6 +30,7 @@ public class AudioController {
         sounds[1] = getClass().getResource("/resources/aud/reverse.wav");
         sounds[2] = getClass().getResource("/resources/aud/flag.wav");
         sounds[3] = getClass().getResource("/resources/aud/lock.wav");
+        sounds[4] = getClass().getResource("/resources/aud/move_box.wav");
     }
 
     public void play(int soundIndex) {
@@ -39,8 +40,9 @@ public class AudioController {
         }
 
         try {
+            AudioInputStream temp = AudioSystem.getAudioInputStream(sounds[soundIndex]);
             clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(sounds[soundIndex]));
+            clip.open(temp);
             clip.start();
         } catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
             Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
