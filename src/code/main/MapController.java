@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public class MapController {
 
-    public Map background = new Map(null);
-    public Map gameObjects = new Map(null);
+    public Map background = new Map();
+    public Map gameObjects = new Map();
 
     ArrayList<Map> snapShots = new ArrayList<>();
 

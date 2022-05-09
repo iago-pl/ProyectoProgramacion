@@ -1,6 +1,5 @@
 package code.main;
 
-import code.gameObjects.Entity;
 import code.gameObjects.PlayerEntity;
 
 /**
@@ -14,4 +13,5 @@ public class ReferenceController {
     public static KeyHandler keyHandler;
     public static PlayerEntity player;
     public static InfoController infoController;
+    public static AudioController audioController;
 }

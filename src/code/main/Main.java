@@ -18,7 +18,11 @@ public class Main {
 
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
+        ReferenceController.keyHandler = new KeyHandler();
         ReferenceController.gameFrame = new GameFrame();
+        ReferenceController.mapController = new MapController();
+        ReferenceController.infoController = new InfoController();
+        ReferenceController.audioController = new AudioController();
 
         window.add(ReferenceController.gameFrame);
         window.pack();

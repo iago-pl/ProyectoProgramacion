@@ -28,10 +28,6 @@ public class GameFrame extends JPanel implements Runnable {
     Thread gameThread;
 
     public GameFrame() {
-        ReferenceController.mapController = new MapController();
-        ReferenceController.keyHandler = new KeyHandler();
-        ReferenceController.infoController = new InfoController();
-
         setPreferredSize(new Dimension(SCREEN_SIZE.x, SCREEN_SIZE.y));
         setBackground(Color.BLACK);
         setDoubleBuffered(true);

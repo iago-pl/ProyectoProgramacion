@@ -10,6 +10,10 @@ public class Map {
 
     public GameObject[][] level = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
 
+    public Map(){
+        
+    }
+    
     public Map(Map copy) {
 
         if (copy != null) {
