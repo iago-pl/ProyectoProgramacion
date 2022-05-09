@@ -10,8 +10,8 @@ import code.transform.Vector2;
 public class KeyEntity extends Entity {
 
     public KeyEntity(Vector2 position) {
-        super(position, GameObjectType.KEY, 1);
-
+        super(position, GameObjectType.KEY);
+        sep = 1;
     }
 
     @Override

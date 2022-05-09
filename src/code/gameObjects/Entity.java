@@ -9,8 +9,8 @@ import code.transform.Vector2;
  */
 public class Entity extends GameObject {
 
-    public Entity(Vector2 position, GameObjectType objectType, int sep) {
-        super(position, objectType, sep);
+    public Entity(Vector2 position, GameObjectType objectType) {
+        super(position, objectType, 1);
     }
 
     public boolean move(Vector2 pos) {

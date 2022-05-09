@@ -54,7 +54,7 @@ public class MapController {
         playerLastPos = player.position;
         
         gameObjects.level[5][5] = new KeyEntity(new Vector2(5, 5));
-        gameObjects.level[6][6] = new Entity(new Vector2(6, 6), GameObjectType.BOX, 1);
+        gameObjects.level[6][6] = new Entity(new Vector2(6, 6), GameObjectType.BOX);
         gameObjects.level[7][7] = new GameObject(new Vector2(7, 7), GameObjectType.LOCK, 1);
         gameObjects.level[8][8] = new GameObject(new Vector2(8, 8), GameObjectType.FLAG, 1);
         //
