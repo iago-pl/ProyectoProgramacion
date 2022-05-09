@@ -16,7 +16,7 @@ public class KeyEntity extends Entity {
 
     @Override
     protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
-        GameObject temp = ReferenceController.mapController.gameObjects.level[newPosition.x][newPosition.y];
+        GameObject temp = ReferenceController.mapController.currentMap.playground.level[newPosition.x][newPosition.y];
 
         switch (temp.objectType) {
             case BOX:
@@ -39,8 +39,8 @@ public class KeyEntity extends Entity {
 
     protected void openLock(Vector2 newPosition) {
         Vector2 lastPosition = new Vector2(position.x, position.y);
-        ReferenceController.mapController.gameObjects.level[newPosition.x][newPosition.y] = null;
-        ReferenceController.mapController.gameObjects.level[lastPosition.x][lastPosition.y] = null;
+        ReferenceController.mapController.currentMap.playground.level[newPosition.x][newPosition.y] = null;
+        ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
     }
 
 }

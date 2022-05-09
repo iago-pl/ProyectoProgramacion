@@ -16,7 +16,7 @@ public class PlayerEntity extends Entity {
     
     @Override
     protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
-        GameObject temp = ReferenceController.mapController.gameObjects.level[newPosition.x][newPosition.y];
+        GameObject temp = ReferenceController.mapController.currentMap.playground.level[newPosition.x][newPosition.y];
         
         switch (temp.objectType) {
             case BOX:
@@ -44,8 +44,8 @@ public class PlayerEntity extends Entity {
         ReferenceController.audioController.play(0);
         Vector2 lastPosition = new Vector2(position.x, position.y);
         position = newPosition;
-        ReferenceController.mapController.gameObjects.level[position.x][position.y] = this;
-        ReferenceController.mapController.gameObjects.level[lastPosition.x][lastPosition.y] = null;
+        ReferenceController.mapController.currentMap.playground.level[position.x][position.y] = this;
+        ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
     }
     
 }

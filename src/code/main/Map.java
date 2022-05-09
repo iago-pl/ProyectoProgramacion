@@ -1,28 +1,16 @@
-package code.main;
 
-import code.gameObjects.GameObject;
+package code.main;
 
 /**
  *
  * @author a21iagopl
  */
 public class Map {
+    public MapLayer background;
+    public MapLayer playground;
 
-    public GameObject[][] level = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
-
-    public Map(){
-        
+    public Map(MapLayer background, MapLayer playground) {
+        this.background = background;
+        this.playground = playground;
     }
-    
-    public Map(Map copy) {
-
-        if (copy != null) {
-            for (int i = 0; i < level.length; i++) {
-                for (int j = 0; j < level[0].length; j++) {
-                    level[i][j] = copy.level[i][j];
-                }
-            }
-        }
-    }
-
 }

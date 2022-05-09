@@ -89,19 +89,19 @@ public class GameFrame extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
 
-        for (int i = 0; i < ReferenceController.mapController.gameObjects.level.length; i++) {
+        for (int i = 0; i < ReferenceController.mapController.currentMap.playground.level.length; i++) {
 
             if (ReferenceController.infoController.infoBar[i] != null) {
                 ReferenceController.infoController.infoBar[i].draw(g2);
             }
-            for (int j = 0; j < ReferenceController.mapController.gameObjects.level[0].length; j++) {
+            for (int j = 0; j < ReferenceController.mapController.currentMap.playground.level[0].length; j++) {
 
-                if (ReferenceController.mapController.background.level[i][j] != null) {
-                    ReferenceController.mapController.background.level[i][j].draw(g2);
+                if (ReferenceController.mapController.currentMap.background.level[i][j] != null) {
+                    ReferenceController.mapController.currentMap.background.level[i][j].draw(g2);
                 }
 
-                if (ReferenceController.mapController.gameObjects.level[i][j] != null) {
-                    ReferenceController.mapController.gameObjects.level[i][j].draw(g2);
+                if (ReferenceController.mapController.currentMap.playground.level[i][j] != null) {
+                    ReferenceController.mapController.currentMap.playground.level[i][j].draw(g2);
                 }
 
             }

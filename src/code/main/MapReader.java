@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class MapReader {
 
-    public static ArrayList<Map> maps;
+    public static ArrayList<MapLayer> mapLayers;
     private File[] files;
 
     public MapReader() {
@@ -45,7 +45,7 @@ public class MapReader {
         try {
             BufferedReader br = new BufferedReader(new FileReader(files[i]));
             String line = br.readLine();
-            Map tempMap = new Map();
+            MapLayer tempMap = new MapLayer();
 
             //Alto
             for (int j = 0; j < GameFrame.TILE_SCREEN_SIZE.y - 1; j++) {
@@ -62,9 +62,9 @@ public class MapReader {
                 }
                 line = br.readLine();
             }
-
+            
             System.out.println("arregrar esto");
-            maps.add(tempMap);
+            //maps.add(tempMap);
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
