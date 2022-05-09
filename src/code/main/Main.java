@@ -10,13 +10,14 @@ import javax.swing.JFrame;
 public class Main {
 
     public static void main(String[] args) {
-
+        System.out.println(System.getProperty("user.name"));
+        System.out.println(System.getenv("APPDATA"));
+        
         JFrame window = new JFrame();
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("Match It");
 
-        System.out.println(System.getenv("APPDATA"));
 
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
