@@ -83,7 +83,7 @@ public class MapController {
 
     public void loadSnapshot() {
         if (snapShots.size() > 1) {
-
+            ReferenceController.audioController.play(1);
             snapShots.remove(snapShots.size() - 1);
             gameObjects = new Map(snapShots.get(snapShots.size() - 1));
             for (int i = 0; i < gameObjects.level.length; i++) {

@@ -39,6 +39,7 @@ public class PlayerEntity extends Entity {
 
     @Override
     protected void changePosition(Vector2 newPosition) {
+        ReferenceController.audioController.play(0);
         Vector2 lastPosition = new Vector2(position.x, position.y);
         position = newPosition;
         ReferenceController.mapController.gameObjects.level[position.x][position.y] = this;

@@ -15,7 +15,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class AudioController {
 
-    private AudioInputStream[] sounds = new AudioInputStream[10];
+    private final AudioInputStream[] sounds = new AudioInputStream[10];
     Clip clip;
 
     public AudioController() {
@@ -29,6 +29,7 @@ public class AudioController {
             sounds[0] = AudioSystem.getAudioInputStream(getClass().getResource("/resources/aud/move/move.wav"));
             sounds[1] = AudioSystem.getAudioInputStream(getClass().getResource("/resources/aud/move/rev_move.wav"));
         } catch (UnsupportedAudioFileException | IOException ex) {
+
             Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

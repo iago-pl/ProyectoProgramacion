@@ -56,7 +56,7 @@ public class KeyHandler implements KeyListener {
                     ReferenceController.infoController.updateInfo();
                 }
                 ReferenceController.mapController.takeSnapshot();
-                
+
                 canPressS = false;
                 break;
             case KeyEvent.VK_A:

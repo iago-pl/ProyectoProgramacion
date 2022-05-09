@@ -2,6 +2,7 @@ package code.gameObjects;
 
 import static code.gameObjects.GameObject.MAX_FRAME;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
@@ -54,11 +55,7 @@ public enum GameObjectType {
             sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_1.png"));
             sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_2.png"));
 
-        } catch (Exception e) {
-
-            e.printStackTrace();
+        } catch (IOException e) {
         }
-
     }
-
 }
