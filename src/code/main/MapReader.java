@@ -49,7 +49,6 @@ public class MapReader {
 
             //Alto
             for (int j = 0; j < GameFrame.TILE_SCREEN_SIZE.y - 1; j++) {
-
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
                     System.out.println("Big Oof");
                     throw new Exception("Mapa de tamaño incorrecto");
@@ -61,10 +60,10 @@ public class MapReader {
                         tempMap.level[k][j] = convertToGameObject((line.charAt(k) + "").toUpperCase(), new Vector2(k, j));
                     }
                 }
-
-                //line = br.readLine();
+                line = br.readLine();
             }
 
+            System.out.println("arregrar esto");
             maps.add(tempMap);
 
         } catch (FileNotFoundException ex) {
@@ -76,7 +75,6 @@ public class MapReader {
 
     private GameObject convertToGameObject(String in, Vector2 pos) {
 
-        System.out.println(pos.x + " " + pos.y);
         switch (in) {
             case "P":
                 return new PlayerEntity(pos);
