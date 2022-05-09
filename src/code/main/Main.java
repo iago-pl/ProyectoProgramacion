@@ -16,8 +16,11 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("Match It");
 
+        System.out.println(System.getenv("APPDATA"));
+
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
+        ReferenceController.mapReader = new MapReader();
         ReferenceController.keyHandler = new KeyHandler();
         ReferenceController.gameFrame = new GameFrame();
         ReferenceController.mapController = new MapController();

@@ -8,15 +8,15 @@ import code.transform.Vector2;
  * @author a21iagopl
  */
 public class PlayerEntity extends Entity {
-
+    
     public PlayerEntity(Vector2 position) {
         super(position, GameObjectType.PLAYER, 1);
     }
-
+    
     @Override
     protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
         GameObject temp = ReferenceController.mapController.gameObjects.level[newPosition.x][newPosition.y];
-
+        
         switch (temp.objectType) {
             case BOX:
             case KEY:
@@ -29,14 +29,15 @@ public class PlayerEntity extends Entity {
                 }
             case FLAG:
                 changePosition(newPosition);
+                ReferenceController.audioController.play(2);
                 System.out.println("win");
-                ReferenceController.mapController.clearSnapshot();
+                ReferenceController.mapController.clearSnapshots();
                 return true;
             default:
                 return false;
         }
     }
-
+    
     @Override
     protected void changePosition(Vector2 newPosition) {
         ReferenceController.audioController.play(0);
@@ -45,5 +46,5 @@ public class PlayerEntity extends Entity {
         ReferenceController.mapController.gameObjects.level[position.x][position.y] = this;
         ReferenceController.mapController.gameObjects.level[lastPosition.x][lastPosition.y] = null;
     }
-
+    
 }

@@ -14,4 +14,5 @@ public class ReferenceController {
     public static PlayerEntity player;
     public static InfoController infoController;
     public static AudioController audioController;
+    public static MapReader mapReader;
 }

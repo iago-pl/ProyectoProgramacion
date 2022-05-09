@@ -30,7 +30,7 @@ public class KeyEntity extends Entity {
                 }
             case LOCK:
                 openLock(newPosition);
-                System.out.println("Open");
+                ReferenceController.audioController.play(3);
                 return true;
             default:
                 return false;
