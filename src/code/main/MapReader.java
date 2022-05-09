@@ -63,7 +63,7 @@ public class MapReader {
                 line = br.readLine();
             }
             
-            System.out.println("arregrar esto");
+            System.out.println("arreglar esto");
             //maps.add(tempMap);
 
         } catch (FileNotFoundException ex) {
