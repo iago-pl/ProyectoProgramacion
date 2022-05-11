@@ -1,6 +1,7 @@
 package code.main;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
@@ -16,7 +17,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class AudioController {
 
     Clip clip;
-    private final AudioInputStream[] sounds = new AudioInputStream[4];
+    //private final AudioInputStream[] sounds = new AudioInputStream[4];
+    private final URL[] sounds = new URL[5];
 
     public AudioController() {
         loadAudio();
@@ -24,15 +26,11 @@ public class AudioController {
 
     private void loadAudio() {
 
-        try {
-            sounds[0] = AudioSystem.getAudioInputStream(getClass().getResource("/resources/aud/move.wav"));
-            sounds[1] = AudioSystem.getAudioInputStream(getClass().getResource("/resources/aud/reverse.wav"));
-            sounds[2] = AudioSystem.getAudioInputStream(getClass().getResource("/resources/aud/flag.wav"));
-            sounds[3] = AudioSystem.getAudioInputStream(getClass().getResource("/resources/aud/lock.wav"));
-
-        } catch (UnsupportedAudioFileException | IOException ex) {
-            Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        sounds[0] = getClass().getResource("/resources/aud/move.wav");
+        sounds[1] = getClass().getResource("/resources/aud/reverse.wav");
+        sounds[2] = getClass().getResource("/resources/aud/flag.wav");
+        sounds[3] = getClass().getResource("/resources/aud/lock.wav");
+        sounds[4] = getClass().getResource("/resources/aud/move_box.wav");
     }
 
     public void play(int soundIndex) {
@@ -42,10 +40,11 @@ public class AudioController {
         }
 
         try {
+            AudioInputStream temp = AudioSystem.getAudioInputStream(sounds[soundIndex]);
             clip = AudioSystem.getClip();
-            clip.open(sounds[soundIndex]);
+            clip.open(temp);
             clip.start();
-        } catch (LineUnavailableException | IOException ex) {
+        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
             Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
