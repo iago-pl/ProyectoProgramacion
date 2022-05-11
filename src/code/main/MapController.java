@@ -1,6 +1,7 @@
 package code.main;
 
 import code.gameObjects.GameObjectType;
+import code.gameObjects.PlayerEntity;
 import code.transform.Vector2;
 import java.util.ArrayList;
 
@@ -22,33 +23,33 @@ public class MapController {
     public MapController() {
         loading = true;
         loadMap();
-
     }
 
     public boolean isLoading() {
         return loading;
     }
 
-    public void changeMap() {
+    public void loadMap() {
+        //cargar mapa
         loading = true;
+        currentMap = ReferenceController.mapReader.maps.get(0);
+
         for (int i = 0; i < currentMap.playground.level.length; i++) {
             for (int j = 0; j < currentMap.playground.level[0].length; j++) {
+                if (currentMap.playground.level[i][j] != null) {
+                    if (currentMap.playground.level[i][j].objectType == GameObjectType.PLAYER) {
+                        ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
+                        playerLastPos = ReferenceController.player.position;
 
-                currentMap.background.level[i][j] = null;
-                currentMap.playground.level[i][j] = null;
+                    }
+                }
             }
         }
-
-        //loadMap();
-    }
-
-    private void loadMap() {
-        //cargar mapa
-
         //borrar esto
-        currentMap = ReferenceController.mapReader.maps.get(0);
-        playerLastPos = ReferenceController.player.position;
         ReferenceController.mapReader.maps.remove(0);
+        if (ReferenceController.infoController != null) {
+            ReferenceController.infoController.level++;
+        }
 
         /*PlayerEntity player = new PlayerEntity(new Vector2(0, 0));
         currentMap.playground.level[0][0] = player;

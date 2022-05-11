@@ -31,7 +31,7 @@ public class PlayerEntity extends Entity {
             case FLAG:
                 changePosition(newPosition);
                 ReferenceController.audioController.play(2);
-                System.out.println("win");
+                ReferenceController.mapController.loadMap();
                 ReferenceController.mapController.clearSnapshots();
                 return true;
             default:

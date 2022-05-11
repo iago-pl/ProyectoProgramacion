@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,9 +33,12 @@ public class MapReader {
         System.out.println("añadir mapas por defecto");
 
         files = dir.listFiles();
+        
+        Arrays.sort(files);
 
-        for (int i = files.length - 1; i >= 0; i--) {
+        for (int i = 0; i < files.length; i++) {
             try {
+                System.out.println("cargado " + files[i].getName());
                 loadMap(new BufferedReader(new FileReader(files[i])));
             } catch (Exception ex) {
                 Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
@@ -72,13 +76,11 @@ public class MapReader {
                                 if (mapLayers[0].level[j][i].objectType == GameObjectType.PLAYER) {
                                     if (!hasPlayer) {
                                         hasPlayer = true;
-                                        ReferenceController.player = (PlayerEntity) mapLayers[0].level[j][i];
-                                        
                                     } else {
                                         mapLayers[0].level[j][i] = null;
                                     }
 
-                                }else if (mapLayers[0].level[j][i].objectType == GameObjectType.FLAG) {
+                                } else if (mapLayers[0].level[j][i].objectType == GameObjectType.FLAG) {
                                     hasFlag = true;
                                 }
                             }
@@ -152,7 +154,6 @@ public class MapReader {
 
         switch (in) {
             case "1":
-                System.out.println("terminar");
                 return new Entity(pos, GameObjectType.TILE);
             default:
                 return null;
