@@ -1,6 +1,6 @@
 package code.main;
 
-import code.gameObjects.*;
+import code.gameObjects.GameObjectType;
 import code.transform.Vector2;
 import java.util.ArrayList;
 
@@ -46,7 +46,11 @@ public class MapController {
         //cargar mapa
 
         //borrar esto
-        PlayerEntity player = new PlayerEntity(new Vector2(0, 0));
+        currentMap = ReferenceController.mapReader.maps.get(0);
+        playerLastPos = ReferenceController.player.position;
+        ReferenceController.mapReader.maps.remove(0);
+
+        /*PlayerEntity player = new PlayerEntity(new Vector2(0, 0));
         currentMap.playground.level[0][0] = player;
         ReferenceController.player = player;
         playerLastPos = player.position;
@@ -57,7 +61,7 @@ public class MapController {
         currentMap.playground.level[8][8] = new GameObject(new Vector2(8, 8), GameObjectType.FLAG, 1);
         //
 
-        snapShots.add(new MapLayer(currentMap.playground));
+        snapShots.add(new MapLayer(currentMap.playground));*/
         loading = false;
     }
 

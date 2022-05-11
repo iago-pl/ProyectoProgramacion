@@ -21,7 +21,8 @@ import java.util.logging.Logger;
  */
 public class MapReader {
 
-    public static ArrayList<MapLayer> mapLayers;
+    public ArrayList<Map> maps = new ArrayList<>();
+    private MapLayer[] mapLayers = new MapLayer[2];
     private File[] files;
 
     public MapReader() {
@@ -34,37 +35,91 @@ public class MapReader {
 
         for (int i = files.length - 1; i >= 0; i--) {
             try {
-                loadMap(i);
+                loadMap(new BufferedReader(new FileReader(files[i])));
             } catch (Exception ex) {
                 Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 
-    private void loadMap(int i) throws Exception {
+    private void loadMap(BufferedReader br) throws Exception {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(files[i]));
+            boolean hasPlayer = false;
+            boolean hasFlag = false;
+
             String line = br.readLine();
-            MapLayer tempMap = new MapLayer();
 
+            mapLayers[0] = new MapLayer();
+
+            //Leer playground
             //Alto
-            for (int j = 0; j < GameFrame.TILE_SCREEN_SIZE.y - 1; j++) {
-                if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
-                    System.out.println("Big Oof");
-                    throw new Exception("Mapa de tamaño incorrecto");
-                }
+            for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
 
-                //Ancho
-                for (int k = 0; k < line.length(); k++) {
-                    if (!" ".equals(line.charAt(k) + "")) {
-                        tempMap.level[k][j] = convertToGameObject((line.charAt(k) + "").toUpperCase(), new Vector2(k, j));
+                if (i == 9) {
+
+                } else {
+
+                    if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
+                        System.out.println("Big Oof");
+                        throw new Exception("Mapa de tamaño incorrecto");
                     }
+
+                    //Ancho
+                    for (int j = 0; j < line.length(); j++) {
+                        if (!" ".equals(line.charAt(j) + "")) {
+                            mapLayers[0].level[j][i] = convertToGameObject((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
+                            if (mapLayers[0].level[j][i] != null) {
+                                if (mapLayers[0].level[j][i].objectType == GameObjectType.PLAYER) {
+                                    if (!hasPlayer) {
+                                        hasPlayer = true;
+                                        ReferenceController.player = (PlayerEntity) mapLayers[0].level[j][i];
+                                        
+                                    } else {
+                                        mapLayers[0].level[j][i] = null;
+                                    }
+
+                                }else if (mapLayers[0].level[j][i].objectType == GameObjectType.FLAG) {
+                                    hasFlag = true;
+                                }
+                            }
+
+                        }
+                    }
+                    line = br.readLine();
                 }
-                line = br.readLine();
             }
-            
-            System.out.println("arreglar esto");
-            //maps.add(tempMap);
+
+            //descartar espaciado
+            line = br.readLine();
+            mapLayers[1] = new MapLayer();
+
+            //Leer background
+            //Alto
+            for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
+
+                if (i == 9) {
+
+                } else {
+
+                    if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
+                        System.out.println("Big Oof");
+                        throw new Exception("Mapa de tamaño incorrecto");
+                    }
+
+                    //Ancho
+                    for (int j = 0; j < line.length(); j++) {
+                        if (!" ".equals(line.charAt(j) + "")) {
+                            mapLayers[1].level[j][i] = convertToBackground((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
+                        }
+                    }
+                    line = br.readLine();
+                }
+            }
+            //AÑADIR mapa
+            if (hasPlayer && hasFlag) {
+                Map tempMap = new Map(mapLayers[1], mapLayers[0]);
+                maps.add(tempMap);
+            }
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,6 +141,19 @@ public class MapReader {
                 return new GameObject(pos, GameObjectType.FLAG, 1);
             case "L":
                 return new GameObject(pos, GameObjectType.LOCK, 1);
+            case "W":
+                return new GameObject(pos, GameObjectType.WALL, 1);
+            default:
+                return null;
+        }
+    }
+
+    private GameObject convertToBackground(String in, Vector2 pos) {
+
+        switch (in) {
+            case "1":
+                System.out.println("terminar");
+                return new Entity(pos, GameObjectType.TILE);
             default:
                 return null;
         }

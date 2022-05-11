@@ -22,6 +22,7 @@ public class Main {
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
         ReferenceController.mapReader = new MapReader();
+        
         ReferenceController.keyHandler = new KeyHandler();
         ReferenceController.gameFrame = new GameFrame();
         ReferenceController.mapController = new MapController();
