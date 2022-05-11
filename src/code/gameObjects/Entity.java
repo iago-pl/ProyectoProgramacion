@@ -17,7 +17,7 @@ public class Entity extends GameObject {
 
         Vector2 newPosition = new Vector2(pos.x + position.x, pos.y + position.y);
 
-        if (newPosition.x < 0 || newPosition.x >= ReferenceController.gameFrame.TILE_SCREEN_SIZE.x || newPosition.y < 0 || newPosition.y >= ReferenceController.gameFrame.TILE_SCREEN_SIZE.y) {
+        if (newPosition.x < 0 || newPosition.x >= ReferenceController.gameFrame.TILE_SCREEN_SIZE.x || newPosition.y < 0 || newPosition.y >= ReferenceController.gameFrame.TILE_SCREEN_SIZE.y - 1) {
             return false;
         }
 
