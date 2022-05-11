@@ -33,7 +33,7 @@ public class MapReader {
         System.out.println("añadir mapas por defecto");
 
         files = dir.listFiles();
-        
+
         Arrays.sort(files);
 
         for (int i = 0; i < files.length; i++) {

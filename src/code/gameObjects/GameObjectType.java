@@ -18,7 +18,7 @@ public enum GameObjectType {
     KEY("key/key"),
     LOCK("lock/lock"),
     WALL("wall/wall"),
-    TILE("tile/tile"),
+    TILE("tiles/tile/tile"),
     LETTA("characters/letters/a/a"),
     LETTD("characters/letters/d/d"),
     LETTE("characters/letters/e/e"),
