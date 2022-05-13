@@ -32,7 +32,6 @@ public class PlayerEntity extends Entity {
                 changePosition(newPosition);
                 ReferenceController.audioController.play(2);
                 ReferenceController.mapController.loadMap();
-                ReferenceController.mapController.clearSnapshots();
                 return true;
             default:
                 return false;

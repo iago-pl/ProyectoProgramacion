@@ -23,10 +23,6 @@ public class MapController {
     public MapController() {
         loading = true;
         loadMap();
-        MapLayer temp = new MapLayer(currentMap.playground);
-
-        snapShots.add(temp);
-
     }
 
     public boolean isLoading() {
@@ -36,6 +32,7 @@ public class MapController {
     public void loadMap() {
         //cargar mapa
         loading = true;
+        snapShots.clear();
         currentMap = ReferenceController.mapReader.maps.get(0);
 
         for (int i = 0; i < currentMap.playground.level.length; i++) {
@@ -54,19 +51,9 @@ public class MapController {
         if (ReferenceController.infoController != null) {
             ReferenceController.infoController.level++;
         }
+        MapLayer temp = new MapLayer(currentMap.playground);
+        snapShots.add(temp);
 
-        /*PlayerEntity player = new PlayerEntity(new Vector2(0, 0));
-        currentMap.playground.level[0][0] = player;
-        ReferenceController.player = player;
-        playerLastPos = player.position;
-
-        currentMap.playground.level[5][5] = new KeyEntity(new Vector2(5, 5));
-        currentMap.playground.level[6][6] = new Entity(new Vector2(6, 6), GameObjectType.BOX);
-        currentMap.playground.level[7][7] = new GameObject(new Vector2(7, 7), GameObjectType.LOCK, 1);
-        currentMap.playground.level[8][8] = new GameObject(new Vector2(8, 8), GameObjectType.FLAG, 1);
-        //
-
-        snapShots.add(new MapLayer(currentMap.playground));*/
         loading = false;
     }
 
@@ -96,9 +83,5 @@ public class MapController {
                 }
             }
         }
-    }
-
-    public void clearSnapshots() {
-        snapShots.clear();
     }
 }
