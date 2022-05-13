@@ -10,7 +10,7 @@ import code.transform.Vector2;
 public class PlayerEntity extends Entity {
     
     public PlayerEntity(Vector2 position) {
-        super(position, GameObjectType.PLAYER);
+        super(position, GameObjectSprite.PLAYER);
         sep = 1;
     }
     

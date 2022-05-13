@@ -10,7 +10,7 @@ import code.transform.Vector2;
 public class KeyEntity extends Entity {
 
     public KeyEntity(Vector2 position) {
-        super(position, GameObjectType.KEY);
+        super(position, GameObjectSprite.KEY);
         sep = 1;
     }
 

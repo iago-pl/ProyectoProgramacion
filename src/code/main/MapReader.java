@@ -2,7 +2,7 @@ package code.main;
 
 import code.gameObjects.Entity;
 import code.gameObjects.GameObject;
-import code.gameObjects.GameObjectType;
+import code.gameObjects.GameObjectSprite;
 import code.gameObjects.KeyEntity;
 import code.gameObjects.PlayerEntity;
 import code.transform.Vector2;
@@ -73,14 +73,14 @@ public class MapReader {
                         if (!" ".equals(line.charAt(j) + "")) {
                             mapLayers[0].level[j][i] = convertToGameObject((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
                             if (mapLayers[0].level[j][i] != null) {
-                                if (mapLayers[0].level[j][i].objectType == GameObjectType.PLAYER) {
+                                if (mapLayers[0].level[j][i].objectType == GameObjectSprite.PLAYER) {
                                     if (!hasPlayer) {
                                         hasPlayer = true;
                                     } else {
                                         mapLayers[0].level[j][i] = null;
                                     }
 
-                                } else if (mapLayers[0].level[j][i].objectType == GameObjectType.FLAG) {
+                                } else if (mapLayers[0].level[j][i].objectType == GameObjectSprite.FLAG) {
                                     hasFlag = true;
                                 }
                             }
@@ -138,13 +138,13 @@ public class MapReader {
             case "K":
                 return new KeyEntity(pos);
             case "B":
-                return new Entity(pos, GameObjectType.BOX);
+                return new Entity(pos, GameObjectSprite.BOX);
             case "F":
-                return new GameObject(pos, GameObjectType.FLAG, 1);
+                return new GameObject(pos, GameObjectSprite.FLAG, 1);
             case "L":
-                return new GameObject(pos, GameObjectType.LOCK, 1);
+                return new GameObject(pos, GameObjectSprite.LOCK, 1);
             case "W":
-                return new GameObject(pos, GameObjectType.WALL, 1);
+                return new GameObject(pos, GameObjectSprite.WALL, 1);
             default:
                 return null;
         }
@@ -154,17 +154,17 @@ public class MapReader {
 
         switch (in) {
             case "T":
-                return new Entity(pos, GameObjectType.TILE);
+                return new Entity(pos, GameObjectSprite.TILE);
             case "W":
-                return new Entity(pos, GameObjectType.TILEW);
+                return new Entity(pos, GameObjectSprite.TILEW);
             case "A":
-                return new Entity(pos, GameObjectType.TILEA);
+                return new Entity(pos, GameObjectSprite.TILEA);
             case "S":
-                return new Entity(pos, GameObjectType.TILES);
+                return new Entity(pos, GameObjectSprite.TILES);
             case "D":
-                return new Entity(pos, GameObjectType.TILED);
+                return new Entity(pos, GameObjectSprite.TILED);
             case "R":
-                return new Entity(pos, GameObjectType.TILER);
+                return new Entity(pos, GameObjectSprite.TILER);
             default:
                 return null;
         }

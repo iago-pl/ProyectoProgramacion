@@ -9,7 +9,7 @@ import code.transform.Vector2;
  */
 public class Entity extends GameObject {
 
-    public Entity(Vector2 position, GameObjectType objectType) {
+    public Entity(Vector2 position, GameObjectSprite objectType) {
         super(position, objectType, 1);
     }
 

@@ -15,10 +15,10 @@ public class GameObject {
     public BufferedImage[] sprites;
     public static int frame = 0;
     public static final int MAX_FRAME = 3;
-    public GameObjectType objectType;
+    public GameObjectSprite objectType;
     public int sep;
 
-    public GameObject(Vector2 position, GameObjectType objectType, int sep) {
+    public GameObject(Vector2 position, GameObjectSprite objectType, int sep) {
         this.objectType = objectType;
         this.position = position;
         this.sprites = objectType.sprites;

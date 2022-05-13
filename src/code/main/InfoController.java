@@ -1,7 +1,7 @@
 package code.main;
 
 import code.gameObjects.GameObject;
-import code.gameObjects.GameObjectType;
+import code.gameObjects.GameObjectSprite;
 import code.transform.Vector2;
 
 /**
@@ -23,10 +23,10 @@ public class InfoController {
 
     private void loadInfo() {
 
-        infoBar[0] = new GameObject(new Vector2(0, yPos), GameObjectType.LETTL, 0);
-        infoBar[1] = new GameObject(new Vector2(1, yPos), GameObjectType.LETTV, 0);
-        infoBar[2] = new GameObject(new Vector2(2, yPos), GameObjectType.LETTL, 0);
-        infoBar[3] = new GameObject(new Vector2(3, yPos), GameObjectType.LETTSEP, 0);
+        infoBar[0] = new GameObject(new Vector2(0, yPos), GameObjectSprite.LETTL, 0);
+        infoBar[1] = new GameObject(new Vector2(1, yPos), GameObjectSprite.LETTV, 0);
+        infoBar[2] = new GameObject(new Vector2(2, yPos), GameObjectSprite.LETTL, 0);
+        infoBar[3] = new GameObject(new Vector2(3, yPos), GameObjectSprite.LETTSEP, 0);
         updateInfo();
     }
 
@@ -71,28 +71,28 @@ public class InfoController {
 
     }
 
-    private GameObjectType getNumObject(int num) {
+    private GameObjectSprite getNumObject(int num) {
         switch (num) {
             case 0:
-                return GameObjectType.NUM0;
+                return GameObjectSprite.NUM0;
             case 1:
-                return GameObjectType.NUM1;
+                return GameObjectSprite.NUM1;
             case 2:
-                return GameObjectType.NUM2;
+                return GameObjectSprite.NUM2;
             case 3:
-                return GameObjectType.NUM3;
+                return GameObjectSprite.NUM3;
             case 4:
-                return GameObjectType.NUM4;
+                return GameObjectSprite.NUM4;
             case 5:
-                return GameObjectType.NUM5;
+                return GameObjectSprite.NUM5;
             case 6:
-                return GameObjectType.NUM6;
+                return GameObjectSprite.NUM6;
             case 7:
-                return GameObjectType.NUM7;
+                return GameObjectSprite.NUM7;
             case 8:
-                return GameObjectType.NUM8;
+                return GameObjectSprite.NUM8;
             case 9:
-                return GameObjectType.NUM9;
+                return GameObjectSprite.NUM9;
             default:
                 return null;
         }

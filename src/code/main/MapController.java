@@ -1,6 +1,6 @@
 package code.main;
 
-import code.gameObjects.GameObjectType;
+import code.gameObjects.GameObjectSprite;
 import code.gameObjects.PlayerEntity;
 import code.transform.Vector2;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class MapController {
         for (int i = 0; i < currentMap.playground.level.length; i++) {
             for (int j = 0; j < currentMap.playground.level[0].length; j++) {
                 if (currentMap.playground.level[i][j] != null) {
-                    if (currentMap.playground.level[i][j].objectType == GameObjectType.PLAYER) {
+                    if (currentMap.playground.level[i][j].objectType == GameObjectSprite.PLAYER) {
                         ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
                         playerLastPos = ReferenceController.player.position;
 

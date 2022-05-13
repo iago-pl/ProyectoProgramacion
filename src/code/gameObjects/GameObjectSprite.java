@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
  *
  * @author a21rebecanf
  */
-public enum GameObjectType {
+public enum GameObjectSprite {
 
     //holi
     PLAYER("player/player"),
@@ -43,7 +43,7 @@ public enum GameObjectType {
     NUM8("/characters/numbers/8/8"),
     NUM9("/characters/numbers/9/9");
 
-    GameObjectType(String path) {
+    GameObjectSprite(String path) {
 
         getSprites(path);
 
