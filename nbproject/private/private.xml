@@ -12,18 +12,13 @@
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/GameObjectType.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/MapReader.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/gameObjects/KeyEntity.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/gameObjects/GameObjectType.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/MapController.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/Main.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/resources/maps/nivel1.txt</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/gameObjects/Entity.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/gameObjects/PlayerEntity.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/KeyHandler.java</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/resources/maps/nivel3.txt</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/resources/maps/nivel2.txt</file>
-            <file>file:/C:/Users/a21rebecanf/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/InfoController.java</file>
+            <file>file:/C:/Users/test/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/Map.java</file>
+            <file>file:/C:/Users/test/Documents/NetBeansProjects/ProyectoProgramacion/src/code/gameObjects/GameObject.java</file>
+            <file>file:/C:/Users/test/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/AudioController.java</file>
+            <file>file:/C:/Users/test/Documents/NetBeansProjects/ProyectoProgramacion/src/code/gameObjects/Entity.java</file>
+            <file>file:/C:/Users/test/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/MapReader.java</file>
+            <file>file:/C:/Users/test/Documents/NetBeansProjects/ProyectoProgramacion/src/code/gameObjects/KeyEntity.java</file>
+            <file>file:/C:/Users/test/Documents/NetBeansProjects/ProyectoProgramacion/src/code/main/Main.java</file>
         </group>
     </open-files>
 </project-private>
