@@ -89,7 +89,7 @@ public class GameFrame extends JPanel implements Runnable {
 
         Graphics2D g2 = (Graphics2D) g;
         
-        g2.setColor(new Color(21, 21, 21));
+        g2.setColor(Color.WHITE);
         g2.fillRect(0, TILE_SIZE-2, SCREEN_SIZE.x, 2);
 
         for (int i = 0; i < ReferenceController.mapController.currentMap.playground.level.length; i++) {
