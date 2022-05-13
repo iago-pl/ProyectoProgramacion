@@ -1,4 +1,4 @@
-package code.temp;
+package code.main;
 
 import code.gameObjects.GameObject;
 
@@ -10,10 +10,10 @@ public class MapLayer {
 
     public GameObject[][] level = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
 
-    public MapLayer(){
-        
+    public MapLayer() {
+
     }
-    
+
     public MapLayer(MapLayer copy) {
 
         if (copy != null) {

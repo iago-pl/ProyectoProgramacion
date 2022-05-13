@@ -1,6 +1,6 @@
 package code.gameObjects;
 
-import code.temp.ReferenceController;
+import code.main.ReferenceController;
 import code.transform.Vector2;
 
 /**

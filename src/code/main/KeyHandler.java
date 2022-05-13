@@ -1,4 +1,4 @@
-package code.temp;
+package code.main;
 
 import code.transform.Vector2;
 import java.awt.event.KeyEvent;

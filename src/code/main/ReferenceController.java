@@ -1,4 +1,4 @@
-package code.temp;
+package code.main;
 
 import code.main.MapReader;
 import code.gameObjects.PlayerEntity;

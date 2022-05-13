@@ -1,4 +1,4 @@
-package code.temp;
+package code.main;
 
 import code.gameObjects.GameObjectType;
 import code.gameObjects.PlayerEntity;

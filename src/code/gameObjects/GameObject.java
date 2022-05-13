@@ -1,6 +1,6 @@
 package code.gameObjects;
 
-import code.temp.GameFrame;
+import code.main.GameFrame;
 import code.transform.Vector2;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
