@@ -153,8 +153,18 @@ public class MapReader {
     private GameObject convertToBackground(String in, Vector2 pos) {
 
         switch (in) {
-            case "1":
+            case "T":
                 return new Entity(pos, GameObjectType.TILE);
+            case "W":
+                return new Entity(pos, GameObjectType.TILEW);
+            case "A":
+                return new Entity(pos, GameObjectType.TILEA);
+            case "S":
+                return new Entity(pos, GameObjectType.TILES);
+            case "D":
+                return new Entity(pos, GameObjectType.TILED);
+            case "R":
+                return new Entity(pos, GameObjectType.TILER);
             default:
                 return null;
         }
