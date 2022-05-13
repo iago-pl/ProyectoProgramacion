@@ -1,4 +1,4 @@
-package code.main;
+package code.temp;
 
 import code.gameObjects.GameObject;
 import code.transform.Vector2;

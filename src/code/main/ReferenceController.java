@@ -1,5 +1,6 @@
-package code.main;
+package code.temp;
 
+import code.main.MapReader;
 import code.gameObjects.PlayerEntity;
 
 /**

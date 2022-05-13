@@ -1,5 +1,6 @@
-package code.main;
+package code.temp;
 
+import code.main.MapReader;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
