@@ -12,8 +12,11 @@
         </group>
         <group name="Ud8 A01">
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/Main.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/PlayerEntity.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/MapController.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/ReferenceController.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/resources/img/tiles/tilea/tile_a_1.png</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/MapReader.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/Entity.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/resources/maps/_tuto1.txt</file>
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/GameObjectType.java</file>
         </group>
     </open-files>

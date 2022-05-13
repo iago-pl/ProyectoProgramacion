@@ -1,5 +1,4 @@
 package code.main;
-import code.main.MapReader;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
