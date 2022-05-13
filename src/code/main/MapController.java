@@ -23,6 +23,10 @@ public class MapController {
     public MapController() {
         loading = true;
         loadMap();
+        MapLayer temp = new MapLayer(currentMap.playground);
+
+        snapShots.add(temp);
+
     }
 
     public boolean isLoading() {
@@ -75,6 +79,7 @@ public class MapController {
             snapShots.add(temp);
 
             playerLastPos = ReferenceController.player.position;
+
         }
     }
 
