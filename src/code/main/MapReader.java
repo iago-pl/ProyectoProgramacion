@@ -164,18 +164,30 @@ public class MapReader {
     private GameObject convertToBackground(String in, Vector2 pos) {
 
         switch (in) {
-            case "T":
-                return new Entity(pos, GameObjectSprite.TILE);
+            case ".":
+                return new GameObject(pos, GameObjectSprite.TILE, 1);
             case "W":
-                return new Entity(pos, GameObjectSprite.TILEW);
+                return new GameObject(pos, GameObjectSprite.TILEW, 1);
             case "A":
-                return new Entity(pos, GameObjectSprite.TILEA);
+                return new GameObject(pos, GameObjectSprite.TILEA, 1);
             case "S":
-                return new Entity(pos, GameObjectSprite.TILES);
+                return new GameObject(pos, GameObjectSprite.TILES, 1);
             case "D":
-                return new Entity(pos, GameObjectSprite.TILED);
+                return new GameObject(pos, GameObjectSprite.TILED, 1);
             case "R":
-                return new Entity(pos, GameObjectSprite.TILER);
+                return new GameObject(pos, GameObjectSprite.TILER, 1);
+            case "F":
+                return new GameObject(pos, GameObjectSprite.TILEF, 1);
+            case "M":
+                return new GameObject(pos, GameObjectSprite.TILEM, 1);
+            case "N":
+                return new GameObject(pos, GameObjectSprite.TILEN, 1);
+            case "O":
+                return new GameObject(pos, GameObjectSprite.TILEO, 1);
+            case "P":
+                return new GameObject(pos, GameObjectSprite.TILEP, 1);
+            case "U":
+                return new GameObject(pos, GameObjectSprite.TILEU, 1);
             default:
                 return null;
         }

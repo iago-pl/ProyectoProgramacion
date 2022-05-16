@@ -13,13 +13,10 @@
         </group>
         <group name="Ud8 A01">
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/Main.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/ReferenceController.java</file>
             <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/MapReader.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/resources/maps/nivel2.txt</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/resources/maps/nivel1.txt</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/resources/maps/nivel0.txt</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/Entity.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/GameObjectType.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/GameObjectSprite.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/DefaultMap.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/MapLayer.java</file>
         </group>
     </open-files>
 </project-private>

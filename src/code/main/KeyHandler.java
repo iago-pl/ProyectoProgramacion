@@ -26,6 +26,10 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        
+        if (ReferenceController.player == null) {
+            return;
+        }
 
         if (ReferenceController.mapController.isLoading() || !canPressR || !canPressW || !canPressS || !canPressA || !canPressD) {
             return;
