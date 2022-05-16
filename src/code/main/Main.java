@@ -27,6 +27,8 @@ public class Main {
         ReferenceController.mapController = new MapController();
         ReferenceController.infoController = new InfoController();
         ReferenceController.audioController = new AudioController();
+        
+        dbController test = new dbController();
 
         window.add(ReferenceController.gameFrame);
         window.pack();
