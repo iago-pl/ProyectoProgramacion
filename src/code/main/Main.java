@@ -18,7 +18,6 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("Match It");
 
-
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
         ReferenceController.mapReader = new MapReader();
@@ -29,7 +28,7 @@ public class Main {
         ReferenceController.infoController = new InfoController();
         ReferenceController.audioController = new AudioController();
         
-        dbController test = new dbController();
+        //dbController test = new dbController();
 
         window.add(ReferenceController.gameFrame);
         window.pack();
