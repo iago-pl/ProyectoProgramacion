@@ -18,9 +18,10 @@ import java.util.logging.Logger;
  */
 public class dbController {
 
-    String url = "jdbc:mysql://localhost:4550/match_it";
-    String user = "root";
-    String pass = "root";
+    private String url = "jdbc:mysql://localhost:4550/match_it";
+    private String url2 = "jdbc:mysql://localhost:4550/match_it";
+    private String user = "root";
+    private String pass = "root";
 
     public dbController() {
         connect();
@@ -29,7 +30,6 @@ public class dbController {
     }
 
     private void test() {
-        String mysqlUrl = "jdbc:mysql://localhost/peliculas";
         Connection mysqlCon = null;
         try {
             String driver = "com.mysql.jdbc.Driver";
@@ -41,7 +41,11 @@ public class dbController {
         Statement insertFilm = null;
         String insertString = "INSERT INTO match_it.niveles VALUES ('hola','adios')";
         try {
-            mysqlCon = DriverManager.getConnection(url, user, pass);
+            try {
+                mysqlCon = DriverManager.getConnection(url, user, pass);
+            } catch (Exception e) {
+                mysqlCon = DriverManager.getConnection(url2, user, pass);
+            }
             insertFilm = mysqlCon.createStatement();
             int inseridos = insertFilm.executeUpdate(insertString);
             System.out.println("Resultado: " + inseridos + " inserido");
