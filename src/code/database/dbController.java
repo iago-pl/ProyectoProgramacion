@@ -42,7 +42,7 @@ public class dbController {
         try {
             md5Digest = MessageDigest.getInstance("MD5");
             String checksum = getFileChecksum(md5Digest, file);
-            System.out.println(checksum.length());
+            System.out.println(checksum);
         } catch (NoSuchAlgorithmException | IOException ex) {
             Logger.getLogger(dbController.class.getName()).log(Level.SEVERE, null, ex);
         }
