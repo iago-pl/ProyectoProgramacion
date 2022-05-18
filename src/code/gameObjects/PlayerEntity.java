@@ -34,7 +34,9 @@ public class PlayerEntity extends Entity {
                 ReferenceController.mapController.loadMap();
                 return true;
             case MONSTER:
+                System.out.println("a");
                 ReferenceController.mapController.reloadMap();
+                return false;
             default:
                 return false;
         }

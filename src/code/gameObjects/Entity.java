@@ -44,6 +44,7 @@ public class Entity extends GameObject {
                 }
             case MONSTER:
                 clearBoth(newPosition);
+                return true;
             default:
                 return false;
         }
