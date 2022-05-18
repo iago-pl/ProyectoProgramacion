@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -156,6 +155,8 @@ public class MapReader {
                 return new GameObject(pos, GameObjectSprite.LOCK, 1);
             case "W":
                 return new GameObject(pos, GameObjectSprite.WALL, 1);
+            case "M":
+                return new GameObject(pos, GameObjectSprite.MONSTER, 1);
             default:
                 return null;
         }

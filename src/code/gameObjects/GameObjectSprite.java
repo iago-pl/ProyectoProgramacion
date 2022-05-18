@@ -18,6 +18,7 @@ public enum GameObjectSprite {
     KEY("key/key"),
     LOCK("lock/lock"),
     WALL("wall/wall"),
+    MONSTER("monster/monster"),
     TILE("tiles/tile/tile"),
     TILEW("tiles/tilew/tile_w"),
     TILEA("tiles/tilea/tile_a"),

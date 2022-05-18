@@ -29,8 +29,11 @@ public class KeyEntity extends Entity {
                     return false;
                 }
             case LOCK:
-                openLock(newPosition);
+                clearBoth(newPosition);
                 ReferenceController.audioController.play(3);
+                return true;
+            case MONSTER:
+                clearBoth(newPosition);
                 return true;
             default:
                 return false;
@@ -46,10 +49,6 @@ public class KeyEntity extends Entity {
         ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
     }
 
-    protected void openLock(Vector2 newPosition) {
-        Vector2 lastPosition = new Vector2(position.x, position.y);
-        ReferenceController.mapController.currentMap.playground.level[newPosition.x][newPosition.y] = null;
-        ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
-    }
+    
 
 }

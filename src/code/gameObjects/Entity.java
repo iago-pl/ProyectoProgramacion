@@ -42,6 +42,8 @@ public class Entity extends GameObject {
                 } else {
                     return false;
                 }
+            case MONSTER:
+                clearBoth(newPosition);
             default:
                 return false;
         }
@@ -52,6 +54,12 @@ public class Entity extends GameObject {
         Vector2 lastPosition = new Vector2(position.x, position.y);
         position = newPosition;
         ReferenceController.mapController.currentMap.playground.level[position.x][position.y] = this;
+        ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
+    }
+
+    protected void clearBoth(Vector2 newPosition) {
+        Vector2 lastPosition = new Vector2(position.x, position.y);
+        ReferenceController.mapController.currentMap.playground.level[newPosition.x][newPosition.y] = null;
         ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
     }
 

@@ -29,9 +29,8 @@ public class MapController {
         return loading;
     }
 
-    public void loadMap() {
-        //cargar mapa
-        loading = true;
+    private void load() {
+
         snapShots.clear();
         currentMap = ReferenceController.mapReader.maps.get(0);
 
@@ -46,15 +45,33 @@ public class MapController {
                 }
             }
         }
-        //borrar esto
-        ReferenceController.mapReader.maps.remove(0);
+
         if (ReferenceController.infoController != null) {
             ReferenceController.infoController.level++;
         }
+
         MapLayer temp = new MapLayer(currentMap.playground);
         snapShots.add(temp);
 
         loading = false;
+    }
+
+    public void loadMap() {
+        //cargar mapa
+        loading = true;
+
+        if (ReferenceController.infoController != null) {
+            ReferenceController.mapReader.maps.remove(0);
+        }
+
+        load();
+    }
+
+    public void reloadMap() {
+        //cargar mapa
+        loading = true;
+
+        load();
     }
 
     public void takeSnapshot() {

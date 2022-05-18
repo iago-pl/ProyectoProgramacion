@@ -2,7 +2,6 @@ package code.main;
 
 import code.gameObjects.GameObject;
 import code.gameObjects.GameObjectSprite;
-import code.gameObjects.PlayerEntity;
 import code.transform.Vector2;
 
 /**
