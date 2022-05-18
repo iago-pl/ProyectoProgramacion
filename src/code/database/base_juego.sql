@@ -3,7 +3,6 @@ CREATE DATABASE IF NOT EXISTS match_it;
 
 USE match_it;
 
-
 /*                     */
 
 DROP TABLE IF EXISTS jugadores;
@@ -40,4 +39,3 @@ CREATE TABLE IF NOT EXISTS niveles_jugadores(
 
 INSERT INTO `match_it`.`niveles` (`nombre_nivel`) VALUES ('nivel1');
 INSERT INTO `match_it`.`niveles` (`nombre_nivel`) VALUES ('nivel2');
-

@@ -12,11 +12,15 @@ import java.util.logging.Logger;
  */
 public class dbController {
 
-    public dbController() {
+    String url = "jdbc:mysql://localhost:4550/match_it";
+    String user = "root";
+    String pass = "root";
 
-        String url = "jdbc:mysql://localhost:4550/match_it";
-        String user = "root";
-        String pass = "root";
+    public dbController() {
+        connect();
+    }
+
+    private void connect() {
 
         try {
             Connection con = DriverManager.getConnection(url, user, pass);
