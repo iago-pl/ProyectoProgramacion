@@ -39,7 +39,7 @@ public class MapReader {
 
             for (int i = 0; i < files.length; i++) {
                 try {
-                    System.out.println("cargado " + files[i].getName());
+                    System.out.println("cargando " + files[i].getName());
                     loadMap(new BufferedReader(new FileReader(files[i])));
                 } catch (Exception ex) {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,10 +71,11 @@ public class MapReader {
                 } else {
 
                     if (line == null) {
+                        System.out.println("No se pudo cargar");
                         return;
                     }
                     if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
-                        System.out.println("Big Oof");
+                        System.out.println("No se pudo cargar");
                         return;
                     }
 
@@ -114,7 +115,7 @@ public class MapReader {
                 } else {
 
                     if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
-                        System.out.println("Big Oof");
+                        System.out.println("No se pudo cargar");
                         return;
                     }
 
@@ -131,6 +132,9 @@ public class MapReader {
             if (hasPlayer && hasFlag) {
                 Map tempMap = new Map(mapLayers[1], mapLayers[0]);
                 maps.add(tempMap);
+                System.out.println("Cargado correctamente");
+            } else {
+                System.out.println("No se pudo cargar");
             }
 
         } catch (FileNotFoundException ex) {

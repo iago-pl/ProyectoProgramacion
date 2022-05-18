@@ -14,7 +14,7 @@ public class dbController {
 
     public dbController() {
 
-        String url = "jdbc:mysql://localhost:3306/match_it";
+        String url = "jdbc:mysql://localhost:4550/match_it";
         String user = "root";
         String pass = "root";
 
