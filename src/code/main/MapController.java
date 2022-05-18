@@ -37,9 +37,17 @@ public class MapController {
         for (int i = 0; i < currentMap.playground.level.length; i++) {
             for (int j = 0; j < currentMap.playground.level[0].length; j++) {
                 if (currentMap.playground.level[i][j] != null) {
-                    if (currentMap.playground.level[i][j].objectType == GameObjectSprite.PLAYER) {
-                        ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
-                        playerLastPos = ReferenceController.player.position;
+
+                    switch (currentMap.playground.level[i][j].objectType) {
+                        case PLAYER:
+                            ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
+                            currentMap.playground.level[i][j].position = new Vector2(i, j);
+                            playerLastPos = ReferenceController.player.position;
+                            break;
+                        case BOX:
+                        case KEY:
+                            currentMap.playground.level[i][j].position = new Vector2(i, j);
+
                     }
                 }
             }
