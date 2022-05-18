@@ -1,6 +1,6 @@
 package code.database;
 
-import code.main.ReferenceController;
+import java.sql.Statement;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,6 +25,43 @@ public class dbController {
     public dbController() {
         connect();
         //getHash(ReferenceController.mapReader.files[0]);
+        test();
+    }
+
+    private void test() {
+        String mysqlUrl = "jdbc:mysql://localhost/peliculas";
+        Connection mysqlCon = null;
+        try {
+            String driver = "com.mysql.jdbc.Driver";
+            Class.forName(driver).newInstance();
+        } catch (Exception e) {
+            System.out.println("Failed to load MySQL driver.");
+            return;
+        }
+        Statement insertFilm = null;
+        String insertString = "INSERT INTO match_it.niveles VALUES ('hola','adios')";
+        try {
+            mysqlCon = DriverManager.getConnection(url, user, pass);
+            insertFilm = mysqlCon.createStatement();
+            int inseridos = insertFilm.executeUpdate(insertString);
+            System.out.println("Resultado: " + inseridos + " inserido");
+        } catch (SQLException e) {
+            while (e != null) { //bucle que trata a cadea de excepcións
+                System.err.println("SQLState: " + e.getSQLState());
+                System.err.println(" Code: " + e.getErrorCode());
+                System.err.println(" Message:");
+                System.err.println(e.getMessage());
+                e = e.getNextException();
+            }
+        } finally {
+            if (mysqlCon != null) {
+                try {
+                    mysqlCon.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     private void connect() {
