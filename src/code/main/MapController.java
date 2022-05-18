@@ -32,7 +32,7 @@ public class MapController {
     private void load() {
 
         snapShots.clear();
-        currentMap = ReferenceController.mapReader.maps.get(0);
+        currentMap = new Map(ReferenceController.mapReader.maps.get(0));
 
         for (int i = 0; i < currentMap.playground.level.length; i++) {
             for (int j = 0; j < currentMap.playground.level[0].length; j++) {
@@ -40,7 +40,6 @@ public class MapController {
                     if (currentMap.playground.level[i][j].objectType == GameObjectSprite.PLAYER) {
                         ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
                         playerLastPos = ReferenceController.player.position;
-
                     }
                 }
             }
