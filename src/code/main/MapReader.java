@@ -30,20 +30,27 @@ public class MapReader {
 
         File dir = new File(getClass().getResource("/resources/maps").getPath());
 
-        System.out.println("añadir mapas por defecto");
+        if (dir.listFiles().length == 0) {
+            maps.add(new DefaultMap());
+        } else {
 
-        files = dir.listFiles();
+            files = dir.listFiles();
+            Arrays.sort(files);
 
-        Arrays.sort(files);
+            for (int i = 0; i < files.length; i++) {
+                try {
+                    System.out.println("cargando " + files[i].getName());
+                    loadMap(new BufferedReader(new FileReader(files[i])));
+                } catch (Exception ex) {
+                    Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
 
-        for (int i = 0; i < files.length; i++) {
-            try {
-                System.out.println("cargado " + files[i].getName());
-                loadMap(new BufferedReader(new FileReader(files[i])));
-            } catch (Exception ex) {
-                Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
+            if (maps.isEmpty()) {
+                maps.add(new DefaultMap());
             }
         }
+
     }
 
     private void loadMap(BufferedReader br) throws Exception {
@@ -63,9 +70,13 @@ public class MapReader {
 
                 } else {
 
-                    if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
-                        System.out.println("Big Oof");
-                        throw new Exception("Mapa de tamaño incorrecto");
+                    if (line == null) {
+                        System.out.println("No se pudo cargar");
+                        return;
+                    }
+                    if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
+                        System.out.println("No se pudo cargar");
+                        return;
                     }
 
                     //Ancho
@@ -77,7 +88,7 @@ public class MapReader {
                                     if (!hasPlayer) {
                                         hasPlayer = true;
                                     } else {
-                                        mapLayers[0].level[j][i] = null;
+                                        return;
                                     }
 
                                 } else if (mapLayers[0].level[j][i].objectType == GameObjectSprite.FLAG) {
@@ -104,8 +115,8 @@ public class MapReader {
                 } else {
 
                     if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
-                        System.out.println("Big Oof");
-                        throw new Exception("Mapa de tamaño incorrecto");
+                        System.out.println("No se pudo cargar");
+                        return;
                     }
 
                     //Ancho
@@ -121,6 +132,9 @@ public class MapReader {
             if (hasPlayer && hasFlag) {
                 Map tempMap = new Map(mapLayers[1], mapLayers[0]);
                 maps.add(tempMap);
+                System.out.println("Cargado correctamente");
+            } else {
+                System.out.println("No se pudo cargar");
             }
 
         } catch (FileNotFoundException ex) {
@@ -145,6 +159,8 @@ public class MapReader {
                 return new GameObject(pos, GameObjectSprite.LOCK, 1);
             case "W":
                 return new GameObject(pos, GameObjectSprite.WALL, 1);
+            case "M":
+                return new GameObject(pos, GameObjectSprite.MONSTER, 1);
             default:
                 return null;
         }
@@ -153,18 +169,30 @@ public class MapReader {
     private GameObject convertToBackground(String in, Vector2 pos) {
 
         switch (in) {
-            case "T":
-                return new Entity(pos, GameObjectSprite.TILE);
+            case ".":
+                return new GameObject(pos, GameObjectSprite.TILE, 1);
             case "W":
-                return new Entity(pos, GameObjectSprite.TILEW);
+                return new GameObject(pos, GameObjectSprite.TILEW, 1);
             case "A":
-                return new Entity(pos, GameObjectSprite.TILEA);
+                return new GameObject(pos, GameObjectSprite.TILEA, 1);
             case "S":
-                return new Entity(pos, GameObjectSprite.TILES);
+                return new GameObject(pos, GameObjectSprite.TILES, 1);
             case "D":
-                return new Entity(pos, GameObjectSprite.TILED);
+                return new GameObject(pos, GameObjectSprite.TILED, 1);
             case "R":
-                return new Entity(pos, GameObjectSprite.TILER);
+                return new GameObject(pos, GameObjectSprite.TILER, 1);
+            case "F":
+                return new GameObject(pos, GameObjectSprite.TILEF, 1);
+            case "M":
+                return new GameObject(pos, GameObjectSprite.TILEM, 1);
+            case "N":
+                return new GameObject(pos, GameObjectSprite.TILEN, 1);
+            case "O":
+                return new GameObject(pos, GameObjectSprite.TILEO, 1);
+            case "P":
+                return new GameObject(pos, GameObjectSprite.TILEP, 1);
+            case "U":
+                return new GameObject(pos, GameObjectSprite.TILEU, 1);
             default:
                 return null;
         }

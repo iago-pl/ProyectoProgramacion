@@ -12,4 +12,9 @@ public class Map {
         this.background = background;
         this.playground = playground;
     }
+    
+    public Map(Map temp){
+        background = new MapLayer(temp.background);
+        playground = new MapLayer(temp.playground);
+    }
 }

@@ -29,32 +29,56 @@ public class MapController {
         return loading;
     }
 
-    public void loadMap() {
-        //cargar mapa
-        loading = true;
+    private void load() {
+
         snapShots.clear();
-        currentMap = ReferenceController.mapReader.maps.get(0);
+        currentMap = new Map(ReferenceController.mapReader.maps.get(0));
 
         for (int i = 0; i < currentMap.playground.level.length; i++) {
             for (int j = 0; j < currentMap.playground.level[0].length; j++) {
                 if (currentMap.playground.level[i][j] != null) {
-                    if (currentMap.playground.level[i][j].objectType == GameObjectSprite.PLAYER) {
-                        ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
-                        playerLastPos = ReferenceController.player.position;
+
+                    switch (currentMap.playground.level[i][j].objectType) {
+                        case PLAYER:
+                            ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
+                            currentMap.playground.level[i][j].position = new Vector2(i, j);
+                            playerLastPos = ReferenceController.player.position;
+                            break;
+                        case BOX:
+                        case KEY:
+                            currentMap.playground.level[i][j].position = new Vector2(i, j);
 
                     }
                 }
             }
         }
-        //borrar esto
-        ReferenceController.mapReader.maps.remove(0);
+
         if (ReferenceController.infoController != null) {
             ReferenceController.infoController.level++;
         }
+
         MapLayer temp = new MapLayer(currentMap.playground);
         snapShots.add(temp);
 
         loading = false;
+    }
+
+    public void loadMap() {
+        //cargar mapa
+        loading = true;
+
+        if (ReferenceController.infoController != null) {
+            ReferenceController.mapReader.maps.remove(0);
+        }
+
+        load();
+    }
+
+    public void reloadMap() {
+        //cargar mapa
+        loading = true;
+
+        load();
     }
 
     public void takeSnapshot() {

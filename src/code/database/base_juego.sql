@@ -1,8 +1,7 @@
-DROP DATABASE IF EXISTS MATCH_IT;
-CREATE DATABASE IF NOT EXISTS MATCH_IT;
+DROP DATABASE IF EXISTS match_it;
+CREATE DATABASE IF NOT EXISTS match_it;
 
-USE MATCH_IT;
-
+USE match_it;
 
 /*                     */
 
@@ -17,7 +16,7 @@ CREATE TABLE IF NOT EXISTS jugadores(
 
 DROP TABLE IF EXISTS niveles;
 CREATE TABLE IF NOT EXISTS niveles(
-	id_nivel int unsigned auto_increment not null,
+	id_nivel varchar(32) not null,
     nombre_nivel varchar(8) not null,
     primary key (id_nivel)
 
@@ -26,7 +25,7 @@ CREATE TABLE IF NOT EXISTS niveles(
 DROP TABLE IF EXISTS niveles_jugadores;
 CREATE TABLE IF NOT EXISTS niveles_jugadores(
 	id_jugador int unsigned not null,
-    id_nivel int unsigned not null,
+    id_nivel varchar(32) not null,
     numero_pasos int unsigned not null,
     primary key (id_jugador,id_nivel),
 	foreign key (id_jugador) references jugadores(id_jugador)
@@ -37,7 +36,3 @@ CREATE TABLE IF NOT EXISTS niveles_jugadores(
     on update cascade
     
 );
-
-INSERT INTO `match_it`.`niveles` (`nombre_nivel`) VALUES ('nivel1');
-INSERT INTO `match_it`.`niveles` (`nombre_nivel`) VALUES ('nivel2');
-
