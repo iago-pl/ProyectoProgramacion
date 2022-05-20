@@ -1,11 +1,6 @@
 package code.database;
 
 import java.sql.Statement;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,19 +20,27 @@ public class DbController {
     private final String pass = "root";
     private Connection mysqlCon = null;
 
-    public ArrayList<String> hashList;
+    public ArrayList<String> hashList = new ArrayList<>();
 
     public DbController() {
         connect();
         //getHash(ReferenceController.mapReader.files[0]);
-        insert("INSERT INTO match_it.niveles VALUES ('hoala','adios')");
+        //insert("INSERT INTO match_it.niveles () VALUES ('hoala','adios')");
+    }
+
+    public void test() {
+        for (int i = 0; i < hashList.size(); i++) {
+            insertLevel(hashList.get(i));
+        }
     }
 
     private void insertLevel(String code) {
         Statement insert;
         try {
             insert = mysqlCon.createStatement();
-            int inseridos = insert.executeUpdate(code);
+            System.out.println(code);
+            System.out.println("INSERT INTO match_it (codigo_nivel) VALUES (" + code + ")");
+            int inseridos = insert.executeUpdate("INSERT INTO niveles (codigo_nivel) VALUES ('" + code + "')");
             System.out.println("Resultado: " + inseridos + " inserido");
         } catch (SQLException e) {
             while (e != null) { //bucle que trata a cadea de excepcións
@@ -50,7 +53,7 @@ public class DbController {
         } finally {
             if (mysqlCon != null) {
                 try {
-                    mysqlCon.close();
+                    //mysqlCon.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -39,19 +39,18 @@ public class MapReader {
 
             files = dir.listFiles();
             Arrays.sort(files);
-            
-            
 
             for (File file : files) {
                 try {
                     System.out.println("cargando " + file.getName());
                     loadMap(new BufferedReader(new FileReader(file)));
-                    System.out.println("arreglar esto");
+                    System.out.println("arreglar");
                     ReferenceController.dbController.hashList.add(Hasher.getHash(file));
-                }catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            ReferenceController.dbController.test();
 
             if (maps.isEmpty()) {
                 maps.add(new DefaultMap());
