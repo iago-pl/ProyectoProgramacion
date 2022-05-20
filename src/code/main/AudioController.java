@@ -36,6 +36,18 @@ public class AudioController {
         sounds[7] = getClass().getResource("/resources/aud/key_break.wav");
         sounds[8] = getClass().getResource("/resources/aud/die.wav");
         sounds[9] = getClass().getResource("/resources/aud/enemy.wav");
+
+        for (int i = 0; i < sounds.length; i++) {
+
+            AudioInputStream temp;
+            try {
+                temp = AudioSystem.getAudioInputStream(sounds[i]);
+                clip = AudioSystem.getClip();
+                clip.open(temp);
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     public void play(int soundIndex) {
@@ -45,10 +57,10 @@ public class AudioController {
         }
 
         try {
+            clip.start();
             AudioInputStream temp = AudioSystem.getAudioInputStream(sounds[soundIndex]);
             clip = AudioSystem.getClip();
             clip.open(temp);
-            clip.start();
         } catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
             Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
         }
