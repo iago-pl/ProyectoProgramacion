@@ -1,5 +1,5 @@
 
-package code.main;
+package code.Map;
 /**
  *
  * @author a21iagopl

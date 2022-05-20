@@ -68,7 +68,10 @@ public class InfoController {
 
     public void increaseSteps() {
         steps++;
+    }
 
+    public void increaseLevel() {
+        level++;
     }
 
     private GameObjectSprite getNumObject(int num) {

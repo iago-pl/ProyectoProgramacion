@@ -1,7 +1,7 @@
-package code.main;
+package code.Map;
 
-import code.gameObjects.GameObjectSprite;
 import code.gameObjects.PlayerEntity;
+import code.main.ReferenceController;
 import code.transform.Vector2;
 import java.util.ArrayList;
 
@@ -54,7 +54,7 @@ public class MapController {
         }
 
         if (ReferenceController.infoController != null) {
-            ReferenceController.infoController.level++;
+            ReferenceController.infoController.increaseLevel();
         }
 
         MapLayer temp = new MapLayer(currentMap.playground);

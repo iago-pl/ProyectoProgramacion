@@ -18,36 +18,23 @@ import java.util.logging.Logger;
  */
 public class dbController {
 
-    private String url = "jdbc:mysql://localhost:4550/match_it";
-    private String url2 = "jdbc:mysql://localhost:4550/match_it";
-    private String user = "root";
-    private String pass = "root";
+    private final String url = "jdbc:mysql://localhost:4550/match_it";
+    private final String url2 = "jdbc:mysql://localhost:3306/match_it";
+    private final String user = "root";
+    private final String pass = "root";
+    private Connection mysqlCon = null;
 
     public dbController() {
         connect();
         //getHash(ReferenceController.mapReader.files[0]);
-        test();
+        insert("INSERT INTO match_it.niveles VALUES ('hoala','adios')");
     }
 
-    private void test() {
-        Connection mysqlCon = null;
+    private void insert(String code) {
+        Statement insert;
         try {
-            String driver = "com.mysql.jdbc.Driver";
-            Class.forName(driver).newInstance();
-        } catch (Exception e) {
-            System.out.println("Failed to load MySQL driver.");
-            return;
-        }
-        Statement insertFilm = null;
-        String insertString = "INSERT INTO match_it.niveles VALUES ('hola','adios')";
-        try {
-            try {
-                mysqlCon = DriverManager.getConnection(url, user, pass);
-            } catch (Exception e) {
-                mysqlCon = DriverManager.getConnection(url2, user, pass);
-            }
-            insertFilm = mysqlCon.createStatement();
-            int inseridos = insertFilm.executeUpdate(insertString);
+            insert = mysqlCon.createStatement();
+            int inseridos = insert.executeUpdate(code);
             System.out.println("Resultado: " + inseridos + " inserido");
         } catch (SQLException e) {
             while (e != null) { //bucle que trata a cadea de excepcións
@@ -65,15 +52,6 @@ public class dbController {
                     e.printStackTrace();
                 }
             }
-        }
-    }
-
-    private void connect() {
-
-        try {
-            Connection con = DriverManager.getConnection(url, user, pass);
-        } catch (SQLException ex) {
-            Logger.getLogger(dbController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -117,5 +95,18 @@ public class dbController {
 
         //return complete hash
         return sb.toString();
+    }
+
+    private void connect() {
+
+        try {
+            mysqlCon = DriverManager.getConnection(url, user, pass);
+        } catch (Exception e) {
+            try {
+                mysqlCon = DriverManager.getConnection(url2, user, pass);
+            } catch (SQLException ex) {
+                Logger.getLogger(dbController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 package code.main;
 
+import code.Map.MapController;
+import code.Map.MapReader;
 import code.gameObjects.PlayerEntity;
 
 /**

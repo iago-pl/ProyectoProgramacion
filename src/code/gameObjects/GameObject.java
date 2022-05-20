@@ -1,7 +1,6 @@
 package code.gameObjects;
 
 import code.main.GameFrame;
-import code.main.ReferenceController;
 import code.transform.Vector2;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;

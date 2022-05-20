@@ -1,4 +1,6 @@
 package code.main;
+import code.Map.MapController;
+import code.Map.MapReader;
 import code.database.dbController;
 import java.awt.Toolkit;
 import javax.swing.JFrame;

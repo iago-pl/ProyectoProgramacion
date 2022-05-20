@@ -1,6 +1,7 @@
-package code.main;
+package code.Map;
 
 import code.gameObjects.GameObject;
+import code.main.GameFrame;
 
 /**
  *

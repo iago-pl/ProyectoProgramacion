@@ -1,5 +1,7 @@
 package code.main;
 
+import code.Map.Map;
+import code.Map.MapLayer;
 import code.gameObjects.GameObject;
 import code.gameObjects.GameObjectSprite;
 import code.transform.Vector2;
