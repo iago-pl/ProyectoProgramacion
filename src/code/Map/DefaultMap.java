@@ -1,4 +1,4 @@
-package code.main;
+package code.Map;
 
 import code.Map.Map;
 import code.Map.MapLayer;

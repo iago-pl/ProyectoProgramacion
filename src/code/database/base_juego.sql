@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS niveles(
 DROP TABLE IF EXISTS niveles_jugadores;
 CREATE TABLE IF NOT EXISTS niveles_jugadores(
 	id_jugador int unsigned not null,
-    id_nivel varchar(32) not null,
+    id_nivel int unsigned not null,
     numero_pasos int unsigned not null,
     primary key (id_jugador,id_nivel),
 	foreign key (id_jugador) references jugadores(id_jugador)

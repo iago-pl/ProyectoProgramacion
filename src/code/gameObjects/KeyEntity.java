@@ -56,6 +56,4 @@ public class KeyEntity extends Entity {
         ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
     }
 
-    
-
 }

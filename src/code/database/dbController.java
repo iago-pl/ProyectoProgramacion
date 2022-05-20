@@ -30,6 +30,31 @@ public class dbController {
         insert("INSERT INTO match_it.niveles VALUES ('hoala','adios')");
     }
 
+    private void insertLevel(String code) {
+        Statement insert;
+        try {
+            insert = mysqlCon.createStatement();
+            int inseridos = insert.executeUpdate(code);
+            System.out.println("Resultado: " + inseridos + " inserido");
+        } catch (SQLException e) {
+            while (e != null) { //bucle que trata a cadea de excepcións
+                System.err.println("SQLState: " + e.getSQLState());
+                System.err.println(" Code: " + e.getErrorCode());
+                System.err.println(" Message:");
+                System.err.println(e.getMessage());
+                e = e.getNextException();
+            }
+        } finally {
+            if (mysqlCon != null) {
+                try {
+                    mysqlCon.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     private void insert(String code) {
         Statement insert;
         try {

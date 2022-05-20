@@ -37,14 +37,13 @@ public class AudioController {
         sounds[8] = getClass().getResource("/resources/aud/die.wav");
         sounds[9] = getClass().getResource("/resources/aud/enemy.wav");
 
-        for (int i = 0; i < sounds.length; i++) {
-
+        for (URL sound : sounds) {
             AudioInputStream temp;
             try {
-                temp = AudioSystem.getAudioInputStream(sounds[i]);
+                temp = AudioSystem.getAudioInputStream(sound);
                 clip = AudioSystem.getClip();
                 clip.open(temp);
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            }catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
                 Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

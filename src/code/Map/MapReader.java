@@ -5,7 +5,6 @@ import code.gameObjects.GameObject;
 import code.gameObjects.GameObjectSprite;
 import code.gameObjects.KeyEntity;
 import code.gameObjects.PlayerEntity;
-import code.main.DefaultMap;
 import code.main.GameFrame;
 import code.transform.Vector2;
 import java.io.BufferedReader;
