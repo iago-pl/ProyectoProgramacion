@@ -2,6 +2,7 @@ package code.main;
 
 import code.Map.MapController;
 import code.Map.MapReader;
+import code.database.DbController;
 import code.gameObjects.PlayerEntity;
 
 /**
@@ -17,4 +18,5 @@ public class ReferenceController {
     public static InfoController infoController;
     public static AudioController audioController;
     public static MapReader mapReader;
+    public static DbController DbController;
 }

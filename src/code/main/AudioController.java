@@ -18,7 +18,7 @@ public class AudioController {
 
     Clip clip;
     //private final AudioInputStream[] sounds = new AudioInputStream[4];
-    private final URL[] sounds = new URL[10];
+    private final URL[] sounds = new URL[6];
 
     public AudioController() {
         loadAudio();
@@ -32,10 +32,6 @@ public class AudioController {
         sounds[3] = getClass().getResource("/resources/aud/lock.wav");
         sounds[4] = getClass().getResource("/resources/aud/move_box.wav");
         sounds[5] = getClass().getResource("/resources/aud/move_key.wav");
-        sounds[6] = getClass().getResource("/resources/aud/box_break.wav");
-        sounds[7] = getClass().getResource("/resources/aud/key_break.wav");
-        sounds[8] = getClass().getResource("/resources/aud/die.wav");
-        sounds[9] = getClass().getResource("/resources/aud/enemy.wav");
 
         for (URL sound : sounds) {
             AudioInputStream temp;

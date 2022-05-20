@@ -1,5 +1,6 @@
 package code.Map;
 
+import code.database.DbController;
 import code.gameObjects.Entity;
 import code.gameObjects.GameObject;
 import code.gameObjects.GameObjectSprite;
@@ -46,7 +47,7 @@ public class MapReader {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
+            
             if (maps.isEmpty()) {
                 maps.add(new DefaultMap());
             }

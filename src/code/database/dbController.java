@@ -16,15 +16,17 @@ import java.util.logging.Logger;
  *
  * @author a21iagopl
  */
-public class dbController {
+public class DbController {
 
     private final String url = "jdbc:mysql://localhost:4550/match_it";
     private final String url2 = "jdbc:mysql://localhost:3306/match_it";
     private final String user = "root";
     private final String pass = "root";
     private Connection mysqlCon = null;
+    
+    public String[] hashList;
 
-    public dbController() {
+    public DbController() {
         connect();
         //getHash(ReferenceController.mapReader.files[0]);
         insert("INSERT INTO match_it.niveles VALUES ('hoala','adios')");
@@ -88,7 +90,7 @@ public class dbController {
             String checksum = getFileChecksum(md5Digest, file);
             System.out.println(checksum);
         } catch (NoSuchAlgorithmException | IOException ex) {
-            Logger.getLogger(dbController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -130,7 +132,7 @@ public class dbController {
             try {
                 mysqlCon = DriverManager.getConnection(url2, user, pass);
             } catch (SQLException ex) {
-                Logger.getLogger(dbController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

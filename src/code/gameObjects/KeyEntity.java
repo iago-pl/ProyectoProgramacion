@@ -34,8 +34,6 @@ public class KeyEntity extends Entity {
                 ReferenceController.audioController.play(3);
                 return true;
             case MONSTER:
-                ReferenceController.audioController.play(7);
-                ReferenceController.audioController.play(9);
                 clearBoth(newPosition);
                 return true;
             default:

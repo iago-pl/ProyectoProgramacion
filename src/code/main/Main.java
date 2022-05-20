@@ -1,7 +1,7 @@
 package code.main;
 import code.Map.MapController;
 import code.Map.MapReader;
-import code.database.dbController;
+import code.database.DbController;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
@@ -30,7 +30,7 @@ public class Main {
         ReferenceController.infoController = new InfoController();
         ReferenceController.audioController = new AudioController();
         
-        dbController test = new dbController();
+        DbController test = new DbController();
 
         window.add(ReferenceController.gameFrame);
         window.pack();

@@ -35,7 +35,6 @@ public class PlayerEntity extends Entity {
                 ReferenceController.mapController.loadMap();
                 return true;
             case MONSTER:
-                ReferenceController.audioController.play(8);
                 ReferenceController.mapController.reloadMap();
                 return false;
             default:
