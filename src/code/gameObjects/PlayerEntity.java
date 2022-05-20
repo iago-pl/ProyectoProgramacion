@@ -30,6 +30,7 @@ public class PlayerEntity extends Entity {
                 }
             case FLAG:
                 changePosition(newPosition);
+                playMoveSound();
                 ReferenceController.audioController.play(2);
                 ReferenceController.mapController.loadMap();
                 return true;
@@ -43,8 +44,12 @@ public class PlayerEntity extends Entity {
     }
 
     @Override
-    protected void changePosition(Vector2 newPosition) {
+    protected void playMoveSound() {
         ReferenceController.audioController.play(0);
+    }
+
+    @Override
+    protected void changePosition(Vector2 newPosition) {
         Vector2 lastPosition = new Vector2(position.x, position.y);
         position = newPosition;
         ReferenceController.mapController.currentMap.playground.level[position.x][position.y] = this;

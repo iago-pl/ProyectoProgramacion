@@ -1,6 +1,7 @@
 package code.gameObjects;
 
 import code.main.GameFrame;
+import code.main.ReferenceController;
 import code.transform.Vector2;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -37,6 +38,10 @@ public class GameObject {
             frame = 0;
         }
 
+    }
+
+    public void setPosition(Vector2 newPosition) {
+        position = newPosition;
     }
 
 }

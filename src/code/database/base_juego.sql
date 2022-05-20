@@ -7,7 +7,7 @@ USE match_it;
 
 DROP TABLE IF EXISTS jugadores;
 CREATE TABLE IF NOT EXISTS jugadores(
-	id_jugador int unsigned auto_increment not null,
+    id_jugador int unsigned auto_increment not null,
     nombre varchar(8) not null, 
     numero_pasos_total int unsigned null,
     primary key (id_jugador)
@@ -16,9 +16,10 @@ CREATE TABLE IF NOT EXISTS jugadores(
 
 DROP TABLE IF EXISTS niveles;
 CREATE TABLE IF NOT EXISTS niveles(
-	id_nivel varchar(32) not null,
-    nombre_nivel varchar(8) not null,
-    primary key (id_nivel)
+    id_nivel int unsigned auto_increment not null,
+    codigo_nivel varchar(32) not null,
+    primary key (id_nivel),
+    unique index ak_codigo_nivel(codigo_nivel)
 
 );
 

@@ -41,12 +41,12 @@ public class MapController {
                     switch (currentMap.playground.level[i][j].objectType) {
                         case PLAYER:
                             ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
-                            currentMap.playground.level[i][j].position = new Vector2(i, j);
+                            currentMap.playground.level[i][j].setPosition(new Vector2(i, j));
                             playerLastPos = ReferenceController.player.position;
                             break;
                         case BOX:
                         case KEY:
-                            currentMap.playground.level[i][j].position = new Vector2(i, j);
+                            currentMap.playground.level[i][j].setPosition(new Vector2(i, j));
 
                     }
                 }
@@ -102,7 +102,8 @@ public class MapController {
             for (int i = 0; i < currentMap.playground.level.length; i++) {
                 for (int j = 0; j < currentMap.playground.level[0].length; j++) {
                     if (currentMap.playground.level[i][j] != null) {
-                        currentMap.playground.level[i][j].position = new Vector2(i, j);
+
+                        currentMap.playground.level[i][j].setPosition(new Vector2(i, j));
                     }
                 }
             }
