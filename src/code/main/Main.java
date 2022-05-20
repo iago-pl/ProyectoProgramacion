@@ -1,4 +1,5 @@
 package code.main;
+
 import code.Map.MapController;
 import code.Map.MapReader;
 import code.database.DbController;
@@ -14,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(System.getProperty("user.name"));
         System.out.println(System.getenv("APPDATA"));
-        
+
         JFrame window = new JFrame();
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,15 +23,14 @@ public class Main {
 
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
+        ReferenceController.dbController = new DbController();
         ReferenceController.mapReader = new MapReader();
-        
+
         ReferenceController.keyHandler = new KeyHandler();
         ReferenceController.gameFrame = new GameFrame();
         ReferenceController.mapController = new MapController();
         ReferenceController.infoController = new InfoController();
         ReferenceController.audioController = new AudioController();
-        
-        DbController test = new DbController();
 
         window.add(ReferenceController.gameFrame);
         window.pack();

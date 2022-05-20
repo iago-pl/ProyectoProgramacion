@@ -1,12 +1,13 @@
 package code.Map;
 
-import code.database.DbController;
 import code.gameObjects.Entity;
 import code.gameObjects.GameObject;
 import code.gameObjects.GameObjectSprite;
+import code.gameObjects.Hasher;
 import code.gameObjects.KeyEntity;
 import code.gameObjects.PlayerEntity;
 import code.main.GameFrame;
+import code.main.ReferenceController;
 import code.transform.Vector2;
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,16 +39,20 @@ public class MapReader {
 
             files = dir.listFiles();
             Arrays.sort(files);
+            
+            
 
-            for (int i = 0; i < files.length; i++) {
+            for (File file : files) {
                 try {
-                    System.out.println("cargando " + files[i].getName());
-                    loadMap(new BufferedReader(new FileReader(files[i])));
-                } catch (Exception ex) {
+                    System.out.println("cargando " + file.getName());
+                    loadMap(new BufferedReader(new FileReader(file)));
+                    System.out.println("arreglar esto");
+                    ReferenceController.dbController.hashList.add(Hasher.getHash(file));
+                }catch (Exception ex) {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
+
             if (maps.isEmpty()) {
                 maps.add(new DefaultMap());
             }
@@ -68,17 +73,13 @@ public class MapReader {
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
 
-                if (i == 9) {
-
-                } else {
+                if (i != 9) {
 
                     if (line == null) {
-                        System.out.println("No se pudo cargar");
-                        return;
+                        throw new Exception();
                     }
                     if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
-                        System.out.println("No se pudo cargar");
-                        return;
+                        throw new Exception();
                     }
 
                     //Ancho
@@ -112,13 +113,10 @@ public class MapReader {
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
 
-                if (i == 9) {
-
-                } else {
+                if (i != 9) {
 
                     if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
-                        System.out.println("No se pudo cargar");
-                        return;
+                        throw new Exception();
                     }
 
                     //Ancho
@@ -136,7 +134,7 @@ public class MapReader {
                 maps.add(tempMap);
                 System.out.println("Cargado correctamente");
             } else {
-                System.out.println("No se pudo cargar");
+                throw new Exception();
             }
 
         } catch (FileNotFoundException ex) {

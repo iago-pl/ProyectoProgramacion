@@ -18,5 +18,5 @@ public class ReferenceController {
     public static InfoController infoController;
     public static AudioController audioController;
     public static MapReader mapReader;
-    public static DbController DbController;
+    public static DbController dbController;
 }
