@@ -42,8 +42,8 @@ public class MapReader {
 
             for (File file : files) {
                 try {
-                    System.out.println("cargando " + file.getName());
                     loadMap(new BufferedReader(new FileReader(file)));
+                    System.out.println(file.getName() + " cargado correctamente");
                     ReferenceController.dbController.hashList.add(Hasher.getHash(file));
                 } catch (Exception ex) {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,7 +127,6 @@ public class MapReader {
             if (hasPlayer && hasFlag) {
                 Map tempMap = new Map(mapLayers[1], mapLayers[0]);
                 maps.add(tempMap);
-                System.out.println("Cargado correctamente");
             } else {
                 throw new Exception();
             }
