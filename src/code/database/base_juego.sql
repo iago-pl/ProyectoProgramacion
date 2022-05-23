@@ -6,12 +6,12 @@ USE match_it;
 /*                     */
 
 DROP TABLE IF EXISTS jugadores;
-CREATE TABLE IF NOT EXISTS jugadores(
-    id_jugador int unsigned auto_increment not null,
-    nombre varchar(8) not null, 
-    numero_pasos_total int unsigned null,
-    primary key (id_jugador),
-    unique index ak_nombre(nombre)
+CREATE TABLE IF NOT EXISTS jugadores (
+    id_jugador INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(8) NOT NULL,
+    numero_pasos_total INT UNSIGNED NULL,
+    PRIMARY KEY (id_jugador),
+    UNIQUE INDEX ak_nombre (nombre)
 );
 
 
@@ -25,17 +25,17 @@ CREATE TABLE IF NOT EXISTS niveles(
 );
 
 DROP TABLE IF EXISTS niveles_jugadores;
-CREATE TABLE IF NOT EXISTS niveles_jugadores(
-	id_jugador int unsigned not null,
-    id_nivel int unsigned not null,
-    numero_pasos int unsigned not null,
-    primary key (id_jugador,id_nivel),
-	foreign key (id_jugador) references jugadores(id_jugador)
-		on delete cascade
-		on update cascade,
-    foreign key (id_nivel) references niveles(id_nivel)
-		on delete cascade
-		on update cascade
+CREATE TABLE IF NOT EXISTS niveles_jugadores (
+    id_jugador INT UNSIGNED NOT NULL,
+    id_nivel INT UNSIGNED NOT NULL,
+    numero_pasos INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_jugador , id_nivel),
+    FOREIGN KEY (id_jugador)
+        REFERENCES jugadores (id_jugador)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_nivel)
+        REFERENCES niveles (id_nivel)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
