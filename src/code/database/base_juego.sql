@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS niveles_jugadores (
     id_jugador INT UNSIGNED NOT NULL,
     id_nivel INT UNSIGNED NOT NULL,
     numero_pasos INT UNSIGNED NOT NULL,
+    fecha_completado datetime not null,
     PRIMARY KEY (id_jugador , id_nivel),
     FOREIGN KEY (id_jugador)
         REFERENCES jugadores (id_jugador)
@@ -114,10 +115,10 @@ BEGIN
 			if pasos < pasos_actuales and pasos > 0
 				then
 					delete from niveles_jugadores where id_jugador = id_jugador_in and id_nivel = id_nivel_in;
-					INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (id_jugador_in, id_nivel_in, pasos);					
+					INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos, fecha_completado) VALUES (id_jugador_in, id_nivel_in, pasos, current_timestamp());					
 			END IF;
 		else	
-			INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (id_jugador_in, id_nivel_in, pasos);
+			INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos, fecha_completado) VALUES (id_jugador_in, id_nivel_in, pasos, current_timestamp());	
 	END IF;
     
     
