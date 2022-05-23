@@ -16,6 +16,8 @@ public class KeyHandler implements KeyListener {
 
     private int frame = 0;
 
+    private final int updateRate = 3;
+
     @Override
     public void keyPressed(KeyEvent e) {
 
@@ -23,11 +25,11 @@ public class KeyHandler implements KeyListener {
             return;
         }
 
-        if (frame >= 60) {
+        if (frame >= updateRate) {
             frame = 0;
         }
 
-        if (frame % 3 == 0 || frame == 0) {
+        if (frame % updateRate == 0 || frame == 0) {
 
             int key = e.getKeyCode();
 
