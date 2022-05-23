@@ -12,8 +12,13 @@ public class InfoController {
 
     GameObject[] infoBar = new GameObject[GameFrame.TILE_SCREEN_SIZE.x];
 
-    int level;
-    int steps;
+    private int level;
+    private int steps;
+    private int stepsCurrentLevel;
+
+    public int getStepsCurrentLevel() {
+        return stepsCurrentLevel;
+    }
 
     private final int yPos = 0;
 
@@ -68,10 +73,15 @@ public class InfoController {
 
     public void increaseSteps() {
         steps++;
+        stepsCurrentLevel++;
     }
 
     public void increaseLevel() {
         level++;
+    }
+
+    public void resetCurrentStepCount() {
+        stepsCurrentLevel = 0;
     }
 
     private GameObjectSprite getNumObject(int num) {
@@ -99,6 +109,14 @@ public class InfoController {
             default:
                 return null;
         }
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getSteps() {
+        return steps;
     }
 
 }

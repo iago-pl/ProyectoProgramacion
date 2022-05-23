@@ -19,18 +19,44 @@ public class DbController {
     private final String user = "root";
     private final String pass = "root";
     private Connection mysqlCon = null;
+    private String playerName = "";
 
     public ArrayList<String> hashList = new ArrayList<>();
 
     public DbController(String name) {
         connect();
 
-        String tempName = "";
         for (int i = 0; i < 8; i++) {
-            tempName += name.charAt(i);
+            playerName += name.charAt(i);
         }
-        insertPlayer(tempName);
+        
+        insertPlayer(playerName);
 
+        if (mysqlCon != null) {
+            try {
+                mysqlCon.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void insertLevelCompleted(String levelHash, int steps) {
+        connect();
+        Statement insert;
+        try {
+            insert = mysqlCon.createStatement();
+            int codeInsert = insert.executeUpdate("call introducir_nivel_completado('" + playerName + "','" + levelHash + "','" + steps + "')");
+            System.out.println("Resultado: " + codeInsert + " inserido");
+        } catch (SQLException e) {
+            while (e != null) { //bucle que trata a cadea de excepcións
+                System.err.println("SQLState: " + e.getSQLState());
+                System.err.println(" Code: " + e.getErrorCode());
+                System.err.println(" Message:");
+                System.err.println(e.getMessage());
+                e = e.getNextException();
+            }
+        }
         if (mysqlCon != null) {
             try {
                 mysqlCon.close();

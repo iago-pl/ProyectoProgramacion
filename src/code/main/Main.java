@@ -14,7 +14,6 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println(System.getenv("APPDATA"));
-        System.out.println(System.getProperty("user.name"));
 
         JFrame window = new JFrame();
         window.setResizable(false);

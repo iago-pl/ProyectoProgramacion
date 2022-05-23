@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS jugadores(
     id_jugador int unsigned auto_increment not null,
     nombre varchar(8) not null, 
     numero_pasos_total int unsigned null,
-    primary key (id_jugador)
+    primary key (id_jugador),
+    unique index ak_nombre(nombre)
 );
 
 
@@ -66,5 +67,40 @@ BEGIN
 		END;  
         
     INSERT INTO jugadores (nombre) VALUES (nombre);
+    
+END$$
+
+DROP PROCEDURE IF EXISTS introducir_nivel_completado$$
+CREATE PROCEDURE introducir_nivel_completado (in nombre_in varchar(8), in codigo varchar(32), in pasos int)
+MODIFIES SQL DATA
+BEGIN
+	DECLARE MENSAJE VARCHAR(128);
+    declare id_jugador int unsigned;
+    declare id_nivel int unsigned;
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
+		BEGIN
+			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t', nombre_in,'\n'); 
+				SELECT MENSAJE;
+		END;
+        
+	select id_jugador from jugadores where nombre = nombre_in;
+	select id_nivel from niveles where codigo_nivel = codigo;
+    
+    INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (id_jugador, id_nivel, pasos);
+    
+END$$
+
+DROP PROCEDURE IF EXISTS actualizar_pasos$$
+CREATE PROCEDURE actualizar_pasos (in nombre varchar(8), in codigo varchar(32), in pasos int)
+MODIFIES SQL DATA
+BEGIN
+	DECLARE MENSAJE VARCHAR(128);
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
+		BEGIN
+			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t', nombre,'\n'); 
+				SELECT MENSAJE;
+		END;
+	
+    INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (nombre, codigo, pasos);
     
 END$$
