@@ -75,18 +75,20 @@ CREATE PROCEDURE introducir_nivel_completado (in nombre_in varchar(8), in codigo
 MODIFIES SQL DATA
 BEGIN
 	DECLARE MENSAJE VARCHAR(128);
-    declare id_jugador int unsigned;
-    declare id_nivel int unsigned;
+    declare id_jugador_in int unsigned;
+    declare id_nivel_in int unsigned;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
 		BEGIN
 			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t', nombre_in,'\n'); 
 				SELECT MENSAJE;
 		END;
         
-	select id_jugador from jugadores where nombre = nombre_in;
-	select id_nivel from niveles where codigo_nivel = codigo;
+	select id_jugador into id_jugador_in
+    from jugadores where nombre = nombre_in;
+	select id_nivel into id_nivel_in
+    from niveles where codigo_nivel = codigo;
     
-    INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (id_jugador, id_nivel, pasos);
+    INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (id_jugador_in, id_nivel_in, pasos);
     
 END$$
 

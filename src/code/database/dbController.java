@@ -29,7 +29,7 @@ public class DbController {
         for (int i = 0; i < 8; i++) {
             playerName += name.charAt(i);
         }
-        
+
         insertPlayer(playerName);
 
         if (mysqlCon != null) {
@@ -49,7 +49,7 @@ public class DbController {
             int codeInsert = insert.executeUpdate("call introducir_nivel_completado('" + playerName + "','" + levelHash + "','" + steps + "')");
             System.out.println("Resultado: " + codeInsert + " inserido");
         } catch (SQLException e) {
-            while (e != null) { //bucle que trata a cadea de excepcións
+            while (e != null) {
                 System.err.println("SQLState: " + e.getSQLState());
                 System.err.println(" Code: " + e.getErrorCode());
                 System.err.println(" Message:");

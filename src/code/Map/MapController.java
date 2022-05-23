@@ -70,7 +70,7 @@ public class MapController {
         load();
         
         if (ReferenceController.infoController != null) {
-            ReferenceController.dbController.insertLevelCompleted(ReferenceController.dbController.hashList.get(ReferenceController.infoController.getLevel()), ReferenceController.infoController.getStepsCurrentLevel());
+            ReferenceController.dbController.insertLevelCompleted(ReferenceController.dbController.hashList.get(ReferenceController.infoController.getLevel()), ReferenceController.infoController.getStepsCurrentLevel() + 1);
             System.out.println("añadir numero pasos al total en bd");
             ReferenceController.infoController.increaseLevel();
             ReferenceController.infoController.resetCurrentStepCount();
