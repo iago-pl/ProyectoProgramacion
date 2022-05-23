@@ -45,28 +45,44 @@ CREATE PROCEDURE introducir_mapa (in codigo varchar(32))
 MODIFIES SQL DATA
 BEGIN
 	DECLARE MENSAJE VARCHAR(128);
+    declare id_nivel_in int unsigned;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
 		BEGIN
 			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t',codigo,'\n'); 
 				SELECT MENSAJE;
 		END;  
+	
+	select id_nivel into id_nivel_in
+    from niveles where codigo_nivel = codigo;
+    
+    if id_nivel_in is null
+		then
+			INSERT INTO niveles (codigo_nivel) VALUES (codigo);
+	END IF;
         
-    INSERT INTO niveles (codigo_nivel) VALUES (codigo);
     
 END$$
 
 DROP PROCEDURE IF EXISTS introducir_jugador$$
-CREATE PROCEDURE introducir_jugador (in nombre varchar(8))
+CREATE PROCEDURE introducir_jugador (in nombre_in varchar(8))
 MODIFIES SQL DATA
 BEGIN
 	DECLARE MENSAJE VARCHAR(128);
+    declare id_jugador_in int unsigned;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
 		BEGIN
-			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t', nombre,'\n'); 
+			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t', nombre_in,'\n'); 
 				SELECT MENSAJE;
-		END;  
+		END;
         
-    INSERT INTO jugadores (nombre, numero_pasos_total) VALUES (nombre, 0);
+	select id_jugador into id_jugador_in
+    from jugadores where nombre = nombre_in;
+    
+    if id_jugador_in is null
+		then
+			INSERT INTO jugadores (nombre, numero_pasos_total) VALUES (nombre_in, 0);
+	END IF;
+        
     
 END$$
 

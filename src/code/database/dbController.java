@@ -47,7 +47,7 @@ public class DbController {
         try {
             insert = mysqlCon.createStatement();
             int codeInsert = insert.executeUpdate("call introducir_nivel_completado('" + playerName + "','" + levelHash + "','" + steps + "')");
-            System.out.println("Resultado: " + codeInsert + " inserido");
+            System.out.println("Resultado: " + codeInsert + " insertado " + steps + " en el nivel " + levelHash);
         } catch (SQLException e) {
             while (e != null) {
                 System.err.println("SQLState: " + e.getSQLState());
@@ -85,7 +85,7 @@ public class DbController {
         try {
             insert = mysqlCon.createStatement();
             int codeInsert = insert.executeUpdate("call introducir_mapa('" + hashCode + "')");
-            System.out.println("Resultado: " + codeInsert + " inserido");
+            System.out.println("Resultado: " + codeInsert + " insertado nivel " + hashCode);
         } catch (SQLException e) {
             while (e != null) { //bucle que trata a cadea de excepcións
                 System.err.println("SQLState: " + e.getSQLState());
@@ -102,7 +102,7 @@ public class DbController {
         try {
             insert = mysqlCon.createStatement();
             int codeInsert = insert.executeUpdate("call introducir_jugador('" + nametag + "')");
-            System.out.println("Resultado: " + codeInsert + " inserido");
+            System.out.println("Resultado: " + codeInsert + " insertado nivel " + nametag);
         } catch (SQLException e) {
             while (e != null) { //bucle que trata a cadea de excepcións
                 System.err.println("SQLState: " + e.getSQLState());
