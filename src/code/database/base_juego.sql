@@ -66,7 +66,7 @@ BEGIN
 				SELECT MENSAJE;
 		END;  
         
-    INSERT INTO jugadores (nombre) VALUES (nombre);
+    INSERT INTO jugadores (nombre, numero_pasos_total) VALUES (nombre, 0);
     
 END$$
 
@@ -93,16 +93,23 @@ BEGIN
 END$$
 
 DROP PROCEDURE IF EXISTS actualizar_pasos$$
-CREATE PROCEDURE actualizar_pasos (in nombre varchar(8), in codigo varchar(32), in pasos int)
+CREATE PROCEDURE actualizar_pasos (in nombre varchar(8), in pasos int)
 MODIFIES SQL DATA
 BEGIN
 	DECLARE MENSAJE VARCHAR(128);
+    declare id_jugador_in int unsigned;
+    declare pasos_in int unsigned;
     DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
 		BEGIN
 			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t', nombre,'\n'); 
 				SELECT MENSAJE;
 		END;
-	
-    INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (nombre, codigo, pasos);
+        
+	select nombre;
+    select pasos;
+    
+    update empleados
+		set numero_pasos_total = numero_pasos_total + pasos_in
+    where nombre = nombre_in;
     
 END$$

@@ -80,6 +80,33 @@ public class DbController {
         }
     }
 
+    public void updateSteps(int steps) {
+        connect();
+        System.out.println("arreglar esto");
+        Statement insert;
+        try {
+            insert = mysqlCon.createStatement();
+            int codeInsert = insert.executeUpdate("call actualizar_pasos('" + playerName + "','" + steps + "')"
+            );
+            System.out.println("Resultado: " + codeInsert + " inserido");
+        } catch (SQLException e) {
+            while (e != null) { //bucle que trata a cadea de excepcións
+                System.err.println("SQLState: " + e.getSQLState());
+                System.err.println(" Code: " + e.getErrorCode());
+                System.err.println(" Message:");
+                System.err.println(e.getMessage());
+                e = e.getNextException();
+            }
+        }
+        if (mysqlCon != null) {
+            try {
+                mysqlCon.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private void insertLevel(String hashCode) {
         Statement insert;
         try {
