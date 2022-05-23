@@ -49,7 +49,7 @@ public class MapReader {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
+
             ReferenceController.dbController.insertAllLevels();
 
             if (maps.isEmpty()) {

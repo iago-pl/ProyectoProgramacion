@@ -46,7 +46,7 @@ public class Entity extends GameObject {
                 }
             case MONSTER:
                 ReferenceController.audioController.play(7);
-                 ReferenceController.audioController.play(9);
+                ReferenceController.audioController.play(9);
                 clearBoth(newPosition);
                 return true;
             default:

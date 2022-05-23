@@ -1,10 +1,11 @@
-
 package code.Map;
+
 /**
  *
  * @author a21iagopl
  */
 public class Map {
+
     public MapLayer background;
     public MapLayer playground;
 
@@ -12,8 +13,8 @@ public class Map {
         this.background = background;
         this.playground = playground;
     }
-    
-    public Map(Map temp){
+
+    public Map(Map temp) {
         background = new MapLayer(temp.background);
         playground = new MapLayer(temp.playground);
     }
