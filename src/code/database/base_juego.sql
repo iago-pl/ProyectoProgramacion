@@ -30,10 +30,41 @@ CREATE TABLE IF NOT EXISTS niveles_jugadores(
     numero_pasos int unsigned not null,
     primary key (id_jugador,id_nivel),
 	foreign key (id_jugador) references jugadores(id_jugador)
-    on delete cascade
-    on update cascade,
+		on delete cascade
+		on update cascade,
     foreign key (id_nivel) references niveles(id_nivel)
-    on delete cascade
-    on update cascade
-    
+		on delete cascade
+		on update cascade
 );
+
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS introducir_mapa$$
+CREATE PROCEDURE introducir_mapa (in codigo varchar(32))
+MODIFIES SQL DATA
+BEGIN
+	DECLARE MENSAJE VARCHAR(128);
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
+		BEGIN
+			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t',codigo,'\n'); 
+				SELECT MENSAJE;
+		END;  
+        
+    INSERT INTO niveles (codigo_nivel) VALUES (codigo);
+    
+END$$
+
+DROP PROCEDURE IF EXISTS introducir_jugador$$
+CREATE PROCEDURE introducir_jugador (in nombre varchar(8))
+MODIFIES SQL DATA
+BEGIN
+	DECLARE MENSAJE VARCHAR(128);
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION 
+		BEGIN
+			SET MENSAJE= CONCAT( ' ERROR AL  HACER LA INSERRCIÓN   DE: \t', nombre,'\n'); 
+				SELECT MENSAJE;
+		END;  
+        
+    INSERT INTO jugadores (nombre) VALUES (nombre);
+    
+END$$

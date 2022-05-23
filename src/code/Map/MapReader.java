@@ -44,13 +44,13 @@ public class MapReader {
                 try {
                     System.out.println("cargando " + file.getName());
                     loadMap(new BufferedReader(new FileReader(file)));
-                    System.out.println("arreglar");
                     ReferenceController.dbController.hashList.add(Hasher.getHash(file));
                 } catch (Exception ex) {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            ReferenceController.dbController.test();
+            
+            ReferenceController.dbController.insertAllLevels();
 
             if (maps.isEmpty()) {
                 maps.add(new DefaultMap());
@@ -88,7 +88,7 @@ public class MapReader {
                                 if (!hasPlayer) {
                                     hasPlayer = true;
                                 } else {
-                                    return;
+                                    throw new Exception();
                                 }
 
                             } else if (mapLayers[0].level[j][i].objectType == GameObjectSprite.FLAG) {

@@ -22,51 +22,44 @@ public class DbController {
 
     public ArrayList<String> hashList = new ArrayList<>();
 
-    public DbController() {
+    public DbController(String name) {
         connect();
-        //getHash(ReferenceController.mapReader.files[0]);
-        //insert("INSERT INTO match_it.niveles () VALUES ('hoala','adios')");
+
+        String tempName = "";
+        for (int i = 0; i < 8; i++) {
+            tempName += name.charAt(i);
+        }
+        insertPlayer(tempName);
+
+        if (mysqlCon != null) {
+            try {
+                mysqlCon.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public void test() {
+    public void insertAllLevels() {
+        connect();
         for (int i = 0; i < hashList.size(); i++) {
             insertLevel(hashList.get(i));
         }
-    }
-
-    private void insertLevel(String code) {
-        Statement insert;
-        try {
-            insert = mysqlCon.createStatement();
-            System.out.println(code);
-            System.out.println("INSERT INTO match_it (codigo_nivel) VALUES (" + code + ")");
-            int inseridos = insert.executeUpdate("INSERT INTO niveles (codigo_nivel) VALUES ('" + code + "')");
-            System.out.println("Resultado: " + inseridos + " inserido");
-        } catch (SQLException e) {
-            while (e != null) { //bucle que trata a cadea de excepcións
-                System.err.println("SQLState: " + e.getSQLState());
-                System.err.println(" Code: " + e.getErrorCode());
-                System.err.println(" Message:");
-                System.err.println(e.getMessage());
-                e = e.getNextException();
-            }
-        } finally {
-            if (mysqlCon != null) {
-                try {
-                    //mysqlCon.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if (mysqlCon != null) {
+            try {
+                mysqlCon.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    private void insert(String code) {
+    private void insertLevel(String hashCode) {
         Statement insert;
         try {
             insert = mysqlCon.createStatement();
-            int inseridos = insert.executeUpdate(code);
-            System.out.println("Resultado: " + inseridos + " inserido");
+            int codeInsert = insert.executeUpdate("call introducir_mapa('" + hashCode + "')");
+            System.out.println("Resultado: " + codeInsert + " inserido");
         } catch (SQLException e) {
             while (e != null) { //bucle que trata a cadea de excepcións
                 System.err.println("SQLState: " + e.getSQLState());
@@ -75,13 +68,22 @@ public class DbController {
                 System.err.println(e.getMessage());
                 e = e.getNextException();
             }
-        } finally {
-            if (mysqlCon != null) {
-                try {
-                    mysqlCon.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        }
+    }
+
+    private void insertPlayer(String nametag) {
+        Statement insert;
+        try {
+            insert = mysqlCon.createStatement();
+            int codeInsert = insert.executeUpdate("call introducir_jugador('" + nametag + "')");
+            System.out.println("Resultado: " + codeInsert + " inserido");
+        } catch (SQLException e) {
+            while (e != null) { //bucle que trata a cadea de excepcións
+                System.err.println("SQLState: " + e.getSQLState());
+                System.err.println(" Code: " + e.getErrorCode());
+                System.err.println(" Message:");
+                System.err.println(e.getMessage());
+                e = e.getNextException();
             }
         }
     }

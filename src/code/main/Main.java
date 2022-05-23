@@ -13,8 +13,8 @@ import javax.swing.JFrame;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(System.getProperty("user.name"));
         System.out.println(System.getenv("APPDATA"));
+        System.out.println(System.getProperty("user.name"));
 
         JFrame window = new JFrame();
         window.setResizable(false);
@@ -23,7 +23,8 @@ public class Main {
 
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
-        ReferenceController.dbController = new DbController();
+        ReferenceController.dbController = new DbController(System.getProperty("user.name"));
+
         ReferenceController.mapReader = new MapReader();
 
         ReferenceController.keyHandler = new KeyHandler();
