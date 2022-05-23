@@ -73,13 +73,13 @@ public class MapReader {
             //Leer playground
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
-                
+
                 if (line == null) {
-                    throw new WrongMapSizeException();
+                    throw new WrongMapSizeException("Only " + i + " lines found 19 required");
                 }
-                
+
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
-                    throw new WrongMapSizeException();
+                    throw new WrongMapSizeException(i+1);
                 }
 
                 //Ancho
@@ -91,7 +91,7 @@ public class MapReader {
                                 if (!hasPlayer) {
                                     hasPlayer = true;
                                 } else {
-                                    throw new MultiplePlayersException();
+                                    throw new MultiplePlayersException(new Vector2(j, i));
                                 }
 
                             } else if (mapLayers[0].getLevel()[j][i].getObjectType() == GameObjectSprite.FLAG) {
@@ -113,10 +113,10 @@ public class MapReader {
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
                 if (line == null) {
-                    throw new WrongMapSizeException();
+                    throw new WrongMapSizeException("Only " + (i + 10) + " lines found 19 required");
                 }
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
-                    throw new WrongMapSizeException();
+                    throw new WrongMapSizeException(i + 11);
                 }
 
                 //Ancho

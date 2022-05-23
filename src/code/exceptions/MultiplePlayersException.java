@@ -1,5 +1,7 @@
 package code.exceptions;
 
+import code.transform.Vector2;
+
 /**
  *
  * @author a21iagopl
@@ -10,8 +12,8 @@ public class MultiplePlayersException extends Exception {
      * Creates a new instance of <code>MultiplePlayersException</code> without
      * detail message.
      */
-    public MultiplePlayersException() {
+    public MultiplePlayersException(Vector2 temp) {
 
-        super("Multiple Players Found");
+        super("Multiple Player Found on x = " + temp.x + " and y = " + temp.y);
     }
 }

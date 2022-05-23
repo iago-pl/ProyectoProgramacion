@@ -7,6 +7,6 @@ package code.exceptions;
 public class NoMapEssentialsException extends Exception {
 
     public NoMapEssentialsException() {
-        super("No Map Essentials Exception");
+        super("No Player or Flag found");
     }
 }
