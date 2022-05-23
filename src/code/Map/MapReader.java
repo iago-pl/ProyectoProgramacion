@@ -1,11 +1,5 @@
 package code.Map;
-
-import code.gameObjects.Entity;
-import code.gameObjects.GameObject;
-import code.gameObjects.GameObjectSprite;
-import code.gameObjects.Hasher;
-import code.gameObjects.KeyEntity;
-import code.gameObjects.PlayerEntity;
+import code.gameObjects.*;
 import code.main.GameFrame;
 import code.main.ReferenceController;
 import code.transform.Vector2;
