@@ -67,12 +67,15 @@ public class MapReader {
 
             mapLayers[0] = new MapLayer();
 
+            if (line == null) {
+                throw new EmptyMapException();
+            }
             //Leer playground
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
-
+                
                 if (line == null) {
-                    throw new EmptyMapException();
+                    throw new WrongMapSizeException();
                 }
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
                     throw new WrongMapSizeException();
@@ -109,7 +112,7 @@ public class MapReader {
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
                 if (line == null) {
-                    throw new EmptyMapException();
+                    throw new WrongMapSizeException();
                 }
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
                     throw new WrongMapSizeException();
