@@ -77,6 +77,7 @@ public class MapReader {
                 if (line == null) {
                     throw new WrongMapSizeException();
                 }
+                
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
                     throw new WrongMapSizeException();
                 }
