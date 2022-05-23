@@ -80,7 +80,7 @@ BEGIN
     
     if id_jugador_in is null
 		then
-			INSERT INTO jugadores (nombre, numero_pasos_total) VALUES (nombre_in, 0);
+			INSERT INTO jugadores (nombre, numero_pasos_total) VALUES (nombre_in, 1);
 	END IF;
         
     
@@ -111,7 +111,7 @@ BEGIN
     
     if pasos_actuales is not null
 		then
-			if pasos < pasos_actuales
+			if pasos < pasos_actuales and pasos > 0
 				then
 					delete from niveles_jugadores where id_jugador = id_jugador_in and id_nivel = id_nivel_in;
 					INSERT INTO niveles_jugadores (id_jugador, id_nivel, numero_pasos) VALUES (id_jugador_in, id_nivel_in, pasos);					

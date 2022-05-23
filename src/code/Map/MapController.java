@@ -65,15 +65,12 @@ public class MapController {
 
         if (ReferenceController.infoController != null) {
             ReferenceController.mapReader.removeMap();
+            ReferenceController.dbController.insertLevelCompleted(ReferenceController.dbController.getHashList().get(ReferenceController.infoController.getLevel()), ReferenceController.infoController.getStepsCurrentLevel());
+            ReferenceController.infoController.resetCurrentStepCount();
+            ReferenceController.infoController.increaseLevel();
         }
 
         load();
-
-        if (ReferenceController.infoController != null) {
-            ReferenceController.dbController.insertLevelCompleted(ReferenceController.dbController.getHashList().get(ReferenceController.infoController.getLevel()), ReferenceController.infoController.getStepsCurrentLevel() + 1);
-            ReferenceController.infoController.increaseLevel();
-            ReferenceController.infoController.resetCurrentStepCount();
-        }
     }
 
     public void reloadMap() {
