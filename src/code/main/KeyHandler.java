@@ -25,8 +25,6 @@ public class KeyHandler implements KeyListener {
 
         if (frame % 3 == 0 || frame == 0) {
 
-            System.out.println(frame);
-
             int key = e.getKeyCode();
 
             switch (key) {
