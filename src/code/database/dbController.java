@@ -35,7 +35,7 @@ public class DbController {
         if (mysqlCon != null) {
             try {
                 mysqlCon.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -60,7 +60,7 @@ public class DbController {
         if (mysqlCon != null) {
             try {
                 mysqlCon.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -74,7 +74,7 @@ public class DbController {
         if (mysqlCon != null) {
             try {
                 mysqlCon.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -118,7 +118,7 @@ public class DbController {
 
         try {
             mysqlCon = DriverManager.getConnection(url, user, pass);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             try {
                 mysqlCon = DriverManager.getConnection(url2, user, pass);
             } catch (SQLException ex) {
