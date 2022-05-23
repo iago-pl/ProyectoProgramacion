@@ -23,6 +23,10 @@ public class KeyHandler implements KeyListener {
             return;
         }
 
+        if (frame >= 60) {
+            frame = 0;
+        }
+
         if (frame % 3 == 0 || frame == 0) {
 
             int key = e.getKeyCode();
@@ -31,7 +35,7 @@ public class KeyHandler implements KeyListener {
                 case KeyEvent.VK_R:
                     ReferenceController.mapController.loadSnapshot();
                     break;
-                    
+
                 case KeyEvent.VK_UP:
                 case KeyEvent.VK_W:
                     if (ReferenceController.player.move(new Vector2(0, -1))) {
@@ -40,7 +44,7 @@ public class KeyHandler implements KeyListener {
                     }
                     ReferenceController.mapController.takeSnapshot();
                     break;
-                    
+
                 case KeyEvent.VK_S:
 
                 case KeyEvent.VK_DOWN:
@@ -50,7 +54,7 @@ public class KeyHandler implements KeyListener {
                     }
                     ReferenceController.mapController.takeSnapshot();
                     break;
-                    
+
                 case KeyEvent.VK_A:
                 case KeyEvent.VK_LEFT:
                     if (ReferenceController.player.move(new Vector2(-1, 0))) {
@@ -59,7 +63,7 @@ public class KeyHandler implements KeyListener {
                     }
                     ReferenceController.mapController.takeSnapshot();
                     break;
-                    
+
                 case KeyEvent.VK_D:
                 case KeyEvent.VK_RIGHT:
                     if (ReferenceController.player.move(new Vector2(1, 0))) {
