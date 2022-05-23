@@ -1,5 +1,9 @@
 package code.Map;
 
+import code.exceptions.EmptyMapException;
+import code.exceptions.MultiplePlayersException;
+import code.exceptions.NoMapEssentialsException;
+import code.exceptions.WrongMapSizeException;
 import code.gameObjects.*;
 import code.main.GameFrame;
 import code.main.ReferenceController;
@@ -68,10 +72,10 @@ public class MapReader {
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
 
                 if (line == null) {
-                    throw new Exception();
+                    throw new EmptyMapException();
                 }
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
-                    throw new Exception();
+                    throw new WrongMapSizeException();
                 }
 
                 //Ancho
@@ -83,7 +87,7 @@ public class MapReader {
                                 if (!hasPlayer) {
                                     hasPlayer = true;
                                 } else {
-                                    throw new Exception();
+                                    throw new MultiplePlayersException();
                                 }
 
                             } else if (mapLayers[0].getLevel()[j][i].getObjectType() == GameObjectSprite.FLAG) {
@@ -104,9 +108,11 @@ public class MapReader {
             //Leer background
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
-
-                if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
-                    throw new Exception();
+                if (line == null) {
+                    throw new EmptyMapException();
+                }
+                if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
+                    throw new WrongMapSizeException();
                 }
 
                 //Ancho
@@ -123,7 +129,7 @@ public class MapReader {
                 Map tempMap = new Map(mapLayers[1], mapLayers[0]);
                 maps.add(tempMap);
             } else {
-                throw new Exception();
+                throw new NoMapEssentialsException();
             }
 
         } catch (FileNotFoundException ex) {
