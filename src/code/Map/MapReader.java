@@ -72,36 +72,34 @@ public class MapReader {
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
 
-                if (i != 9) {
-
-                    if (line == null) {
-                        throw new Exception();
-                    }
-                    if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
-                        throw new Exception();
-                    }
-
-                    //Ancho
-                    for (int j = 0; j < line.length(); j++) {
-                        if (!" ".equals(line.charAt(j) + "")) {
-                            mapLayers[0].level[j][i] = convertToGameObject((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
-                            if (mapLayers[0].level[j][i] != null) {
-                                if (mapLayers[0].level[j][i].objectType == GameObjectSprite.PLAYER) {
-                                    if (!hasPlayer) {
-                                        hasPlayer = true;
-                                    } else {
-                                        return;
-                                    }
-
-                                } else if (mapLayers[0].level[j][i].objectType == GameObjectSprite.FLAG) {
-                                    hasFlag = true;
-                                }
-                            }
-
-                        }
-                    }
-                    line = br.readLine();
+                if (line == null) {
+                    throw new Exception();
                 }
+                if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
+                    throw new Exception();
+                }
+
+                //Ancho
+                for (int j = 0; j < line.length(); j++) {
+                    if (!" ".equals(line.charAt(j) + "")) {
+                        mapLayers[0].level[j][i] = convertToGameObject((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
+                        if (mapLayers[0].level[j][i] != null) {
+                            if (mapLayers[0].level[j][i].objectType == GameObjectSprite.PLAYER) {
+                                if (!hasPlayer) {
+                                    hasPlayer = true;
+                                } else {
+                                    return;
+                                }
+
+                            } else if (mapLayers[0].level[j][i].objectType == GameObjectSprite.FLAG) {
+                                hasFlag = true;
+                            }
+                        }
+
+                    }
+                }
+                line = br.readLine();
+
             }
 
             //descartar espaciado
@@ -112,20 +110,18 @@ public class MapReader {
             //Alto
             for (int i = 0; i < (GameFrame.TILE_SCREEN_SIZE.y - 1); i++) {
 
-                if (i != 9) {
-
-                    if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
-                        throw new Exception();
-                    }
-
-                    //Ancho
-                    for (int j = 0; j < line.length(); j++) {
-                        if (!" ".equals(line.charAt(j) + "")) {
-                            mapLayers[1].level[j][i] = convertToBackground((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
-                        }
-                    }
-                    line = br.readLine();
+                if (line.length() != GameFrame.TILE_SCREEN_SIZE.x || line == null) {
+                    throw new Exception();
                 }
+
+                //Ancho
+                for (int j = 0; j < line.length(); j++) {
+                    if (!" ".equals(line.charAt(j) + "")) {
+                        mapLayers[1].level[j][i] = convertToBackground((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
+                    }
+                }
+                line = br.readLine();
+
             }
             //AÑADIR mapa
             if (hasPlayer && hasFlag) {
