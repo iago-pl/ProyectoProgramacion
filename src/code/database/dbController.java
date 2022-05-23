@@ -1,5 +1,7 @@
 package code.database;
 
+import code.gameObjects.Hasher;
+import java.io.File;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +23,11 @@ public class DbController {
     private Connection mysqlCon = null;
     private String playerName = "";
 
-    public ArrayList<String> hashList = new ArrayList<>();
+    private ArrayList<String> hashList = new ArrayList<>();
+
+    public void addHash(String hash) {
+        getHashList().add(hash);
+    }
 
     public DbController(String name) {
         connect();
@@ -68,8 +74,8 @@ public class DbController {
 
     public void insertAllLevels() {
         connect();
-        for (int i = 0; i < hashList.size(); i++) {
-            insertLevel(hashList.get(i));
+        for (int i = 0; i < getHashList().size(); i++) {
+            insertLevel(getHashList().get(i));
         }
         if (mysqlCon != null) {
             try {
@@ -125,5 +131,12 @@ public class DbController {
                 Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    /**
+     * @return the hashList
+     */
+    public ArrayList<String> getHashList() {
+        return hashList;
     }
 }

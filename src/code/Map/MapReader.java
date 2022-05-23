@@ -39,7 +39,7 @@ public class MapReader {
                 try {
                     loadMap(new BufferedReader(new FileReader(file)));
                     System.out.println(file.getName() + " cargado correctamente");
-                    ReferenceController.dbController.hashList.add(Hasher.getHash(file));
+                    ReferenceController.dbController.addHash(Hasher.getHash(file));
                 } catch (Exception ex) {
                     Logger.getLogger(MapReader.class.getName()).log(Level.SEVERE, null, ex);
                 }

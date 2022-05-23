@@ -70,7 +70,7 @@ public class MapController {
         load();
 
         if (ReferenceController.infoController != null) {
-            ReferenceController.dbController.insertLevelCompleted(ReferenceController.dbController.hashList.get(ReferenceController.infoController.getLevel()), ReferenceController.infoController.getStepsCurrentLevel() + 1);
+            ReferenceController.dbController.insertLevelCompleted(ReferenceController.dbController.getHashList().get(ReferenceController.infoController.getLevel()), ReferenceController.infoController.getStepsCurrentLevel() + 1);
             ReferenceController.infoController.increaseLevel();
             ReferenceController.infoController.resetCurrentStepCount();
         }
