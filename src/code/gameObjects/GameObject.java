@@ -11,17 +11,31 @@ import java.awt.image.BufferedImage;
  */
 public class GameObject {
 
-    public Vector2 position;
-    public BufferedImage[] sprites;
-    public static int frame = 0;
+    /**
+     * @return the objectType
+     */
+    public GameObjectSprite getObjectType() {
+        return objectType;
+    }
+
+    /**
+     * @return the position
+     */
+    public Vector2 getPosition() {
+        return position;
+    }
+
+    protected Vector2 position;
+    private BufferedImage[] sprites;
+    private static int frame = 0;
     public static final int MAX_FRAME = 3;
-    public GameObjectSprite objectType;
-    public int sep;
+    private GameObjectSprite objectType;
+    protected int sep;
 
     public GameObject(Vector2 position, GameObjectSprite objectType, int sep) {
         this.objectType = objectType;
         this.position = position;
-        this.sprites = objectType.sprites;
+        this.sprites = objectType.getSprites();
         this.sep = sep;
 
     }

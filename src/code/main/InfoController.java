@@ -10,7 +10,7 @@ import code.transform.Vector2;
  */
 public class InfoController {
 
-    GameObject[] infoBar = new GameObject[GameFrame.TILE_SCREEN_SIZE.x];
+    private GameObject[] infoBar = new GameObject[GameFrame.TILE_SCREEN_SIZE.x];
 
     private int level;
     private int steps;
@@ -119,4 +119,10 @@ public class InfoController {
         return steps;
     }
 
+    /**
+     * @return the infoBar
+     */
+    public GameObject[] getInfoBar() {
+        return infoBar;
+    }
 }

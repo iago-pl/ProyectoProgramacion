@@ -57,7 +57,7 @@ public enum GameObjectSprite {
     }
     ; 
     
-    public BufferedImage[] sprites = new BufferedImage[GameObject.MAX_FRAME];
+    private BufferedImage[] sprites = new BufferedImage[GameObject.MAX_FRAME];
 
     public void getSprites(String path) {
 
@@ -71,5 +71,12 @@ public enum GameObjectSprite {
 
         } catch (IOException e) {
         }
+    }
+
+    /**
+     * @return the sprites
+     */
+    public BufferedImage[] getSprites() {
+        return sprites;
     }
 }

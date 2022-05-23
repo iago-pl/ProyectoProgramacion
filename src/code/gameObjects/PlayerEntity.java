@@ -16,9 +16,9 @@ public class PlayerEntity extends Entity {
 
     @Override
     protected boolean checkCollision(Vector2 newPosition, Vector2 pos) {
-        GameObject temp = ReferenceController.mapController.currentMap.playground.level[newPosition.x][newPosition.y];
+        GameObject temp = ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[newPosition.x][newPosition.y];
 
-        switch (temp.objectType) {
+        switch (temp.getObjectType()) {
             case BOX:
             case KEY:
                 Entity tempEntity = (Entity) temp;
@@ -53,8 +53,8 @@ public class PlayerEntity extends Entity {
     protected void changePosition(Vector2 newPosition) {
         Vector2 lastPosition = new Vector2(position.x, position.y);
         position = newPosition;
-        ReferenceController.mapController.currentMap.playground.level[position.x][position.y] = this;
-        ReferenceController.mapController.currentMap.playground.level[lastPosition.x][lastPosition.y] = null;
+        ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[position.x][position.y] = this;
+        ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[lastPosition.x][lastPosition.y] = null;
     }
 
 }

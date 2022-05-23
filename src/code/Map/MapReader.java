@@ -1,4 +1,5 @@
 package code.Map;
+
 import code.gameObjects.*;
 import code.main.GameFrame;
 import code.main.ReferenceController;
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class MapReader {
 
-    public ArrayList<Map> maps = new ArrayList<>();
+    private ArrayList<Map> maps = new ArrayList<>();
     private MapLayer[] mapLayers = new MapLayer[2];
     private File[] files;
 
@@ -76,16 +77,16 @@ public class MapReader {
                 //Ancho
                 for (int j = 0; j < line.length(); j++) {
                     if (!" ".equals(line.charAt(j) + "")) {
-                        mapLayers[0].level[j][i] = convertToGameObject((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
-                        if (mapLayers[0].level[j][i] != null) {
-                            if (mapLayers[0].level[j][i].objectType == GameObjectSprite.PLAYER) {
+                        mapLayers[0].getLevel()[j][i] = convertToGameObject((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
+                        if (mapLayers[0].getLevel()[j][i] != null) {
+                            if (mapLayers[0].getLevel()[j][i].getObjectType() == GameObjectSprite.PLAYER) {
                                 if (!hasPlayer) {
                                     hasPlayer = true;
                                 } else {
                                     throw new Exception();
                                 }
 
-                            } else if (mapLayers[0].level[j][i].objectType == GameObjectSprite.FLAG) {
+                            } else if (mapLayers[0].getLevel()[j][i].getObjectType() == GameObjectSprite.FLAG) {
                                 hasFlag = true;
                             }
                         }
@@ -111,7 +112,7 @@ public class MapReader {
                 //Ancho
                 for (int j = 0; j < line.length(); j++) {
                     if (!" ".equals(line.charAt(j) + "")) {
-                        mapLayers[1].level[j][i] = convertToBackground((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
+                        mapLayers[1].getLevel()[j][i] = convertToBackground((line.charAt(j) + "").toUpperCase(), new Vector2(j, i));
                     }
                 }
                 line = br.readLine();
@@ -184,6 +185,17 @@ public class MapReader {
             default:
                 return null;
         }
+    }
+
+    public void removeMap() {
+        maps.remove(0);
+    }
+
+    /**
+     * @return the maps
+     */
+    public ArrayList<Map> getMaps() {
+        return maps;
     }
 
 }

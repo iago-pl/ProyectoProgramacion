@@ -12,11 +12,11 @@ import java.util.ArrayList;
  */
 public class MapController {
 
-    public Map currentMap = new Map(new MapLayer(), new MapLayer());
+    private Map currentMap = new Map(new MapLayer(), new MapLayer());
 
-    ArrayList<MapLayer> snapShots = new ArrayList<>();
+    private final ArrayList<MapLayer> snapShots = new ArrayList<>();
 
-    boolean loading;
+    private boolean loading;
 
     private Vector2 playerLastPos;
 
@@ -32,28 +32,28 @@ public class MapController {
     private void load() {
 
         snapShots.clear();
-        currentMap = new Map(ReferenceController.mapReader.maps.get(0));
+        currentMap = new Map(ReferenceController.mapReader.getMaps().get(0));
 
-        for (int i = 0; i < currentMap.playground.level.length; i++) {
-            for (int j = 0; j < currentMap.playground.level[0].length; j++) {
-                if (currentMap.playground.level[i][j] != null) {
+        for (int i = 0; i < currentMap.getPlayground().getLevel().length; i++) {
+            for (int j = 0; j < currentMap.getPlayground().getLevel()[0].length; j++) {
+                if (currentMap.getPlayground().getLevel()[i][j] != null) {
 
-                    switch (currentMap.playground.level[i][j].objectType) {
+                    switch (currentMap.getPlayground().getLevel()[i][j].getObjectType()) {
                         case PLAYER:
-                            ReferenceController.player = (PlayerEntity) currentMap.playground.level[i][j];
-                            currentMap.playground.level[i][j].setPosition(new Vector2(i, j));
-                            playerLastPos = ReferenceController.player.position;
+                            ReferenceController.player = (PlayerEntity) currentMap.getPlayground().getLevel()[i][j];
+                            currentMap.getPlayground().getLevel()[i][j].setPosition(new Vector2(i, j));
+                            playerLastPos = ReferenceController.player.getPosition();
                             break;
                         case BOX:
                         case KEY:
-                            currentMap.playground.level[i][j].setPosition(new Vector2(i, j));
+                            currentMap.getPlayground().getLevel()[i][j].setPosition(new Vector2(i, j));
 
                     }
                 }
             }
         }
 
-        MapLayer temp = new MapLayer(currentMap.playground);
+        MapLayer temp = new MapLayer(currentMap.getPlayground());
         snapShots.add(temp);
 
         loading = false;
@@ -64,7 +64,7 @@ public class MapController {
         loading = true;
 
         if (ReferenceController.infoController != null) {
-            ReferenceController.mapReader.maps.remove(0);
+            ReferenceController.mapReader.removeMap();
         }
 
         load();
@@ -85,13 +85,13 @@ public class MapController {
 
     public void takeSnapshot() {
 
-        if (playerLastPos.x != ReferenceController.player.position.x || playerLastPos.y != ReferenceController.player.position.y) {
+        if (playerLastPos.x != ReferenceController.player.getPosition().x || playerLastPos.y != ReferenceController.player.getPosition().y) {
 
-            MapLayer temp = new MapLayer(currentMap.playground);
+            MapLayer temp = new MapLayer(currentMap.getPlayground());
 
             snapShots.add(temp);
 
-            playerLastPos = ReferenceController.player.position;
+            playerLastPos = ReferenceController.player.getPosition();
 
         }
     }
@@ -101,14 +101,21 @@ public class MapController {
             ReferenceController.audioController.play(1);
             snapShots.remove(snapShots.size() - 1);
             currentMap.playground = new MapLayer(snapShots.get(snapShots.size() - 1));
-            for (int i = 0; i < currentMap.playground.level.length; i++) {
-                for (int j = 0; j < currentMap.playground.level[0].length; j++) {
-                    if (currentMap.playground.level[i][j] != null) {
+            for (int i = 0; i < currentMap.getPlayground().getLevel().length; i++) {
+                for (int j = 0; j < currentMap.getPlayground().getLevel()[0].length; j++) {
+                    if (currentMap.getPlayground().getLevel()[i][j] != null) {
 
-                        currentMap.playground.level[i][j].setPosition(new Vector2(i, j));
+                        currentMap.getPlayground().getLevel()[i][j].setPosition(new Vector2(i, j));
                     }
                 }
             }
         }
+    }
+
+    /**
+     * @return the currentMap
+     */
+    public Map getCurrentMap() {
+        return currentMap;
     }
 }

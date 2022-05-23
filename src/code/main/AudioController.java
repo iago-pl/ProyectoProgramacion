@@ -16,9 +16,9 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class AudioController {
 
-    Clip clip;
-    //private final AudioInputStream[] sounds = new AudioInputStream[4];
-    private final URL[] sounds = new URL[10];
+    private Clip clip;
+    private final URL[] soundsUrl = new URL[10];
+    private final AudioInputStream[] sounds = new AudioInputStream[soundsUrl.length];
 
     public AudioController() {
         loadAudio();
@@ -26,30 +26,40 @@ public class AudioController {
 
     private void loadAudio() {
 
-        sounds[0] = getClass().getResource("/resources/aud/move.wav");
-        sounds[1] = getClass().getResource("/resources/aud/reverse.wav");
-        sounds[2] = getClass().getResource("/resources/aud/flag.wav");
-        sounds[3] = getClass().getResource("/resources/aud/lock.wav");
-        sounds[4] = getClass().getResource("/resources/aud/move_box.wav");
-        sounds[5] = getClass().getResource("/resources/aud/move_key.wav");
-        sounds[6] = getClass().getResource("/resources/aud/key_break.wav");
-        sounds[7] = getClass().getResource("/resources/aud/box_break.wav");
-        sounds[8] = getClass().getResource("/resources/aud/die.wav");
-        sounds[9] = getClass().getResource("/resources/aud/enemy.wav");
+        soundsUrl[0] = getClass().getResource("/resources/aud/move.wav");
+        soundsUrl[1] = getClass().getResource("/resources/aud/reverse.wav");
+        soundsUrl[2] = getClass().getResource("/resources/aud/flag.wav");
+        soundsUrl[3] = getClass().getResource("/resources/aud/lock.wav");
+        soundsUrl[4] = getClass().getResource("/resources/aud/move_box.wav");
+        soundsUrl[5] = getClass().getResource("/resources/aud/move_key.wav");
+        soundsUrl[6] = getClass().getResource("/resources/aud/key_break.wav");
+        soundsUrl[7] = getClass().getResource("/resources/aud/box_break.wav");
+        soundsUrl[8] = getClass().getResource("/resources/aud/die.wav");
+        soundsUrl[9] = getClass().getResource("/resources/aud/enemy.wav");
+
+        for (int i = 0; i < soundsUrl.length; i++) {
+            try {
+                sounds[i] = AudioSystem.getAudioInputStream(soundsUrl[i]);
+            } catch (UnsupportedAudioFileException | IOException ex) {
+                Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        System.out.println("VERIFICAR QUE ESTO FUNCIONA");
 
     }
 
     public void play(int soundIndex) {
 
-        if (soundIndex >= sounds.length) {
+        if (soundIndex >= soundsUrl.length) {
             return;
         }
 
         try {
-            AudioInputStream temp = AudioSystem.getAudioInputStream(sounds[soundIndex]);
             clip = AudioSystem.getClip();
-            clip.open(temp);
+            clip.open(sounds[soundIndex]);
             clip.start();
+            sounds[soundIndex] = AudioSystem.getAudioInputStream(soundsUrl[soundIndex]);
         } catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
             Logger.getLogger(AudioController.class.getName()).log(Level.SEVERE, null, ex);
         }

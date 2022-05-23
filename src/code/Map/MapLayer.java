@@ -9,7 +9,7 @@ import code.main.GameFrame;
  */
 public class MapLayer {
 
-    public GameObject[][] level = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
+    protected final GameObject[][] level = new GameObject[GameFrame.TILE_SCREEN_SIZE.x][GameFrame.TILE_SCREEN_SIZE.y - 1];
 
     public MapLayer() {
 
@@ -24,6 +24,13 @@ public class MapLayer {
                 }
             }
         }
+    }
+
+    /**
+     * @return the level
+     */
+    public GameObject[][] getLevel() {
+        return level;
     }
 
 }

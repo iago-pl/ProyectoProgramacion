@@ -14,18 +14,18 @@ import javax.swing.JPanel;
  */
 public class GameFrame extends JPanel implements Runnable {
 
-    static final int BASE_TILE_SIZE = 24;
-    static final int SCALE = 2;
+    private static final int BASE_TILE_SIZE = 24;
+    private static final int SCALE = 2;
 
     public static final int TILE_SIZE = (BASE_TILE_SIZE * SCALE);
     public static final Vector2 TILE_SCREEN_SIZE = new Vector2(15, 10);
 
-    public static final Vector2 SCREEN_SIZE = new Vector2(TILE_SCREEN_SIZE.x * TILE_SIZE, TILE_SCREEN_SIZE.y * TILE_SIZE);
+    private static final Vector2 SCREEN_SIZE = new Vector2(TILE_SCREEN_SIZE.x * TILE_SIZE, TILE_SCREEN_SIZE.y * TILE_SIZE);
 
-    public static final int FPS = 60;
+    private static final int FPS = 60;
     private static final int NANO_TIME = 1000000000;
 
-    Thread gameThread;
+    private Thread gameThread;
 
     public GameFrame() {
         setPreferredSize(new Dimension(SCREEN_SIZE.x, SCREEN_SIZE.y));
@@ -92,19 +92,19 @@ public class GameFrame extends JPanel implements Runnable {
         g2.setColor(Color.WHITE);
         g2.fillRect(0, TILE_SIZE - 2, SCREEN_SIZE.x, 2);
 
-        for (int i = 0; i < ReferenceController.mapController.currentMap.playground.level.length; i++) {
+        for (int i = 0; i < ReferenceController.mapController.getCurrentMap().getPlayground().getLevel().length; i++) {
 
-            if (ReferenceController.infoController.infoBar[i] != null) {
-                ReferenceController.infoController.infoBar[i].draw(g2);
+            if (ReferenceController.infoController.getInfoBar()[i] != null) {
+                ReferenceController.infoController.getInfoBar()[i].draw(g2);
             }
-            for (int j = 0; j < ReferenceController.mapController.currentMap.playground.level[0].length; j++) {
+            for (int j = 0; j < ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[0].length; j++) {
 
-                if (ReferenceController.mapController.currentMap.background.level[i][j] != null) {
-                    ReferenceController.mapController.currentMap.background.level[i][j].draw(g2);
+                if (ReferenceController.mapController.getCurrentMap().getBackground().getLevel()[i][j] != null) {
+                    ReferenceController.mapController.getCurrentMap().getBackground().getLevel()[i][j].draw(g2);
                 }
 
-                if (ReferenceController.mapController.currentMap.playground.level[i][j] != null) {
-                    ReferenceController.mapController.currentMap.playground.level[i][j].draw(g2);
+                if (ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[i][j] != null) {
+                    ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[i][j].draw(g2);
                 }
 
             }
