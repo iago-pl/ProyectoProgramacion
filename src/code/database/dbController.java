@@ -38,13 +38,7 @@ public class DbController {
 
         insertPlayer(playerName);
 
-        if (mysqlCon != null) {
-            try {
-                mysqlCon.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        disconnect();
     }
 
     public void insertLevelCompleted(String levelHash, int steps) {
@@ -63,13 +57,7 @@ public class DbController {
                 e = e.getNextException();
             }
         }
-        if (mysqlCon != null) {
-            try {
-                mysqlCon.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        disconnect();
     }
 
     public void insertAllLevels() {
@@ -77,13 +65,7 @@ public class DbController {
         for (int i = 0; i < getHashList().size(); i++) {
             insertLevel(getHashList().get(i));
         }
-        if (mysqlCon != null) {
-            try {
-                mysqlCon.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        disconnect();
     }
 
     private void insertLevel(String hashCode) {
@@ -129,6 +111,16 @@ public class DbController {
                 mysqlCon = DriverManager.getConnection(url2, user, pass);
             } catch (SQLException ex) {
                 Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    private void disconnect() {
+        if (mysqlCon != null) {
+            try {
+                mysqlCon.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
     }
