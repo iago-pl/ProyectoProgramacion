@@ -1,7 +1,5 @@
 package code.database;
 
-import code.gameObjects.Hasher;
-import java.io.File;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -41,13 +39,16 @@ public class DbController {
         disconnect();
     }
 
-    public void insertLevelCompleted(String levelHash, int steps) {
+    public void insertLevelCompleted(int levelId, int steps) {
         connect();
+
+        insertLevel(getHashList().get(levelId));
+
         Statement insert;
         try {
             insert = mysqlCon.createStatement();
-            int codeInsert = insert.executeUpdate("call introducir_nivel_completado('" + playerName + "','" + levelHash + "','" + steps + "')");
-            System.out.println("Resultado: " + codeInsert + " insertado " + steps + " en el nivel " + levelHash);
+            int codeInsert = insert.executeUpdate("call introducir_nivel_completado('" + playerName + "','" + getHashList().get(levelId) + "','" + steps + "')");
+            System.out.println("Resultado: " + codeInsert + " insertado " + steps + " en el nivel " + getHashList().get(levelId));
         } catch (SQLException e) {
             while (e != null) {
                 System.err.println("SQLState: " + e.getSQLState());
@@ -56,14 +57,6 @@ public class DbController {
                 System.err.println(e.getMessage());
                 e = e.getNextException();
             }
-        }
-        disconnect();
-    }
-
-    public void insertAllLevels() {
-        connect();
-        for (int i = 0; i < getHashList().size(); i++) {
-            insertLevel(getHashList().get(i));
         }
         disconnect();
     }

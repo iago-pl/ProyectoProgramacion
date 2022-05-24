@@ -49,8 +49,6 @@ public class MapReader {
                 }
             }
 
-            ReferenceController.dbController.insertAllLevels();
-
             if (maps.isEmpty()) {
                 maps.add(new DefaultMap());
             }
@@ -79,7 +77,7 @@ public class MapReader {
                 }
 
                 if (line.length() != GameFrame.TILE_SCREEN_SIZE.x) {
-                    throw new WrongMapSizeException(i+1);
+                    throw new WrongMapSizeException(i + 1);
                 }
 
                 //Ancho

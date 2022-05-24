@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author a21rebecanf
  */
-public class MapController {
+public final class MapController {
 
     private Map currentMap = new Map(new MapLayer(), new MapLayer());
 
@@ -65,7 +65,7 @@ public class MapController {
 
         if (ReferenceController.infoController != null) {
             ReferenceController.mapReader.removeMap();
-            ReferenceController.dbController.insertLevelCompleted(ReferenceController.dbController.getHashList().get(ReferenceController.infoController.getLevel()), ReferenceController.infoController.getStepsCurrentLevel());
+            ReferenceController.dbController.insertLevelCompleted(ReferenceController.infoController.getLevel(), ReferenceController.infoController.getStepsCurrentLevel());
             ReferenceController.infoController.resetCurrentStepCount();
             ReferenceController.infoController.increaseLevel();
         }
