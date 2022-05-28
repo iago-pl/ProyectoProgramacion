@@ -27,11 +27,17 @@ public class DbController {
         getHashList().add(hash);
     }
 
-    public DbController(String name) {
+    public DbController() {
         connect();
 
-        for (int i = 0; i < 8; i++) {
-            playerName += name.charAt(i);
+        String name = System.getProperty("user.name");
+
+        if (name.length() > 8) {
+            for (int i = 0; i < 8; i++) {
+                playerName += name.charAt(i);
+            }
+        } else {
+            playerName = name;
         }
 
         insertPlayer(playerName);

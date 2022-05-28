@@ -22,7 +22,7 @@ public class Main {
 
         window.setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getClassLoader().getResource("resources/img/icon/icon.png")));
 
-        ReferenceController.dbController = new DbController(System.getProperty("user.name"));
+        ReferenceController.dbController = new DbController();
 
         ReferenceController.mapReader = new MapReader();
 
