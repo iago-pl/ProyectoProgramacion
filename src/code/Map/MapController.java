@@ -12,13 +12,13 @@ import java.util.ArrayList;
  */
 public final class MapController {
 
-    private Map currentMap = new Map(new MapLayer(), new MapLayer());
+    private static Map currentMap = new Map(new MapLayer(), new MapLayer());
 
-    private final ArrayList<MapLayer> snapShots = new ArrayList<>();
+    private static final ArrayList<MapLayer> snapShots = new ArrayList<>();
 
-    private boolean loading;
+    private static boolean loading;
 
-    private Vector2 playerLastPos;
+    private static Vector2 playerLastPos;
 
     public MapController() {
         loading = true;

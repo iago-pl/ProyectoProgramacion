@@ -25,9 +25,9 @@ import java.util.logging.Logger;
  */
 public class MapReader {
 
-    private ArrayList<Map> maps = new ArrayList<>();
-    private MapLayer[] mapLayers = new MapLayer[2];
-    private File[] files;
+    private static final ArrayList<Map> maps = new ArrayList<>();
+    private static final MapLayer[] mapLayers = new MapLayer[2];
+    private static File[] files;
 
     public MapReader() {
 
