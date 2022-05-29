@@ -14,12 +14,14 @@ import java.util.logging.Logger;
  */
 public class DbController {
 
-    private final String url = "jdbc:mysql://localhost:4550/match_it";
+    private final String url1 = "jdbc:mysql://localhost:4550/match_it";
     private final String url2 = "jdbc:mysql://localhost:3306/match_it";
+    private String url;
     private final String user = "root";
     private final String pass = "root";
     private Connection mysqlCon = null;
     private String playerName = "";
+    private static final int NAME_LENGTH = 4;
 
     private ArrayList<String> hashList = new ArrayList<>();
 
@@ -28,12 +30,13 @@ public class DbController {
     }
 
     public DbController() {
-        connect();
+
+        getUrl();
 
         String name = System.getProperty("user.name");
 
-        if (name.length() > 8) {
-            for (int i = 0; i < 8; i++) {
+        if (name.length() > NAME_LENGTH) {
+            for (int i = 0; i < NAME_LENGTH; i++) {
                 playerName += name.charAt(i);
             }
         } else {
@@ -43,6 +46,21 @@ public class DbController {
         insertPlayer(playerName);
 
         disconnect();
+    }
+
+    private void getUrl() {
+        try {
+            mysqlCon = DriverManager.getConnection(url, user, pass);
+            url = url1;
+        } catch (SQLException e) {
+            try {
+                mysqlCon = DriverManager.getConnection(url2, user, pass);
+                url = url2;
+            } catch (SQLException ex) {
+                Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("3");
+            }
+        }
     }
 
     public void insertLevelCompleted(int levelId, int steps) {
@@ -110,11 +128,8 @@ public class DbController {
         try {
             mysqlCon = DriverManager.getConnection(url, user, pass);
         } catch (SQLException e) {
-            try {
-                mysqlCon = DriverManager.getConnection(url2, user, pass);
-            } catch (SQLException ex) {
-                Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, e);
+
         }
     }
 

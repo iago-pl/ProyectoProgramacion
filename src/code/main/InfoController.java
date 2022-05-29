@@ -50,8 +50,8 @@ public class InfoController {
             infoBar[5] = new GameObject(new Vector2(5, yPos), getNumObject(level - ((level / 10) * 10)), 0);
         }
 
-        if (steps > 200) {
-            steps = 200;
+        if (steps > 999) {
+            steps = 999;
 
         } else if (steps < 0) {
             steps = 0;
