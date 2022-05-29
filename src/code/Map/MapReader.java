@@ -1,5 +1,6 @@
 package code.Map;
 
+import code.main.Hasher;
 import code.exceptions.EmptyMapException;
 import code.exceptions.MultiplePlayersException;
 import code.exceptions.NoMapEssentialsException;
@@ -151,13 +152,13 @@ public class MapReader {
             case "B":
                 return new Entity(pos, GameObjectSprite.BOX);
             case "F":
-                return new GameObject(pos, GameObjectSprite.FLAG, 1);
+                return new GameObject(pos, GameObjectSprite.FLAG);
             case "L":
-                return new GameObject(pos, GameObjectSprite.LOCK, 1);
+                return new GameObject(pos, GameObjectSprite.LOCK);
             case "W":
-                return new GameObject(pos, GameObjectSprite.WALL, 1);
+                return new GameObject(pos, GameObjectSprite.WALL);
             case "M":
-                return new GameObject(pos, GameObjectSprite.MONSTER, 1);
+                return new GameObject(pos, GameObjectSprite.MONSTER);
             default:
                 return null;
         }
@@ -167,29 +168,29 @@ public class MapReader {
 
         switch (in) {
             case ".":
-                return new GameObject(pos, GameObjectSprite.TILE, 1);
+                return new GameObject(pos, GameObjectSprite.TILE);
             case "W":
-                return new GameObject(pos, GameObjectSprite.TILEW, 1);
+                return new GameObject(pos, GameObjectSprite.TILEW);
             case "A":
-                return new GameObject(pos, GameObjectSprite.TILEA, 1);
+                return new GameObject(pos, GameObjectSprite.TILEA);
             case "S":
-                return new GameObject(pos, GameObjectSprite.TILES, 1);
+                return new GameObject(pos, GameObjectSprite.TILES);
             case "D":
-                return new GameObject(pos, GameObjectSprite.TILED, 1);
+                return new GameObject(pos, GameObjectSprite.TILED);
             case "R":
-                return new GameObject(pos, GameObjectSprite.TILER, 1);
+                return new GameObject(pos, GameObjectSprite.TILER);
             case "F":
-                return new GameObject(pos, GameObjectSprite.TILEF, 1);
+                return new GameObject(pos, GameObjectSprite.TILEF);
             case "M":
-                return new GameObject(pos, GameObjectSprite.TILEM, 1);
+                return new GameObject(pos, GameObjectSprite.TILEM);
             case "N":
-                return new GameObject(pos, GameObjectSprite.TILEN, 1);
+                return new GameObject(pos, GameObjectSprite.TILEN);
             case "O":
-                return new GameObject(pos, GameObjectSprite.TILEO, 1);
+                return new GameObject(pos, GameObjectSprite.TILEO);
             case "P":
-                return new GameObject(pos, GameObjectSprite.TILEP, 1);
+                return new GameObject(pos, GameObjectSprite.TILEP);
             case "U":
-                return new GameObject(pos, GameObjectSprite.TILEU, 1);
+                return new GameObject(pos, GameObjectSprite.TILEU);
             default:
                 return null;
         }

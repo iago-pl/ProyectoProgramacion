@@ -11,7 +11,6 @@ public class KeyEntity extends Entity {
 
     public KeyEntity(Vector2 position) {
         super(position, GameObjectSprite.KEY);
-        sep = 1;
     }
 
     @Override

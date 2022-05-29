@@ -10,12 +10,12 @@ import code.transform.Vector2;
 public class Entity extends GameObject {
 
     public Entity(Vector2 position, GameObjectSprite objectType) {
-        super(position, objectType, 1);
+        super(position, objectType);
     }
 
     public boolean move(Vector2 pos) {
 
-        Vector2 newPosition = new Vector2(pos.x + position.x, pos.y + position.y);
+        Vector2 newPosition = Vector2.add(pos, position);
 
         if (newPosition.x < 0 || newPosition.x >= ReferenceController.gameFrame.TILE_SCREEN_SIZE.x || newPosition.y < 0 || newPosition.y >= ReferenceController.gameFrame.TILE_SCREEN_SIZE.y - 1) {
             return false;
@@ -70,5 +70,4 @@ public class Entity extends GameObject {
         ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[newPosition.x][newPosition.y] = null;
         ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[lastPosition.x][lastPosition.y] = null;
     }
-
 }

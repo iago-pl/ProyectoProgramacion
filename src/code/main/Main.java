@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(System.getenv("APPDATA"));
+        //System.out.println(System.getenv("APPDATA"));
 
         JFrame window = new JFrame();
         window.setResizable(false);

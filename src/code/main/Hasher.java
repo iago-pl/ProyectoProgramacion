@@ -1,4 +1,4 @@
-package code.gameObjects;
+package code.main;
 
 import code.database.DbController;
 import java.io.File;

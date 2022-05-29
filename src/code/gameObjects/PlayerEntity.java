@@ -11,7 +11,6 @@ public class PlayerEntity extends Entity {
 
     public PlayerEntity(Vector2 position) {
         super(position, GameObjectSprite.PLAYER);
-        sep = 1;
     }
 
     @Override

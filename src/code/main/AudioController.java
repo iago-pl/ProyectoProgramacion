@@ -16,9 +16,9 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class AudioController {
 
-    private Clip clip;
-    private final URL[] soundsUrl = new URL[10];
-    private final AudioInputStream[] sounds = new AudioInputStream[soundsUrl.length];
+    private static Clip clip;
+    private static final URL[] soundsUrl = new URL[10];
+    private static final AudioInputStream[] sounds = new AudioInputStream[soundsUrl.length];
 
     public AudioController() {
         loadAudio();

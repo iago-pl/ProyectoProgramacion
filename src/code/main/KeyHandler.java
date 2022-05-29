@@ -14,9 +14,9 @@ public class KeyHandler implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    private int frame = 0;
+    private static int frame = 0;
 
-    private final int updateRate = 3;
+    private static final int updateRate = 3;
 
     @Override
     public void keyPressed(KeyEvent e) {
