@@ -23,7 +23,6 @@ public final class MapController {
     private static Vector2 playerLastPos;
 
     public MapController() {
-        loading = true;
         loadMap();
     }
 
