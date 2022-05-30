@@ -65,7 +65,7 @@ public enum GameObjectSprite {
     
     private BufferedImage[] sprites;
 
-    public void loadSprites(String path) {
+    private void loadSprites(String path) {
         
         sprites = new BufferedImage[MAX_FRAME];
 
