@@ -63,6 +63,10 @@ public class DbController {
     }
 
     public void insertLevelCompleted(int levelId, int steps) {
+
+        if (url == null) {
+            return;
+        }
         connect();
 
         insertLevel(getHashList().get(levelId));
@@ -87,6 +91,9 @@ public class DbController {
     }
 
     private void insertLevel(String hashCode) {
+        if (url == null) {
+            return;
+        }
         Statement insert;
         try {
             insert = mysqlCon.createStatement();
@@ -105,6 +112,9 @@ public class DbController {
     }
 
     private void insertPlayer(String nametag) {
+        if (url == null) {
+            return;
+        }
         Statement insert;
         try {
             insert = mysqlCon.createStatement();
