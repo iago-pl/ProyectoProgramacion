@@ -3,6 +3,8 @@ package code.gameObjects;
 import static code.gameObjects.GameObject.MAX_FRAME;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 /**
@@ -65,16 +67,16 @@ public enum GameObjectSprite {
 
     public void getSprites(String path) {
 
-        sprites = new BufferedImage[MAX_FRAME];
-
         try {
-
+            sprites = new BufferedImage[MAX_FRAME];
+            
             sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_0.png"));
             sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_1.png"));
             sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_2.png"));
-
-        } catch (IOException e) {
+        } catch (IOException ex) {
+            Logger.getLogger(GameObjectSprite.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /**
