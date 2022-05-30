@@ -1,4 +1,4 @@
-package code.Map;
+package code.map;
 
 import code.main.Hasher;
 import code.exceptions.EmptyMapException;

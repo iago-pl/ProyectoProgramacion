@@ -1,7 +1,7 @@
 package code.main;
 
-import code.Map.MapController;
-import code.Map.MapReader;
+import code.map.MapController;
+import code.map.MapReader;
 import code.database.DbController;
 import java.awt.Toolkit;
 import javax.swing.JFrame;

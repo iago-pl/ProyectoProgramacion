@@ -84,7 +84,7 @@ public class InfoController {
         stepsCurrentLevel = 0;
     }
 
-    private GameObjectSprite getNumObject(int num) {
+    public static GameObjectSprite getNumObject(int num) {
         switch (num) {
             case 0:
                 return GameObjectSprite.NUM0;

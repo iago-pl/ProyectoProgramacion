@@ -1,4 +1,4 @@
-package code.Map;
+package code.map;
 
 /**
  *

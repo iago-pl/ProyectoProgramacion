@@ -1,4 +1,4 @@
-package code.Map;
+package code.map;
 
 import code.gameObjects.PlayerEntity;
 import code.main.ReferenceController;
@@ -18,6 +18,8 @@ public final class MapController {
 
     private static boolean loading;
 
+    private boolean ended = false;
+
     private static Vector2 playerLastPos;
 
     public MapController() {
@@ -32,12 +34,17 @@ public final class MapController {
     private void load() {
 
         snapShots.clear();
+
+        if (ReferenceController.mapReader.getMaps().isEmpty()) {
+            ReferenceController.mapReader.getMaps().add(new EndMap());
+            ended = true;
+        }
+
         currentMap = new Map(ReferenceController.mapReader.getMaps().get(0));
 
         for (int i = 0; i < currentMap.getPlayground().getLevel().length; i++) {
             for (int j = 0; j < currentMap.getPlayground().getLevel()[0].length; j++) {
                 if (currentMap.getPlayground().getLevel()[i][j] != null) {
-
                     switch (currentMap.getPlayground().getLevel()[i][j].getObjectType()) {
                         case PLAYER:
                             ReferenceController.player = (PlayerEntity) currentMap.getPlayground().getLevel()[i][j];
@@ -52,8 +59,8 @@ public final class MapController {
                 }
             }
         }
-
         MapLayer temp = new MapLayer(currentMap.getPlayground());
+
         snapShots.add(temp);
 
         loading = false;
@@ -114,5 +121,9 @@ public final class MapController {
      */
     public Map getCurrentMap() {
         return currentMap;
+    }
+
+    public boolean isEnded() {
+        return ended;
     }
 }

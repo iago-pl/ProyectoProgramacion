@@ -21,7 +21,7 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
 
-        if (ReferenceController.player == null) {
+        if (ReferenceController.player == null || ReferenceController.mapController.isLoading() || ReferenceController.mapController.isEnded()) {
             return;
         }
 
