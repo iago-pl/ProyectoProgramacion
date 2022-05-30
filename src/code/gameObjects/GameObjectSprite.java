@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
  */
 public enum GameObjectSprite {
 
-    //holi
     PLAYER("player/player"),
     BOX("box/box"),
     FLAG("flag/flag"),
@@ -62,7 +61,7 @@ public enum GameObjectSprite {
     }
     ; 
     
-    private BufferedImage[] sprites = new BufferedImage[GameObject.MAX_FRAME];
+    private BufferedImage[] sprites;
 
     public void getSprites(String path) {
 
