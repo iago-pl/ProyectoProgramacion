@@ -58,14 +58,14 @@ public enum GameObjectSprite {
 
     GameObjectSprite(String path) {
 
-        getSprites(path);
+        loadSprites(path);
 
     }
     ; 
     
     private BufferedImage[] sprites;
 
-    public void getSprites(String path) {
+    public void loadSprites(String path) {
         
         sprites = new BufferedImage[MAX_FRAME];
 
