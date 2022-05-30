@@ -21,7 +21,7 @@ public class EndMap extends Map {
 
     private MapLayer generateLayer() {
         MapLayer out = new MapLayer();
-        
+
         int level = ReferenceController.infoController.getLevel();
 
         if (level < 10) {
@@ -30,7 +30,7 @@ public class EndMap extends Map {
             out.level[3][2] = new GameObject(new Vector2(3, 2), InfoController.getNumObject(level / 10));
             out.level[4][2] = new GameObject(new Vector2(4, 2), InfoController.getNumObject(level - ((level / 10) * 10)));
         }
-
+        
         out.level[6][2] = new GameObject(new Vector2(6, 2), GameObjectSprite.TILEL);
         out.level[7][2] = new GameObject(new Vector2(7, 2), GameObjectSprite.TILEE);
         out.level[8][2] = new GameObject(new Vector2(8, 2), GameObjectSprite.TILEV);
@@ -51,7 +51,7 @@ public class EndMap extends Map {
         out.level[10][4] = new GameObject(new Vector2(10, 4), GameObjectSprite.TILEE);
         out.level[11][4] = new GameObject(new Vector2(11, 4), GameObjectSprite.TILED);
 
-        int steps = ReferenceController.infoController.getSteps();
+        int steps = ReferenceController.infoController.getSteps() + 1;
 
         if (steps < 10) {
             out.level[5][6] = new GameObject(new Vector2(5, 6), InfoController.getNumObject(steps));
@@ -61,7 +61,6 @@ public class EndMap extends Map {
         } else {
             out.level[3][6] = new GameObject(new Vector2(3, 6), InfoController.getNumObject(steps / 100));
             out.level[4][6] = new GameObject(new Vector2(4, 6), InfoController.getNumObject((steps / 10) - ((steps / 100) * 10)));
-
             out.level[5][6] = new GameObject(new Vector2(5, 6), InfoController.getNumObject(steps - ((steps / 10) * 10)));
         }
 
