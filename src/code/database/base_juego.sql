@@ -81,7 +81,7 @@ BEGIN
     
     if id_jugador_in is null
 		then
-			INSERT INTO jugadores (nombre, numero_pasos_total) VALUES (nombre_in, 1);
+			INSERT INTO jugadores (nombre, numero_pasos_total) VALUES (nombre_in, 0);
 	END IF;
         
     

@@ -15,7 +15,7 @@ public class InfoController {
 
     private static int level;
     private static int steps;
-    private static int stepsCurrentLevel;
+    private static int stepsCurrentLevel = 1;
     private final int yPos = 0;
 
     public int getStepsCurrentLevel() {

@@ -2,16 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="Ud8 A01">
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/Main.java</file>
-            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/Map/MapReader.java</file>
-        </group>
         <group>
             <file>file:/C:/Users/rebec/OneDrive/Documentos/NetBeansProjects/ProyectoProgramacion/src/resources/maps/nivel5.txt</file>
             <file>file:/C:/Users/rebec/OneDrive/Documentos/NetBeansProjects/ProyectoProgramacion/src/resources/maps/nivel7.txt</file>
             <file>file:/C:/Users/rebec/OneDrive/Documentos/NetBeansProjects/ProyectoProgramacion/src/resources/maps/nivel6.txt</file>
             <file>file:/C:/Users/rebec/OneDrive/Documentos/NetBeansProjects/ProyectoProgramacion/src/resources/maps/anivel9.txt</file>
             <file>file:/C:/Users/rebec/OneDrive/Documentos/NetBeansProjects/ProyectoProgramacion/src/code/database/DbController.java</file>
+        </group>
+        <group name="Ud8 A01">
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/main/Main.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/Entity.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/Database/dbController.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/KeyEntity.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/code/gameObjects/PlayerEntity.java</file>
+            <file>file:/Z:/PDAW/GitHub/ProyectoProgramacion/src/resources/maps/nivel8.txt</file>
         </group>
     </open-files>
 </project-private>

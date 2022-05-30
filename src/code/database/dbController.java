@@ -23,7 +23,7 @@ public class DbController {
     private String playerName = "";
     private static final int NAME_LENGTH = 4;
 
-    private ArrayList<String> hashList = new ArrayList<>();
+    private final ArrayList<String> hashList = new ArrayList<>();
 
     public void addHash(String hash) {
         getHashList().add(hash);
