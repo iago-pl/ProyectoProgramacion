@@ -50,7 +50,7 @@ public class DbController {
 
     private void getUrl() {
         try {
-            mysqlCon = DriverManager.getConnection(url, user, pass);
+            mysqlCon = DriverManager.getConnection(url1, user, pass);
             url = url1;
         } catch (SQLException e) {
             try {
@@ -58,7 +58,6 @@ public class DbController {
                 url = url2;
             } catch (SQLException ex) {
                 Logger.getLogger(DbController.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("3");
             }
         }
     }

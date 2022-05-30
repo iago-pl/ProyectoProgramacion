@@ -47,12 +47,4 @@ public class KeyEntity extends Entity {
         ReferenceController.audioController.play(5);
     }
 
-    @Override
-    protected void changePosition(Vector2 newPosition) {
-        Vector2 lastPosition = new Vector2(position.x, position.y);
-        position = newPosition;
-        ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[position.x][position.y] = this;
-        ReferenceController.mapController.getCurrentMap().getPlayground().getLevel()[lastPosition.x][lastPosition.y] = null;
-    }
-
 }

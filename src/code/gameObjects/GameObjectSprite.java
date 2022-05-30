@@ -39,16 +39,16 @@ public enum GameObjectSprite {
     LETTS("characters/letters/s/s"),
     LETTV("characters/letters/v/v"),
     LETTW("characters/letters/w/w"),
-    NUM0("/characters/numbers/0/0"),
-    NUM1("/characters/numbers/1/1"),
-    NUM2("/characters/numbers/2/2"),
-    NUM3("/characters/numbers/3/3"),
-    NUM4("/characters/numbers/4/4"),
-    NUM5("/characters/numbers/5/5"),
-    NUM6("/characters/numbers/6/6"),
-    NUM7("/characters/numbers/7/7"),
-    NUM8("/characters/numbers/8/8"),
-    NUM9("/characters/numbers/9/9");
+    NUM0("characters/numbers/0/0"),
+    NUM1("characters/numbers/1/1"),
+    NUM2("characters/numbers/2/2"),
+    NUM3("characters/numbers/3/3"),
+    NUM4("characters/numbers/4/4"),
+    NUM5("characters/numbers/5/5"),
+    NUM6("characters/numbers/6/6"),
+    NUM7("characters/numbers/7/7"),
+    NUM8("characters/numbers/8/8"),
+    NUM9("characters/numbers/9/9");
 
     GameObjectSprite(String path) {
 

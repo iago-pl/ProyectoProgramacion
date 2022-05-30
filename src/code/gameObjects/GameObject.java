@@ -23,7 +23,6 @@ public class GameObject {
         this.position = position;
         this.sprites = objectType.getSprites();
         sep = 1;
-
     }
 
     public void draw(Graphics2D g2) {
