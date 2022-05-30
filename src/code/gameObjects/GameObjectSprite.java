@@ -66,10 +66,11 @@ public enum GameObjectSprite {
     private BufferedImage[] sprites;
 
     public void getSprites(String path) {
+        
+        sprites = new BufferedImage[MAX_FRAME];
 
         try {
-            sprites = new BufferedImage[MAX_FRAME];
-            
+
             sprites[0] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_0.png"));
             sprites[1] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_1.png"));
             sprites[2] = ImageIO.read(getClass().getResourceAsStream("/resources/img/" + path + "_2.png"));
