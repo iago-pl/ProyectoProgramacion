@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author a21rebecanf
+ * @author Rebeca Noya y Iago Pena
  */
 public class GameObject {
 

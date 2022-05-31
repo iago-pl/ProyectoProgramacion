@@ -5,7 +5,7 @@ import code.main.GameFrame;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class MapLayer {
 

@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class Main {
 

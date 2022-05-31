@@ -2,7 +2,7 @@ package code.exceptions;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class WrongMapSizeException extends Exception {
 

@@ -7,7 +7,7 @@ import code.gameObjects.PlayerEntity;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class ReferenceController {
 

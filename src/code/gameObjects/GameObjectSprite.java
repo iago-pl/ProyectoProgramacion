@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author a21rebecanf
+ * @author Rebeca Noya y Iago Pena
  */
 public enum GameObjectSprite {
 

@@ -2,14 +2,13 @@ package code.map;
 
 import code.gameObjects.GameObject;
 import code.gameObjects.GameObjectSprite;
-import code.gameObjects.UI;
 import code.main.InfoController;
 import code.main.ReferenceController;
 import code.transform.Vector2;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class EndMap extends Map {
 

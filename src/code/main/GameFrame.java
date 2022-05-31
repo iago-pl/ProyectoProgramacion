@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class GameFrame extends JPanel implements Runnable {
 

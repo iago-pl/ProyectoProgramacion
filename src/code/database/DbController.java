@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class DbController {
 

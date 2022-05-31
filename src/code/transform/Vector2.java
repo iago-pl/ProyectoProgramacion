@@ -2,7 +2,7 @@ package code.transform;
 
 /**
  *
- * @author a21rebecanf
+ * @author Rebeca Noya y Iago Pena
  */
 public class Vector2 {
 

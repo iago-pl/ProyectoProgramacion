@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  *
  *
- * @author a21rebecanf
+ * @author Rebeca Noya y Iago Pena
  */
 public final class MapController {
 

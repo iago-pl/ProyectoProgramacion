@@ -5,7 +5,7 @@ import code.transform.Vector2;
 
 /**
  *
- * @author a21rebecanf
+ * @author Rebeca Noya y Iago Pena
  */
 public class KeyEntity extends Entity {
 

@@ -2,7 +2,7 @@ package code.map;
 
 /**
  *
- * @author a21iagopl
+ * @author Rebeca Noya y Iago Pena
  */
 public class Map {
 
